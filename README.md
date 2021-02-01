@@ -1,1 +1,9 @@
-# relief-shading
+# Relief Shading
+Create shaded-relief raster images from Digital Elevation Models (DEM).
+
+## Supported DEMs
+Shuttle Radar Topography Mission (SRTM) .hgt (height) files.
+
+## Building
+bazel build //:ReliefShading
+
