@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ReliefShading2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-relief-shading/bazel-out/k8-fastbuild/bin/ReliefShading.runfiles/__main__/ReliefShading.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

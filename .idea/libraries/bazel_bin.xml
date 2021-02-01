@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="bazel-bin">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bazel-bin/ReliefShading-native-header.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bazel-bin/ReliefShading.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
