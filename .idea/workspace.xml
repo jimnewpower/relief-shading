@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ef928da7-480f-4eaf-b706-12a67a4438be" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/CodePointIM.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/FileChooserDemo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Font2DTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/J2Ddemo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Metalworks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Notepad.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ReliefShading.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ReliefShading1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ReliefShading2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/SampleTree.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Stylepad.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/SwingSet2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/TableExample.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/TransparentRuler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/bazel_bin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/bin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/bin1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jacoco.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/java_tools.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/platformclasspath.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/platformclasspath1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/platformclasspath2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/proguard.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/snapshots_img.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/relief-shading.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/CodePointIM.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/FileChooserDemo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/Font2DTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/J2Ddemo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/Metalworks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/Notepad.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/ReliefShading.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/ReliefShading1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/ReliefShading2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/SampleTree.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/Stylepad.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/SwingSet2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/TableExample.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/TransparentRuler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/bazel_bin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/bin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/bin1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jacoco.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/java_tools.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/lib1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/platformclasspath.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/platformclasspath1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/platformclasspath2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/proguard.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/snapshots_img.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/relief-shading.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/BUILD" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/BUILD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/WORKSPACE" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/WORKSPACE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/main/java/com/primalimited/reliefshading/main/Runner.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="relief-shading" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="relief-shading" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="relief-shading" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1nwSU99aG2oN0qC1k9Bc6bswYCk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="relief-shading [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.relief-shading [test]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef928da7-480f-4eaf-b706-12a67a4438be" name="Default Changelist" comment="" />
+      <created>1612299677047</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612299677047</updated>
+      <workItem from="1612299679422" duration="126000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
