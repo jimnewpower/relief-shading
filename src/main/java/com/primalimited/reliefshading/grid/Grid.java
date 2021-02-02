@@ -1,5 +1,5 @@
 package com.primalimited.reliefshading.grid;
 
-public class Grid {
+public interface Grid {
     
 }

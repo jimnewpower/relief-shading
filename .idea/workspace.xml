@@ -5,91 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef928da7-480f-4eaf-b706-12a67a4438be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/CodePointIM.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/FileChooserDemo.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Font2DTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/J2Ddemo.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Metalworks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Notepad.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/ReliefShading.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/ReliefShading1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/ReliefShading2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/SampleTree.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Stylepad.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/SwingSet2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/TableExample.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/TransparentRuler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/bazel_bin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/bin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/bin1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jacoco.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/java_tools.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jrt_fs6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/platformclasspath.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/platformclasspath1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/platformclasspath2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/proguard.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/snapshots_img.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/relief-shading.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/CodePointIM.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/FileChooserDemo.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/Font2DTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/J2Ddemo.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/Metalworks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/Notepad.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/ReliefShading.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/ReliefShading1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/ReliefShading2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/SampleTree.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/Stylepad.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/SwingSet2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/TableExample.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/TransparentRuler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/bazel_bin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/bin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/bin1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jacoco.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/java_tools.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/jrt_fs6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/lib1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/platformclasspath.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/platformclasspath1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/platformclasspath2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/proguard.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/libraries/snapshots_img.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/jarRepositories.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/relief-shading.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/BUILD" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/BUILD" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/WORKSPACE" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/WORKSPACE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/main/java/com/primalimited/reliefshading/grid/Grid.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/main/java/com/primalimited/reliefshading/main/Runner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/BUILD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/Grid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +133,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612299677047</updated>
-      <workItem from="1612299679422" duration="126000" />
+      <workItem from="1612299679422" duration="246000" />
     </task>
     <servers />
   </component>
