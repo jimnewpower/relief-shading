@@ -94,19 +94,19 @@ public class Bounds2D {
     return outsideX || outsideY;
   }
 
-  private double maxY() {
+  public double maxY() {
     return yBounds.max();
   }
 
-  private double minY() {
+  public double minY() {
     return yBounds.min();
   }
 
-  private double maxX() {
+  public double maxX() {
     return xBounds.max();
   }
 
-  private double minX() {
+  public double minX() {
     return xBounds.min();
   }
 
@@ -152,7 +152,7 @@ public class Bounds2D {
   /**
    * @return width (maxX - minX)
    */
-  public double getWidth() {
+  public double width() {
     if (!xBounds.isValid())
       return Invalid.INVALID_DOUBLE;
     return xBounds.range();
@@ -161,35 +161,35 @@ public class Bounds2D {
   /**
    * @return height (maxY - minY)
    */
-  public double getHeight() {
+  public double height() {
     if (!yBounds.isValid())
       return Invalid.INVALID_DOUBLE;
     return yBounds.range();
   }
 
   public double ratioXY() {
-    if (!isValid() || Double.compare(0.0, getHeight()) == 0)
+    if (!isValid() || Double.compare(0.0, height()) == 0)
       return Invalid.INVALID_DOUBLE;
-    return getWidth() / getHeight();
+    return width() / height();
   }
 
   public double ratioYX() {
-    if (!isValid() || Double.compare(0.0, getWidth()) == 0)
+    if (!isValid() || Double.compare(0.0, width()) == 0)
       return Invalid.INVALID_DOUBLE;
-    return getHeight() / getWidth();
+    return height() / width();
   }
 
   public double getMidpointX() {
     if (!xBounds.isValid())
       return Invalid.INVALID_DOUBLE;
-    double midX = minX() + (getWidth() / 2.0);
+    double midX = minX() + (width() / 2.0);
     return midX;
   }
 
   public double getMidpointY() {
     if (!yBounds.isValid())
       return Invalid.INVALID_DOUBLE;
-    double midY = minY() + (getHeight() / 2.0);
+    double midY = minY() + (height() / 2.0);
     return midY;
   }
 
