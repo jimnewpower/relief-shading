@@ -38,6 +38,7 @@ public class BoundsTest {
         assertAll(
                 "Zero Range",
                 () -> assertTrue(bounds.isValid()),
+                () -> assertTrue(bounds.rangeIsZero()),
                 () -> assertEquals(min, bounds.min(), tolerance),
                 () -> assertEquals(max, bounds.max(), tolerance)
         );
