@@ -14,7 +14,36 @@ public interface Invalid {
     static final Invalid DOUBLE_INSTANCE = new Invalid() {
         @Override
         public boolean invalid(Number number) {
-            return test(number);
+            double doubleValue = number.doubleValue();
+            return Double.isInfinite(doubleValue)
+                    || Double.isNaN(doubleValue)
+                    || Double.compare(INVALID_DOUBLE, doubleValue) == 0;
+        }
+    };
+
+    static final Invalid FLOAT_INSTANCE = new Invalid() {
+        @Override
+        public boolean invalid(Number number) {
+            float value = number.floatValue();
+            return Float.isInfinite(value)
+                    || Float.isNaN(value)
+                    || Float.compare(INVALID_FLOAT, value) == 0;
+        }
+    };
+
+    static final Invalid INT_INSTANCE = new Invalid() {
+        @Override
+        public boolean invalid(Number number) {
+            int value = number.intValue();
+            return INVALID_INT == value;
+        }
+    };
+
+    static final Invalid SHORT_INSTANCE = new Invalid() {
+        @Override
+        public boolean invalid(Number number) {
+            short value = number.shortValue();
+            return INVALID_SHORT == value;
         }
     };
 
@@ -22,25 +51,33 @@ public interface Invalid {
         return DOUBLE_INSTANCE;
     }
 
+    public static Invalid floatInstance() {
+        return FLOAT_INSTANCE;
+    }
+
+    public static Invalid intInstance() {
+        return INT_INSTANCE;
+    }
+
+    public static Invalid shortInstance() {
+        return SHORT_INSTANCE;
+    }
+
     static boolean test(Number number) {
         if (number == null)
             return true;
 
-        if (number instanceof Double) {
-            double doubleValue = number.doubleValue();
-            return Double.isInfinite(doubleValue)
-            || Double.isNaN(doubleValue)
-            || Double.compare(INVALID_DOUBLE, doubleValue) == 0;
-        }
+        if (number instanceof Double)
+            return doubleInstance().invalid(number);
 
         if (number instanceof Float)
-            return Float.compare(number.floatValue(), INVALID_FLOAT) == 0;
+            return floatInstance().invalid(number);
 
         if (number instanceof Integer)
-            return number.intValue() == INVALID_INT;
+            return intInstance().invalid(number);
 
         if (number instanceof Short)
-            return number.shortValue() == INVALID_SHORT;
+            return shortInstance().invalid(number);
 
         return false;
     }
