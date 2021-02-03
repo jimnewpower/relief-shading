@@ -2,7 +2,7 @@ package com.primalimited.reliefshading.bounds;
 
 import com.primalimited.reliefshading.number.Invalid;
 
-class NullBounds implements Bounds {
+final class NullBounds implements Bounds {
   public static Bounds create() {
     return new NullBounds();
   }
