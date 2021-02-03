@@ -11,12 +11,27 @@ public interface Invalid {
 
     public static DoublePredicate VALID_DOUBLE = (x) -> !test(x);
 
+    static final Invalid DOUBLE_INSTANCE = new Invalid() {
+        @Override
+        public boolean invalid(Number number) {
+            return test(number);
+        }
+    };
+
+    public static Invalid doubleInstance() {
+        return DOUBLE_INSTANCE;
+    }
+
     static boolean test(Number number) {
         if (number == null)
             return true;
 
-        if (number instanceof Double)
-            return Double.compare(number.doubleValue(), INVALID_DOUBLE) == 0;
+        if (number instanceof Double) {
+            double doubleValue = number.doubleValue();
+            return Double.isInfinite(doubleValue)
+            || Double.isNaN(doubleValue)
+            || Double.compare(INVALID_DOUBLE, doubleValue) == 0;
+        }
 
         if (number instanceof Float)
             return Float.compare(number.floatValue(), INVALID_FLOAT) == 0;

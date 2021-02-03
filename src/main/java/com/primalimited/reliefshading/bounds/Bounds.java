@@ -24,20 +24,16 @@ public interface Bounds {
     public static final Bounds LONGITUDE = Bounds.of(-180, 180);
     public static final Bounds RGB_8_BIT = Bounds.of(0, 255);
 
+    /**
+     * Create bounds from min and max values.
+     *
+     * @param min the minimum value
+     * @param max the maximum value
+     * @return bounds if min &lt;= max
+     * @throws IllegalArgumentException if min > max or either min or max is Invalid
+     */
     public static Bounds of(double min, double max) {
         return immutable(min, max);
-    }
-
-    public static Bounds immutable(double min, double max) {
-        return ImmutableBounds.of(min, max);
-    }
-
-    public static Bounds empty() {
-        return EmptyBounds.create();
-    }
-
-    public static Bounds nullBounds() {
-        return new NullBounds();
     }
 
     public static Bounds of(double[] arrayParam) {
@@ -57,6 +53,18 @@ public interface Bounds {
             return Bounds.nullBounds();
 
         return immutable(min, max);
+    }
+
+    public static Bounds immutable(double min, double max) {
+        return ImmutableBounds.of(min, max);
+    }
+
+    public static Bounds empty() {
+        return EmptyBounds.create();
+    }
+
+    public static Bounds nullBounds() {
+        return new NullBounds();
     }
 
     public static boolean valid(double min, double max) {
