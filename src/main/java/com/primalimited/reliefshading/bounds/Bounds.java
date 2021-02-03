@@ -62,7 +62,7 @@ public interface Bounds {
   public static boolean valid(double min, double max) {
     if (Invalid.test(min))
       return false;
-    if (!Invalid.test(max))
+    if (Invalid.test(max))
       return false;
     if (min > max)
       return false;

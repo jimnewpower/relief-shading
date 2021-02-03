@@ -2,8 +2,7 @@ package com.primalimited.reliefshading.bounds;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BoundsTest {
     @Test
@@ -16,8 +15,32 @@ public class BoundsTest {
 
         assertAll(
                 "Legal Bounds",
+                () -> assertTrue(bounds.isValid()),
                 () -> assertEquals(min, bounds.min(), tolerance),
                 () -> assertEquals(max, bounds.max(), tolerance)
         );
+    }
+
+    @Test
+    public void zeroRange() {
+        double min = 10.25;
+        double max = 10.25;
+        Bounds bounds = Bounds.of(min, max);
+
+        final double tolerance = 1e-10;
+
+        assertAll(
+                "Zero Range",
+                () -> assertTrue(bounds.isValid()),
+                () -> assertEquals(min, bounds.min(), tolerance),
+                () -> assertEquals(max, bounds.max(), tolerance)
+        );
+    }
+
+    @Test
+    public void illegalBounds() {
+        double min = 10.0;
+        double max = 7.0;
+        assertThrows(IllegalArgumentException.class, () -> Bounds.of(min, max));
     }
 }
