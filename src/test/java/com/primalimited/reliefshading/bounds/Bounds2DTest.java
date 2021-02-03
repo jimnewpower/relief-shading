@@ -29,6 +29,11 @@ class Bounds2DTest {
     public void contains() {
         Bounds2D fractionBounds = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
         assertTrue(fractionBounds.contains(Math.random(), Math.random()));
+
+        // does not contain x
+        assertFalse(fractionBounds.contains(3, Math.random()));
+        // does not contain y
+        assertFalse(fractionBounds.contains(Math.random(), 3));
     }
 
     @Test
