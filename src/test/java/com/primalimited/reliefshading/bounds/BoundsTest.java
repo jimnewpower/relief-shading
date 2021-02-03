@@ -1,5 +1,6 @@
 package com.primalimited.reliefshading.bounds;
 
+import com.primalimited.reliefshading.number.Invalid;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -51,5 +52,23 @@ public class BoundsTest {
         final double tolerance = 1e-10;
         assertEquals(0, Bounds.of(array).min(), tolerance);
         assertEquals(200, Bounds.of(array).max(), tolerance);
+    }
+
+    @Test
+    public void createFromArrayWithInvalids() {
+        double[] array = new double[] {Invalid.INVALID_DOUBLE, 1, 2, 50, Invalid.INVALID_DOUBLE, 100, Invalid.INVALID_DOUBLE };
+
+        final double tolerance = 1e-10;
+        assertEquals(1, Bounds.of(array).min(), tolerance);
+        assertEquals(100, Bounds.of(array).max(), tolerance);
+    }
+
+    @Test
+    public void createFromEmptyArray() {
+        double[] array = new double[] { };
+
+        final double tolerance = 1e-10;
+        assertTrue(Bounds.of(array).isNull(), "expect null bounds for empty array");
+        assertFalse(Bounds.of(array).isValid(), "expect invalid bounds for empty array");
     }
 }
