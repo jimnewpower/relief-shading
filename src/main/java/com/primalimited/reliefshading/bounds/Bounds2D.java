@@ -135,18 +135,15 @@ public class Bounds2D {
 
   public boolean contains(double x, double y) {
     if (!isValid())
-      return(false);
+      return false;
 
-    if (x < minX())
-      return(false);
-    if (x > maxX())
-      return(false);
-    if (y < minY())
-      return(false);
-    if (y > maxY())
-      return(false);
+    if (x < minX() || x > maxX())
+      return false;
 
-    return(true);
+    if (y < minY() || y > maxY())
+      return false;
+
+    return true;
   }
 
   /**

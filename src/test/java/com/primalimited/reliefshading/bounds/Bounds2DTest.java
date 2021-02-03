@@ -26,6 +26,12 @@ class Bounds2DTest {
     }
 
     @Test
+    public void contains() {
+        Bounds2D fractionBounds = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
+        assertTrue(fractionBounds.contains(Math.random(), Math.random()));
+    }
+
+    @Test
     public void disjoint() {
         Bounds2D percent = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
         Bounds2D disjoint = Bounds2D.create(Bounds.of(200, 300), Bounds.of(200, 300));
