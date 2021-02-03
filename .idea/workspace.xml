@@ -39,6 +39,8 @@
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/RowMajorSWOriginGrid.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/number/InvalidTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/grid/RowMajorSWOriginGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/grid/RowMajorSWOriginGrid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +134,7 @@
       <recent name="com.primalimited.reliefshading.number" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GridTest.bounds">
+  <component name="RunManager" selected="Gradle.GridTest.value">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -144,33 +146,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Bounds2DTest.contains" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GridTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.Bounds2DTest.contains&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Bounds2DTest.disjoint" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.Bounds2DTest.disjoint&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.grid.GridTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -249,13 +230,34 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="GridTest.value" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.grid.GridTest.value&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.GridTest.value" />
+        <item itemvalue="Gradle.GridTest" />
         <item itemvalue="Gradle.GridTest.bounds" />
         <item itemvalue="Gradle.GridTest.rowsAndColumns" />
         <item itemvalue="Gradle.GridTest.rows" />
-        <item itemvalue="Gradle.Bounds2DTest.contains" />
-        <item itemvalue="Gradle.Bounds2DTest.disjoint" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +269,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612299677047</updated>
-      <workItem from="1612299679422" duration="14424000" />
+      <workItem from="1612299679422" duration="16667000" />
     </task>
     <servers />
   </component>
