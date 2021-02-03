@@ -128,7 +128,7 @@
       <recent name="com.primalimited.reliefshading.number" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.InvalidTest.invalidShorts">
+  <component name="RunManager" selected="Gradle.BoundsTest.createFromArray">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -161,12 +161,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BoundsTest.illegalBounds" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoundsTest.createFromArray" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.illegalBounds&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.createFromArray&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -247,11 +247,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.BoundsTest.createFromArray" />
         <item itemvalue="Gradle.InvalidTest.invalidShorts" />
         <item itemvalue="Gradle.InvalidTest.invalidInts" />
         <item itemvalue="Gradle.InvalidTest" />
         <item itemvalue="Gradle.BoundsTest" />
-        <item itemvalue="Gradle.BoundsTest.illegalBounds" />
       </list>
     </recent_temporary>
   </component>

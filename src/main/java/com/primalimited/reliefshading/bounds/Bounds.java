@@ -36,9 +36,15 @@ public interface Bounds {
         return immutable(min, max);
     }
 
+    /**
+     * Create bounds from array of values, ignoring any invalid values in the array.
+     *
+     * @param arrayParam array of values
+     * @return bounding values of the array, or null bounds if no valid values found.
+     */
     public static Bounds of(double[] arrayParam) {
         double[] array = Objects.requireNonNull(arrayParam, "array cannot be null");
-        if (arrayParam.length == 0)
+        if (array.length == 0)
             return Bounds.nullBounds();
 
         DoubleSummaryStatistics stats = Arrays

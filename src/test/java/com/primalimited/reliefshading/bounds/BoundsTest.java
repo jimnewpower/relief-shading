@@ -43,4 +43,13 @@ public class BoundsTest {
         double max = 7.0;
         assertThrows(IllegalArgumentException.class, () -> Bounds.of(min, max));
     }
+
+    @Test
+    public void createFromArray() {
+        double[] array = new double[] { 0, 1, 2, 50, 60, 100, 200 };
+
+        final double tolerance = 1e-10;
+        assertEquals(0, Bounds.of(array).min(), tolerance);
+        assertEquals(200, Bounds.of(array).max(), tolerance);
+    }
 }
