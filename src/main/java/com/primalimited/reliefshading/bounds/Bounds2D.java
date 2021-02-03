@@ -45,6 +45,19 @@ public class Bounds2D {
     return getClass().getSimpleName() + " x=" + x + ", y=" + y;
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Bounds2D bounds2D = (Bounds2D) o;
+    return xBounds.equals(bounds2D.xBounds) && yBounds.equals(bounds2D.yBounds);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(xBounds, yBounds);
+  }
+
   /**
    * Returns true if the two rectangles have no intersections
    *
