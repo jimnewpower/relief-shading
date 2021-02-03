@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef928da7-480f-4eaf-b706-12a67a4438be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/compiler.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/gradle.xml" beforeDir="false" />
@@ -36,8 +37,8 @@
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/BUILD" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/number/InvalidTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/Bounds2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/Bounds2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/Bounds2DTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/Bounds2DTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,8 +91,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -131,7 +132,7 @@
       <recent name="com.primalimited.reliefshading.number" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Bounds2DTest.contains">
+  <component name="RunManager" selected="Gradle.GridTest.bounds">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -185,12 +186,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Bounds2DTest.empty" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GridTest.bounds" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.Bounds2DTest.empty&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.grid.GridTest.bounds&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -206,12 +207,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Bounds2DTest.valid" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GridTest.rows" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.Bounds2DTest.valid&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.grid.GridTest.rows&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -227,12 +228,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BoundsTest.bind" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GridTest.rowsAndColumns" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.bind&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.grid.GridTest.rowsAndColumns&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -250,11 +251,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.GridTest.bounds" />
+        <item itemvalue="Gradle.GridTest.rowsAndColumns" />
+        <item itemvalue="Gradle.GridTest.rows" />
         <item itemvalue="Gradle.Bounds2DTest.contains" />
         <item itemvalue="Gradle.Bounds2DTest.disjoint" />
-        <item itemvalue="Gradle.Bounds2DTest.valid" />
-        <item itemvalue="Gradle.Bounds2DTest.empty" />
-        <item itemvalue="Gradle.BoundsTest.bind" />
       </list>
     </recent_temporary>
   </component>
@@ -266,7 +267,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612299677047</updated>
-      <workItem from="1612299679422" duration="12525000" />
+      <workItem from="1612299679422" duration="13428000" />
     </task>
     <servers />
   </component>
