@@ -36,9 +36,9 @@
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/bounds/BoundsTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/BUILD" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/RowMajorSWOriginGrid.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/number/InvalidTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/Grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +267,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612299677047</updated>
-      <workItem from="1612299679422" duration="13428000" />
+      <workItem from="1612299679422" duration="14424000" />
     </task>
     <servers />
   </component>
