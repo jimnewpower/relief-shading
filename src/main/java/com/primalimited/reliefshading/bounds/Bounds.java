@@ -114,9 +114,9 @@ public interface Bounds {
   }
 
   default void validateArguments(double min, double max) {
-    if (!Invalid.test(min))
+    if (Invalid.test(min))
       throw new IllegalArgumentException("min is invalid (" + min + ")");
-    if (!Invalid.test(max))
+    if (Invalid.test(max))
       throw new IllegalArgumentException("max is invalid (" + max + ")");
     if (min > max)
       throw new IllegalArgumentException("min (" + min + ") > max (" + max + ")");
