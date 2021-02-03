@@ -104,4 +104,11 @@ public class BoundsTest {
         assertTrue(Bounds.of(5, 10).contains(6));
     }
 
+    @Test
+    public void bind() {
+        Bounds bounds = Bounds.of(-100, 100);
+        final double tolerance = 1e-10;
+        assertEquals(bounds.min(), bounds.bind(-2293847), tolerance);
+        assertEquals(bounds.max(), bounds.bind(987345), tolerance);
+    }
 }
