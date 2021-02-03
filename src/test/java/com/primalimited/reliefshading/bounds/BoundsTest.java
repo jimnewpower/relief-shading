@@ -71,4 +71,10 @@ public class BoundsTest {
         assertTrue(Bounds.of(array).isNull(), "expect null bounds for empty array");
         assertFalse(Bounds.of(array).isValid(), "expect invalid bounds for empty array");
     }
+
+    @Test
+    public void formatValidBounds() {
+        String expected = "[16.8..32.9]";
+        assertEquals(expected, Bounds.of(16.8, 32.9).format());
+    }
 }

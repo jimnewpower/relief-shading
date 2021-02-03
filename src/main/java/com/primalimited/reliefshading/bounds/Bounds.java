@@ -15,14 +15,41 @@ import java.util.stream.DoubleStream;
  * @author Jim Newpower
  */
 public interface Bounds {
+    /**
+     * Display text for invalid values.
+     */
     static final String UNKNOWN_VALUE_TEXT = "Unknown";
 
+    /**
+     * Fraction bounds.
+     */
     public static final Bounds FRACTION = Bounds.of(0, 1);
+
+    /**
+     * Percent bounds.
+     */
     public static final Bounds PERCENT = Bounds.of(0, 100);
+
+    /**
+     * Spherical degrees bounds.
+     */
     public static final Bounds DEGREES = Bounds.of(0, 360);
+
+    /**
+     * Latitude bounds.
+     */
     public static final Bounds LATITUDE = Bounds.of(-90, 90);
+
+    /**
+     * Longitude bounds.
+     */
     public static final Bounds LONGITUDE = Bounds.of(-180, 180);
-    public static final Bounds RGB_8_BIT = Bounds.of(0, 255);
+
+    /**
+     * 8-bit color component bounds.
+     */
+    public static final Bounds UNSIGNED_BYTE_BOUNDS = Bounds.of(0, 255);
+    public static final Bounds RGB_8_BIT = UNSIGNED_BYTE_BOUNDS;
 
     /**
      * Create bounds from min and max values.
@@ -30,7 +57,7 @@ public interface Bounds {
      * @param min the minimum value
      * @param max the maximum value
      * @return bounds if min &lt;= max
-     * @throws IllegalArgumentException if min > max or either min or max is Invalid
+     * @throws IllegalArgumentException if min &gt; max or either min or max is Invalid
      */
     public static Bounds of(double min, double max) {
         return immutable(min, max);
@@ -61,19 +88,19 @@ public interface Bounds {
         return immutable(min, max);
     }
 
-    public static Bounds immutable(double min, double max) {
+    static Bounds immutable(double min, double max) {
         return ImmutableBounds.of(min, max);
     }
 
-    public static Bounds empty() {
+    static Bounds empty() {
         return EmptyBounds.create();
     }
 
-    public static Bounds nullBounds() {
+    static Bounds nullBounds() {
         return new NullBounds();
     }
 
-    public static boolean valid(double min, double max) {
+    static boolean valid(double min, double max) {
         if (Invalid.test(min))
             return false;
         if (Invalid.test(max))
@@ -84,51 +111,41 @@ public interface Bounds {
     }
 
     /**
-     * Determine the common bounds for a set of bounds
-     *
-     * @param all set of bounds
-     * @return new instance of Bounds that represents the least common bounds for all
+     * Return the minimum value of this bounds.
+     * @return the minimum value of this bounds.
      */
-    public static Bounds common(Bounds... all) {
-        Objects.requireNonNull(all);
-        if (all.length == 0)
-            throw new IllegalArgumentException();
-
-        if (!allOverlap(all))
-            throw new IllegalArgumentException("not all bounds overlap");
-
-        OptionalDouble highestMin =
-                Arrays.stream(all).flatMapToDouble(b -> DoubleStream.of(b.min())).max();
-        OptionalDouble lowestMax =
-                Arrays.stream(all).flatMapToDouble(b -> DoubleStream.of(b.max())).min();
-        return of(highestMin.getAsDouble(), lowestMax.getAsDouble());
-    }
-
-    static boolean allOverlap(Bounds... all) {
-        Objects.requireNonNull(all);
-        if (all.length == 0)
-            throw new IllegalArgumentException();
-
-        for (Bounds bounds : all) {
-            if (!Arrays.stream(all).allMatch(b -> b.overlaps(bounds)))
-                return false;
-        }
-        return true;
-    }
-
     double min();
 
+    /**
+     * Return the maximum value of this bounds.
+     * @return the maximum value of this bounds.
+     */
     double max();
 
+    /**
+     * Return the range of that this bounds covers.
+     * @return the range of that this bounds covers.
+     */
     double range();
 
-    default String text() {
+    /**
+     * Return formatted text for the bounds.
+     * @return formatted text for the bounds.
+     */
+    default String format() {
         NumberFormat nf = NumberFormat.getInstance();
         String min = Invalid.test(min()) ? UNKNOWN_VALUE_TEXT : nf.format(min());
         String max = Invalid.test(max()) ? UNKNOWN_VALUE_TEXT : nf.format(max());
         return "[" + min + ".." + max + "]";
     }
 
+    /**
+     * Validate arguments e.g. prior to creating bounds.
+     *
+     * @param min minimum value
+     * @param max maximum value
+     * @throws IllegalArgumentException if min &gt; max or if either min or max is invalid.
+     */
     default void validateArguments(double min, double max) {
         if (Invalid.test(min))
             throw new IllegalArgumentException("min is invalid (" + min + ")");
@@ -138,19 +155,20 @@ public interface Bounds {
             throw new IllegalArgumentException("min (" + min + ") > max (" + max + ")");
     }
 
+    /**
+     * Return true if bounds are valid (min &lt;= max), false otherwise.
+     * @return true if bounds are valid (min &lt;= max), false otherwise.
+     */
     default boolean isValid() {
         return valid(min(), max());
     }
 
+    /**
+     * For valid bounds, return true if min == max, false otherwise.
+     * @return true if bounds is valid and min == max, false otherwise.
+     */
     default boolean rangeIsZero() {
         return isValid() && Double.compare(min(), max()) == 0;
-    }
-
-    default boolean overlaps(Bounds other) {
-        return (min() >= other.min() && min() <= other.max())
-                || (max() >= other.min() && max() <= other.max())
-                || (other.min() >= min() && other.min() <= max())
-                || (other.max() >= min() && other.max() <= max());
     }
 
     /**
@@ -187,30 +205,31 @@ public interface Bounds {
         return (value - min()) / range();
     }
 
-    default String format() {
-        return String.format(
-                "min=%s max=%s range=%s",
-                Invalid.test(min()) ? UNKNOWN_VALUE_TEXT : String.format("%10.3f", min()),
-                Invalid.test(max()) ? UNKNOWN_VALUE_TEXT : String.format("%10.3f", max()),
-                Invalid.test(range()) ? UNKNOWN_VALUE_TEXT : String.format("%10.3f", range())
-        );
-    }
-
+    /**
+     * Return true if bounds are invalid and either min or max is invalid.
+     * @return true if bounds are invalid and either min or max is invalid.
+     */
     default boolean isNull() {
         return Invalid.test(min()) && Invalid.test(max()) && !isValid();
     }
 
+    /**
+     * Return true if value is within bounds (e.g. min &lt;= value &lt;= max), false otherwise.
+     * @param value value to evaluate against this bounds
+     * @return true if value is within bounds (e.g. min &lt;= value &lt;= max), false otherwise.
+     */
     default boolean contains(double value) {
         if (value >= min() && value <= max())
             return true;
         return false;
     }
 
-    default double bound(double value) {
+    /**
+     * Bind value to bounds, i.e. if value &lt; min, return min, if value &gt; max return max, otherwise return value.
+     * @param value value to bind
+     * @return if value &lt; min, return min, if value &gt; max return max, otherwise return value.
+     */
+    default double bind(double value) {
         return Math.min(max(), Math.max(min(), value));
-    }
-
-    default int bound(int value) {
-        return (int) Math.min(max(), Math.max(min(), value));
     }
 }

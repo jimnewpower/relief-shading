@@ -40,8 +40,8 @@ public class Bounds2D {
   }
 
   @Override public String toString() {
-    String x = xBounds.text();
-    String y = yBounds.text();
+    String x = xBounds.format();
+    String y = yBounds.format();
     return getClass().getSimpleName() + " x=" + x + ", y=" + y;
   }
 

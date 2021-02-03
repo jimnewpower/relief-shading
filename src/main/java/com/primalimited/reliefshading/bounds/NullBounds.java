@@ -9,7 +9,7 @@ final class NullBounds implements Bounds {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + " " + text();
+        return getClass().getSimpleName() + " " + format();
     }
 
     @Override
