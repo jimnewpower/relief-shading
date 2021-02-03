@@ -24,4 +24,12 @@ class Bounds2DTest {
                 () -> assertEquals(100, bounds.height(), tolerance)
         );
     }
+
+    @Test
+    public void disjoint() {
+        Bounds2D percent = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
+        Bounds2D disjoint = Bounds2D.create(Bounds.of(200, 300), Bounds.of(200, 300));
+        assertTrue(percent.disjoint(disjoint));
+        assertTrue(disjoint.disjoint(percent));
+    }
 }
