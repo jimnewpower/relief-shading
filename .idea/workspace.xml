@@ -127,7 +127,7 @@
       <recent name="com.primalimited.reliefshading.number" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.BoundsTest.histogramBins">
+  <component name="RunManager" selected="Gradle.BoundsTest.contains">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -139,12 +139,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoundsTest.createFromEmptyArray" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoundsTest.contains" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.createFromEmptyArray&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.contains&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -246,11 +246,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.BoundsTest.contains" />
         <item itemvalue="Gradle.BoundsTest.histogramBins" />
         <item itemvalue="Gradle.BoundsTest.zeroRange" />
         <item itemvalue="Gradle.BoundsTest.nonzeroRange" />
         <item itemvalue="Gradle.BoundsTest.formatValidBounds" />
-        <item itemvalue="Gradle.BoundsTest.createFromEmptyArray" />
       </list>
     </recent_temporary>
   </component>
