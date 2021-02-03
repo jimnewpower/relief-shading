@@ -23,6 +23,11 @@ public class BoundsTest {
     }
 
     @Test
+    public void nonzeroRange() {
+        assertEquals(27.42, Bounds.of(1000.12, 1027.54).range(), 1e-10);
+    }
+
+    @Test
     public void zeroRange() {
         double min = 10.25;
         double max = 10.25;
