@@ -180,7 +180,9 @@ public interface Bounds {
      * @return the bin, if value is within range, -1 otherwise
      */
     default int histogramBin(double value, int nBins) {
-        if (nBins <= 0 || !Invalid.test(nBins))
+        if (!isValid())
+            return -1;
+        if (nBins <= 0 || Invalid.test(nBins))
             return -1;
         if (value < min() || value > max())
             return -1;
