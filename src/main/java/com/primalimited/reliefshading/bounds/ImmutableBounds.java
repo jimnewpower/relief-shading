@@ -6,24 +6,17 @@ import java.util.Objects;
  * Immutable implementation of Bounds.
  */
 final class ImmutableBounds implements Bounds {
-    private final double min;
-    private final double max;
-    private final double range;
+    private final double minimum;
+    private final double maximum;
 
-    static ImmutableBounds of(double min, double max) {
-        return new ImmutableBounds(min, max);
+    static ImmutableBounds of(double minimum, double maximum) {
+        return new ImmutableBounds(minimum, maximum);
     }
 
-    static ImmutableBounds of(Bounds other) {
-        Objects.requireNonNull(other);
-        return new ImmutableBounds(other);
-    }
-
-    private ImmutableBounds(double min, double max) {
-        validateArguments(min, max);
-        this.min = min;
-        this.max = max;
-        this.range = max - min;
+    private ImmutableBounds(double minimum, double maximum) {
+        validateArguments(minimum, maximum);
+        this.minimum = minimum;
+        this.maximum = maximum;
     }
 
     private ImmutableBounds(Bounds bounds) {
@@ -60,16 +53,16 @@ final class ImmutableBounds implements Bounds {
 
     @Override
     public double min() {
-        return min;
+        return minimum;
     }
 
     @Override
     public double max() {
-        return max;
+        return maximum;
     }
 
     @Override
     public double range() {
-        return range;
+        return max() - min();
     }
 }

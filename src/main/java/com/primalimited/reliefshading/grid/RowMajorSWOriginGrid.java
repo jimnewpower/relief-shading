@@ -7,6 +7,10 @@ import com.primalimited.reliefshading.number.Invalid;
 import java.util.Objects;
 
 class RowMajorSWOriginGrid<T> implements Grid<T> {
+    public static final String MUST_BE_WITHIN = ". Must be within ";
+    public static final String INVALID_ROW = "Invalid row: ";
+    public static final String INVALID_COLUMN = "Invalid column: ";
+
     private final int rows;
     private final int columns;
     private final Bounds2D bounds;
@@ -47,12 +51,12 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     public int index(int row, int column) {
         if (row < 0 || row >= rows())
             throw new IllegalArgumentException(
-                    "Invalid row: " + row + ". Must be within " + Bounds.of(0, rows()).format()
+                    INVALID_ROW + row + MUST_BE_WITHIN + Bounds.of(0, rows()).format()
             );
 
         if (column < 0 || column >= columns())
             throw new IllegalArgumentException(
-                    "Invalid column: " + column + ". Must be within " + Bounds.of(0, columns()).format()
+                    INVALID_COLUMN + column + MUST_BE_WITHIN + Bounds.of(0, columns()).format()
             );
 
         return (row * columns) + column;
@@ -75,12 +79,12 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     public T value(int row, int column) {
         if (row < 0 || row >= rows())
             throw new IllegalArgumentException(
-                    "Invalid row: " + row + ". Must be within " + Bounds.of(0, rows()).format()
+                    INVALID_ROW + row + MUST_BE_WITHIN + Bounds.of(0, rows()).format()
             );
 
         if (column < 0 || column >= columns())
             throw new IllegalArgumentException(
-                    "Invalid column: " + column + ". Must be within " + Bounds.of(0, columns()).format()
+                    INVALID_COLUMN + column + MUST_BE_WITHIN + Bounds.of(0, columns()).format()
             );
 
         return values[index(row, column)];
