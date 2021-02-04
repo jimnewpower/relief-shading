@@ -6,17 +6,20 @@ import java.util.Objects;
  * Immutable implementation of Bounds.
  */
 final class ImmutableBounds implements Bounds {
-    private transient final double minimum;
-    private transient final double maximum;
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient final double min;
 
-    static ImmutableBounds of(double minimum, double maximum) {
-        return new ImmutableBounds(minimum, maximum);
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient final double max;
+
+    static ImmutableBounds of(double min, double max) {
+        return new ImmutableBounds(min, max);
     }
 
-    private ImmutableBounds(double minimum, double maximum) {
-        validateArguments(minimum, maximum);
-        this.minimum = minimum;
-        this.maximum = maximum;
+    private ImmutableBounds(double min, double max) {
+        validateArguments(min, max);
+        this.min = min;
+        this.max = max;
     }
 
     private ImmutableBounds(Bounds bounds) {
@@ -53,12 +56,12 @@ final class ImmutableBounds implements Bounds {
 
     @Override
     public double min() {
-        return minimum;
+        return min;
     }
 
     @Override
     public double max() {
-        return maximum;
+        return max;
     }
 
     @Override
