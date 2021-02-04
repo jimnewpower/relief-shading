@@ -151,12 +151,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoundsTest.histogramBinsInvalidArgs" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoundsTest.contains" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.histogramBinsInvalidArgs&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.contains&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -172,12 +172,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BoundsTest.testStaticValidFunction" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoundsTest.histogramBinsInvalidArgs" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.testStaticValidFunction&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.histogramBinsInvalidArgs&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -260,9 +260,9 @@
       <list>
         <item itemvalue="Gradle.relief-shading [jacocoTestReport]" />
         <item itemvalue="Gradle.relief-shading [build]" />
+        <item itemvalue="Gradle.BoundsTest.contains" />
         <item itemvalue="Gradle.BoundsTest.histogramBinsInvalidArgs" />
         <item itemvalue="Gradle.BoundsTest.validateArguments" />
-        <item itemvalue="Gradle.BoundsTest.testStaticValidFunction" />
       </list>
     </recent_temporary>
   </component>

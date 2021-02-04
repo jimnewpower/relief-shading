@@ -186,6 +186,9 @@ public class BoundsTest {
     public void contains() {
         assertFalse(Bounds.nullBounds().contains(42));
         assertTrue(Bounds.of(5, 10).contains(6));
+
+        assertFalse(Bounds.of(2, 3).contains(1));
+        assertFalse(Bounds.of(2, 3).contains(4));
     }
 
     @Test
