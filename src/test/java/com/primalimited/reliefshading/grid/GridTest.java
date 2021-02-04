@@ -1,12 +1,56 @@
 package com.primalimited.reliefshading.grid;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.bounds.Bounds2D;
+import com.primalimited.reliefshading.number.Invalid;
 import org.junit.jupiter.api.Test;
 
 public class GridTest {
+    @Test
+    public void factoryMethodInvalidRows() {
+        // rows < 0
+        assertThrows(IllegalArgumentException.class,
+                () -> Grid.createRowMajorSWOrigin(-1, 10, mockBounds(), mockValues(2, 2)));
+        // rows invalid
+        assertThrows(IllegalArgumentException.class,
+                () -> Grid.createRowMajorSWOrigin(Invalid.INVALID_INT, 10, mockBounds(), mockValues(2, 2)));
+    }
+
+    @Test
+    public void factoryMethodInvalidColumns() {
+        // columns < 0
+        assertThrows(IllegalArgumentException.class,
+                () -> Grid.createRowMajorSWOrigin(10, -1, mockBounds(), mockValues(2, 2)));
+        // columns invalid
+        assertThrows(IllegalArgumentException.class,
+                () -> Grid.createRowMajorSWOrigin(10, Invalid.INVALID_INT, mockBounds(), mockValues(2, 2)));
+    }
+
+    @Test
+    public void factoryMethodInvalidBounds() {
+        // null bounds
+        assertThrows(IllegalArgumentException.class,
+                () -> Grid.createRowMajorSWOrigin(10, 10, null, mockValues(10, 10)));
+
+        // invalid bounds
+        assertThrows(IllegalArgumentException.class,
+                () -> Grid.createRowMajorSWOrigin(10, 10, Bounds2D.empty(), mockValues(10, 10)));
+    }
+
+    @Test
+    public void factoryMethodInvalidValues() {
+        // null values
+        assertThrows(IllegalArgumentException.class,
+                () -> Grid.createRowMajorSWOrigin(10, 10, Bounds2D.empty(), null));
+
+        // values with wrong length
+        assertThrows(IllegalArgumentException.class,
+                () -> Grid.createRowMajorSWOrigin(10, 10, Bounds2D.empty(), mockValues(3, 4)));
+    }
+
     @Test
     public void rowsAndColumns() {
         int rows = 21;
@@ -70,6 +114,49 @@ public class GridTest {
         assertEquals(3, grid.value(row, col++), tolerance);
         assertEquals(4, grid.value(row, col++), tolerance);
         assertEquals(5, grid.value(row, col++), tolerance);
+
+        // invalid arguments
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.value(-1, 2));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.value(99000, 2));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.value(Invalid.INVALID_INT, 2));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.value(2, -1));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.value(2, 99000));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.value(2, Invalid.INVALID_INT));
+    }
+
+    @Test
+    public void indexFromRowColumn() {
+        Grid grid = mock();
+
+        // invalid row, valid column
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.index(-1, 0));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.index(50000, 0));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.index(Invalid.INVALID_INT, 0));
+
+        // invalid column, valid row
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.index(0, -1));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.index(0, 50000));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.index(0, Invalid.INVALID_INT));
+
+        // both arguments invalid
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.index(-1, -1));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.index(50000, 50000));
+        assertThrows(IllegalArgumentException.class,
+                () -> grid.index(Invalid.INVALID_INT, Invalid.INVALID_INT));
     }
 
     @Test
@@ -106,5 +193,39 @@ public class GridTest {
         assertEquals(8, grid.index(80.5, y));
         assertEquals(9, grid.index(90, y));
         assertEquals(9, grid.index(100, y));
+
+        // invalid args
+        assertEquals(-1, grid.index(-42.6, 50));
+        assertEquals(-1, grid.index(50, -42.6));
+        assertEquals(-1, grid.index(Invalid.INVALID_DOUBLE, 50));
+        assertEquals(-1, grid.index(50, Invalid.INVALID_DOUBLE));
+    }
+
+    private Grid mock() {
+        int rows = 5;
+        int columns = 10;
+
+        // create grid values where value == index
+        Double[] values = mockValues(rows, columns);
+
+        Grid<Double> grid = Grid.createRowMajorSWOrigin(
+                rows,
+                columns,
+                mockBounds(),
+                values
+        );
+
+        return grid;
+    }
+
+    private Bounds2D mockBounds() {
+        return Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
+    }
+
+    private Double[] mockValues(int rows, int columns) {
+        Double[] values = new Double[rows*columns];
+        for (int index = 0; index < values.length; index++)
+            values[index] = (double) index;
+        return values;
     }
 }

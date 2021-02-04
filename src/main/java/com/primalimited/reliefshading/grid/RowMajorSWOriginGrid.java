@@ -25,10 +25,21 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     RowMajorSWOriginGrid(int rows, int columns, Bounds2D bounds, T[] values) {
         if (rows <= 0)
             throw new IllegalArgumentException("Rows must be > 0.");
+        if (Invalid.intInstance().invalid(rows))
+            throw new IllegalArgumentException("Rows not specified.");
+
         if (columns <= 0)
             throw new IllegalArgumentException("Columns must be > 0.");
+        if (Invalid.intInstance().invalid(columns))
+            throw new IllegalArgumentException("Columns not specified.");
+
+        if (bounds == null)
+            throw new IllegalArgumentException("Bounds not specified.");
+        if (!bounds.isValid())
+            throw new IllegalArgumentException("Bounds invalid: " + bounds.toString());
+
         if (values == null)
-            throw new IllegalArgumentException("Values invalid.");
+            throw new IllegalArgumentException("Values not specified.");
         if (values.length != rows * columns)
             throw new IllegalArgumentException("Values length must be equal to (rows x columns).");
 
