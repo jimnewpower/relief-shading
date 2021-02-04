@@ -3,6 +3,10 @@ package com.primalimited.reliefshading.grid;
 import com.primalimited.reliefshading.bounds.Bounds2D;
 
 public interface Grid<T> {
+    static <T> Grid<T> createRowMajorSWOrigin(int rows, int columns, Bounds2D bounds, T[] values) {
+        return new RowMajorSWOriginGrid<>(rows, columns, bounds, values);
+    }
+
     /**
      * Return number of rows in the grid.
      * @return number of rows in the grid.

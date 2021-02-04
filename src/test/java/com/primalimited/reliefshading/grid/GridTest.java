@@ -11,7 +11,7 @@ public class GridTest {
     public void rowsAndColumns() {
         int rows = 21;
         int columns = 34;
-        Grid<Double> grid = new RowMajorSWOriginGrid<Double>(
+        Grid<Double> grid = Grid.createRowMajorSWOrigin(
                 rows,
                 columns,
                 Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION),
@@ -25,7 +25,7 @@ public class GridTest {
     public void bounds() {
         int rows = 21;
         int columns = 34;
-        Grid<Double> grid = new RowMajorSWOriginGrid<Double>(
+        Grid<Double> grid = Grid.createRowMajorSWOrigin(
                 rows,
                 columns,
                 Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION),
@@ -48,7 +48,7 @@ public class GridTest {
         for (int index = 0; index < values.length; index++)
             values[index] = (double) index;
 
-        Grid<Double> grid = new RowMajorSWOriginGrid<Double>(
+        Grid<Double> grid = Grid.createRowMajorSWOrigin(
                 rows,
                 columns,
                 Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION),
