@@ -6,8 +6,6 @@ import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.DoubleSummaryStatistics;
 import java.util.Objects;
-import java.util.OptionalDouble;
-import java.util.stream.DoubleStream;
 
 /**
  * Represents bounding values (min, max).  Valid bounds are min &lt;= max and range &gt;= 0.
