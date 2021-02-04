@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef928da7-480f-4eaf-b706-12a67a4438be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/compiler.xml" beforeDir="false" />
@@ -38,7 +37,6 @@
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/BUILD" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/number/InvalidTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/Bounds2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/Bounds2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/ImmutableBounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/ImmutableBounds.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/RowMajorSWOriginGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/RowMajorSWOriginGrid.java" afterDir="false" />
@@ -143,7 +141,7 @@
       <recent name="com.primalimited.reliefshading.number" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.relief-shading [jacocoTestCoverageVerification]">
+  <component name="RunManager" selected="Gradle.relief-shading [build]">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -154,6 +152,27 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="relief-shading [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildDependents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="relief-shading [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -239,34 +258,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="relief-shading [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.relief-shading [build]" />
+        <item itemvalue="Gradle.relief-shading [buildDependents]" />
         <item itemvalue="Gradle.relief-shading [jacocoTestCoverageVerification]" />
         <item itemvalue="Gradle.relief-shading [jacocoTestReport]" />
         <item itemvalue="Gradle.relief-shading [pitest]" />
-        <item itemvalue="Gradle.relief-shading [build]" />
-        <item itemvalue="Gradle.relief-shading [test]" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +276,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612299677047</updated>
-      <workItem from="1612299679422" duration="30392000" />
+      <workItem from="1612299679422" duration="30763000" />
     </task>
     <servers />
   </component>

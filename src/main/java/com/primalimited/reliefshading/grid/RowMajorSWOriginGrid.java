@@ -11,10 +11,16 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     public static final String INVALID_ROW = "Invalid row: ";
     public static final String INVALID_COLUMN = "Invalid column: ";
 
-    private final int rows;
-    private final int columns;
-    private final Bounds2D bounds;
-    private final T[] values;
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient final int rows;
+
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient final int columns;
+
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient final Bounds2D bounds;
+
+    private transient final T[] values;
 
     RowMajorSWOriginGrid(int rows, int columns, Bounds2D bounds, T[] values) {
         if (rows <= 0)

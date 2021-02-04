@@ -10,8 +10,8 @@ import java.util.Objects;
  * @author Jim Newpower
  */
 public class Bounds2D {
-    private Bounds xBounds = Bounds.nullBounds();
-    private Bounds yBounds = Bounds.nullBounds();
+    private transient Bounds xBounds = Bounds.nullBounds();
+    private transient Bounds yBounds = Bounds.nullBounds();
 
     public static Bounds2D empty() {
         return new Bounds2D();

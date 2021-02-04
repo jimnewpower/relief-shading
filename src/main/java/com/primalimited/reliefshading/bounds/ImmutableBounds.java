@@ -6,8 +6,8 @@ import java.util.Objects;
  * Immutable implementation of Bounds.
  */
 final class ImmutableBounds implements Bounds {
-    private final double minimum;
-    private final double maximum;
+    private transient final double minimum;
+    private transient final double maximum;
 
     static ImmutableBounds of(double minimum, double maximum) {
         return new ImmutableBounds(minimum, maximum);
