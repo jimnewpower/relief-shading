@@ -187,6 +187,9 @@ public interface Bounds {
         if (value < min() || value > max())
             return -1;
 
+        if (Double.compare(max(), value) == 0)
+            return nBins - 1;
+
         double numerator = value - min();
         double denominator = range() / nBins;
         int bin = (int) (numerator / denominator);

@@ -71,4 +71,40 @@ public class GridTest {
         assertEquals(4, grid.value(row, col++), tolerance);
         assertEquals(5, grid.value(row, col++), tolerance);
     }
+
+    @Test
+    public void indexFromLocation() {
+        int rows = 5;
+        int columns = 10;
+
+        // create grid values where value == index
+        Double[] values = new Double[rows*columns];
+        for (int index = 0; index < values.length; index++)
+            values[index] = (double) index;
+
+        Grid<Double> grid = Grid.createRowMajorSWOrigin(
+                rows,
+                columns,
+                Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT),
+                values
+        );
+
+        double y = 0.5;
+        assertEquals(0, grid.index(0.0, y));
+        assertEquals(9, grid.index(100, y));
+
+        assertEquals(0, grid.index(0.001, y));
+        assertEquals(0, grid.index(9.998, y));
+        assertEquals(1, grid.index(10.001, y));
+        assertEquals(1, grid.index(19.998, y));
+        assertEquals(2, grid.index(20.5, y));
+        assertEquals(3, grid.index(30.5, y));
+        assertEquals(4, grid.index(40.5, y));
+        assertEquals(5, grid.index(50.5, y));
+        assertEquals(6, grid.index(60.5, y));
+        assertEquals(7, grid.index(70.5, y));
+        assertEquals(8, grid.index(80.5, y));
+        assertEquals(9, grid.index(90, y));
+        assertEquals(9, grid.index(100, y));
+    }
 }

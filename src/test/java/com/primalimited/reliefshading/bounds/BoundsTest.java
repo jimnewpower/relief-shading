@@ -3,6 +3,8 @@ package com.primalimited.reliefshading.bounds;
 import com.primalimited.reliefshading.number.Invalid;
 import org.junit.jupiter.api.Test;
 
+import java.util.function.DoubleSupplier;
+import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -87,11 +89,35 @@ public class BoundsTest {
     }
 
     @Test
-    public void histogramBins() {
+    public void histogramBins100() {
         Bounds bounds = Bounds.of(0, 100);
         int nBins = 100;
         IntStream.range(0, 100).asDoubleStream()
-                .forEach(x -> assertEquals((int)x, bounds.histogramBin(x, nBins)));
+                .forEach(x -> assertEquals((int) x, bounds.histogramBin(x, nBins)));
+
+        assertEquals(0, bounds.histogramBin(0.0, 10));
+        assertEquals(0, bounds.histogramBin(7.0, 10));
+        assertEquals(9, bounds.histogramBin(90.0, 10));
+        assertEquals(9, bounds.histogramBin(97.0, 10));
+        assertEquals(9, bounds.histogramBin(100.0, 10));
+    }
+
+    @Test
+    public void histogramBins10() {
+        Bounds bounds = Bounds.of(0, 100);
+        int nBins = 10;
+        for (int index = 0; index < nBins; index++) {
+            double value = index * 10.0;
+            assertEquals(index, bounds.histogramBin(value, nBins), "value: " + value);
+
+            double random = Math.random();
+            if (Double.compare(0.0, random) == 0)
+                random += 1e-5;
+            if (Double.compare(1.0, random) == 0)
+                random -= 1e-5;
+            value += random;
+            assertEquals(index, bounds.histogramBin(value, nBins), "value: " + value);
+        }
     }
 
     @Test
