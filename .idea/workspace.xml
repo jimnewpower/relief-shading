@@ -37,7 +37,8 @@
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/BUILD" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/number/InvalidTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/BoundsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/BoundsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/Bounds2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/Bounds2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/Bounds2DTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/Bounds2DTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,54 +152,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Bounds2DTest.disjoint" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.Bounds2DTest.disjoint&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Bounds2DTest.toStringOutput" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.Bounds2DTest.toStringOutput&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="BoundsTest.contains" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.contains&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="BoundsTest.histogramBinsInvalidArgs" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.histogramBinsInvalidArgs&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="BoundsTest.validateArguments" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.validateArguments&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -260,9 +261,9 @@
       <list>
         <item itemvalue="Gradle.relief-shading [jacocoTestReport]" />
         <item itemvalue="Gradle.relief-shading [build]" />
+        <item itemvalue="Gradle.Bounds2DTest.disjoint" />
+        <item itemvalue="Gradle.Bounds2DTest.toStringOutput" />
         <item itemvalue="Gradle.BoundsTest.contains" />
-        <item itemvalue="Gradle.BoundsTest.histogramBinsInvalidArgs" />
-        <item itemvalue="Gradle.BoundsTest.validateArguments" />
       </list>
     </recent_temporary>
   </component>
@@ -274,7 +275,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612299677047</updated>
-      <workItem from="1612299679422" duration="32718000" />
+      <workItem from="1612299679422" duration="33924000" />
     </task>
     <servers />
   </component>
@@ -299,6 +300,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/BoundsTest.java</url>
           <line>142</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/Bounds2DTest.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -59,9 +59,9 @@ public class Bounds2D {
      */
     public boolean disjoint(Bounds2D bounds) {
         if (!isValid())
-            return false;
+            return true;
         if (!bounds.isValid())
-            return false;
+            return true;
 
         if (contains(bounds))
             return false;

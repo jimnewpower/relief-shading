@@ -33,6 +33,12 @@ class Bounds2DTest {
     }
 
     @Test
+    public void toStringOutput() {
+        Bounds2D bounds = Bounds2D.create(Bounds.LONGITUDE, Bounds.LATITUDE);
+        assertEquals("Bounds2D x=[-180..180], y=[-90..90]", bounds.toString());
+    }
+
+    @Test
     public void valid() {
         Bounds2D bounds = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
         final double tolerance = 1e-10;
@@ -60,10 +66,27 @@ class Bounds2DTest {
 
     @Test
     public void disjoint() {
+        // disjoint, valid bounds
         Bounds2D percent = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
         Bounds2D disjoint = Bounds2D.create(Bounds.of(200, 300), Bounds.of(200, 300));
         assertTrue(percent.disjoint(disjoint));
         assertTrue(disjoint.disjoint(percent));
+
+        // disjoint, one argument invalid
+        assertTrue(percent.disjoint(Bounds2D.empty()));
+        assertTrue(Bounds2D.empty().disjoint(percent));
+
+        // not disjoint, identical
+        Bounds2D bounds0 = Bounds2D.create(Bounds.of(0, 10), Bounds.of(0, 10));
+        Bounds2D bounds1 = Bounds2D.create(Bounds.of(0, 10), Bounds.of(0, 10));
+        assertFalse(bounds0.disjoint(bounds1));
+        assertFalse(bounds1.disjoint(bounds0));
+
+        // not disjoint
+        bounds0 = Bounds2D.create(Bounds.of(0, 10), Bounds.of(0, 10));
+        bounds1 = Bounds2D.create(Bounds.of(-5, 5), Bounds.of(9, 80));
+        assertFalse(bounds0.disjoint(bounds1));
+        assertFalse(bounds1.disjoint(bounds0));
     }
 
     @Test
