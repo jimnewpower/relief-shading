@@ -56,12 +56,16 @@ class Bounds2DTest {
     @Test
     public void contains() {
         Bounds2D fractionBounds = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
+        // valid arguments
         assertTrue(fractionBounds.contains(Math.random(), Math.random()));
 
         // does not contain x
         assertFalse(fractionBounds.contains(3, Math.random()));
         // does not contain y
         assertFalse(fractionBounds.contains(Math.random(), 3));
+
+        // invalid bounds
+        assertFalse(Bounds2D.empty().contains(3, 4));
     }
 
     @Test
@@ -82,9 +86,21 @@ class Bounds2DTest {
         assertFalse(bounds0.disjoint(bounds1));
         assertFalse(bounds1.disjoint(bounds0));
 
-        // not disjoint
+        // not disjoint, x and y overlap
         bounds0 = Bounds2D.create(Bounds.of(0, 10), Bounds.of(0, 10));
         bounds1 = Bounds2D.create(Bounds.of(-5, 5), Bounds.of(9, 80));
+        assertFalse(bounds0.disjoint(bounds1));
+        assertFalse(bounds1.disjoint(bounds0));
+
+        // not disjoint, bounds0 contains bounds1
+        bounds0 = Bounds2D.create(Bounds.of(0, 10), Bounds.of(0, 10));
+        bounds1 = Bounds2D.create(Bounds.of(3, 7), Bounds.of(4, 6));
+        assertFalse(bounds0.disjoint(bounds1));
+        assertFalse(bounds1.disjoint(bounds0));
+
+        // not disjoint, bounds1 contains bounds0
+        bounds0 = Bounds2D.create(Bounds.of(1, 9), Bounds.of(2, 8));
+        bounds1 = Bounds2D.create(Bounds.of(0, 10), Bounds.of(0, 10));
         assertFalse(bounds0.disjoint(bounds1));
         assertFalse(bounds1.disjoint(bounds0));
     }

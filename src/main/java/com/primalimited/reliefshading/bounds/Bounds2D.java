@@ -131,13 +131,8 @@ public class Bounds2D {
         if (!isValid())
             return false;
 
-        if (x < minX() || x > maxX())
-            return false;
-
-        if (y < minY() || y > maxY())
-            return false;
-
-        return true;
+        return minX() <= x && x <= maxX()
+            && minY() <= y && y <= maxY();
     }
 
     /**
