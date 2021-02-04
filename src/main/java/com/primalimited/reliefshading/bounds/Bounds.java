@@ -191,23 +191,6 @@ public interface Bounds {
     }
 
     /**
-     * Get fraction between bounds for value
-     *
-     * @param value value
-     * @return fraction between bounds endpoints, or Dval if value not within bounds
-     */
-    default double getFractionBetween(double value) {
-        if (value < min() || value > max())
-            return Invalid.INVALID_DOUBLE;
-        if (Double.compare(min(), max()) == 0) {
-            if (Double.compare(min(), value) == 0)
-                return 0.0;
-            return Invalid.INVALID_DOUBLE;
-        }
-        return (value - min()) / range();
-    }
-
-    /**
      * Return true if bounds are invalid and either min or max is invalid.
      * @return true if bounds are invalid and either min or max is invalid.
      */
