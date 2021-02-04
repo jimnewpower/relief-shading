@@ -16,38 +16,38 @@ public interface Bounds {
     /**
      * Display text for invalid values.
      */
-    static final String UNKNOWN_VALUE_TEXT = "Unknown";
+    String UNKNOWN_VALUE_TEXT = "Unknown";
 
     /**
      * Fraction bounds.
      */
-    public static final Bounds FRACTION = Bounds.of(0, 1);
+    Bounds FRACTION = Bounds.of(0, 1);
 
     /**
      * Percent bounds.
      */
-    public static final Bounds PERCENT = Bounds.of(0, 100);
+    Bounds PERCENT = Bounds.of(0, 100);
 
     /**
      * Spherical degrees bounds.
      */
-    public static final Bounds DEGREES = Bounds.of(0, 360);
+    Bounds DEGREES = Bounds.of(0, 360);
 
     /**
      * Latitude bounds.
      */
-    public static final Bounds LATITUDE = Bounds.of(-90, 90);
+    Bounds LATITUDE = Bounds.of(-90, 90);
 
     /**
      * Longitude bounds.
      */
-    public static final Bounds LONGITUDE = Bounds.of(-180, 180);
+    Bounds LONGITUDE = Bounds.of(-180, 180);
 
     /**
      * 8-bit color component bounds.
      */
-    public static final Bounds UNSIGNED_BYTE_BOUNDS = Bounds.of(0, 255);
-    public static final Bounds RGB_8_BIT = UNSIGNED_BYTE_BOUNDS;
+    Bounds UNSIGNED_BYTE_BOUNDS = Bounds.of(0, 255);
+    Bounds RGB_8_BIT = UNSIGNED_BYTE_BOUNDS;
 
     /**
      * Create bounds from min and max values.
@@ -57,7 +57,7 @@ public interface Bounds {
      * @return bounds if min &lt;= max
      * @throws IllegalArgumentException if min &gt; max or either min or max is Invalid
      */
-    public static Bounds of(double min, double max) {
+    static Bounds of(double min, double max) {
         return immutable(min, max);
     }
 
@@ -67,7 +67,7 @@ public interface Bounds {
      * @param arrayParam array of values
      * @return bounding values of the array, or null bounds if no valid values found.
      */
-    public static Bounds of(double[] arrayParam) {
+    static Bounds of(double[] arrayParam) {
         double[] array = Objects.requireNonNull(arrayParam, "array cannot be null");
         if (array.length == 0)
             return Bounds.nullBounds();
@@ -99,9 +99,8 @@ public interface Bounds {
             return false;
         if (Invalid.test(max))
             return false;
-        if (min > max)
-            return false;
-        return true;
+
+        return min <= max;
     }
 
     /**
@@ -186,8 +185,7 @@ public interface Bounds {
 
         double numerator = value - min();
         double denominator = range() / nBins;
-        int bin = (int) (numerator / denominator);
-        return bin;
+        return (int) (numerator / denominator);
     }
 
     /**
@@ -204,9 +202,7 @@ public interface Bounds {
      * @return true if value is within bounds (e.g. min &lt;= value &lt;= max), false otherwise.
      */
     default boolean contains(double value) {
-        if (value >= min() && value <= max())
-            return true;
-        return false;
+        return min() <= value && value <= max();
     }
 
     /**
