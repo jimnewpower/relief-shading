@@ -91,7 +91,7 @@ public interface Bounds {
     }
 
     static Bounds nullBounds() {
-        return new NullBounds();
+        return NullBounds.create();
     }
 
     static boolean valid(double min, double max) {

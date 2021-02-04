@@ -37,8 +37,8 @@
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/BUILD" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/number/InvalidTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/number/Invalid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/number/Invalid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/number/InvalidTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/number/InvalidTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/ImmutableBounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/ImmutableBounds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/BoundsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/BoundsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,12 +152,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InvalidTest.nullNumber" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoundsTest.immutableBoundsEquals" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.number.InvalidTest.nullNumber&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.immutableBoundsEquals&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -173,12 +173,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="InvalidTest.unsupportedNumber" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoundsTest.nullBounds" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.number.InvalidTest.unsupportedNumber&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.nullBounds&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -194,23 +194,23 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="relief-shading [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoundsTest.testToString" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.testToString&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="buildDependents" />
+            <option value=":test" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -261,9 +261,9 @@
       <list>
         <item itemvalue="Gradle.relief-shading [jacocoTestReport]" />
         <item itemvalue="Gradle.relief-shading [build]" />
-        <item itemvalue="Gradle.InvalidTest.unsupportedNumber" />
-        <item itemvalue="Gradle.InvalidTest.nullNumber" />
-        <item itemvalue="Gradle.relief-shading [buildDependents]" />
+        <item itemvalue="Gradle.BoundsTest.nullBounds" />
+        <item itemvalue="Gradle.BoundsTest.testToString" />
+        <item itemvalue="Gradle.BoundsTest.immutableBoundsEquals" />
       </list>
     </recent_temporary>
   </component>
@@ -275,7 +275,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612299677047</updated>
-      <workItem from="1612299679422" duration="31595000" />
+      <workItem from="1612299679422" duration="31944000" />
     </task>
     <servers />
   </component>
@@ -298,7 +298,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/BoundsTest.java</url>
-          <line>93</line>
+          <line>107</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

@@ -22,10 +22,6 @@ final class ImmutableBounds implements Bounds {
         this.max = max;
     }
 
-    private ImmutableBounds(Bounds bounds) {
-        this(bounds.min(), bounds.max());
-    }
-
     @Override
     public String toString() {
         return getClass().getSimpleName() + " " + format();

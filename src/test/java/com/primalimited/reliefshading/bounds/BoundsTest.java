@@ -32,6 +32,33 @@ public class BoundsTest {
     }
 
     @Test
+    public void testToString() {
+        String expected = "ImmutableBounds [0..100]";
+        assertEquals(expected, Bounds.PERCENT.toString());
+    }
+
+    @Test
+    public void immutableBoundsEquals() {
+        Bounds bounds0 = Bounds.immutable(0, 5);
+        Bounds bounds1 = mockNullBounds();
+        assertFalse(bounds0.equals(bounds1));
+
+        Bounds bounds = Bounds.immutable(1, 2);
+        assertTrue(bounds.equals(bounds));
+    }
+
+    private Bounds mockNullBounds() {
+        return null;
+    }
+
+    @Test
+    public void nullBounds() {
+        Bounds bounds = Bounds.nullBounds();
+        assertEquals("NullBounds [Unknown..Unknown]", bounds.toString());
+        assertTrue(Invalid.doubleInstance().invalid(bounds.range()));
+    }
+
+    @Test
     public void zeroRange() {
         double min = 10.25;
         double max = 10.25;
