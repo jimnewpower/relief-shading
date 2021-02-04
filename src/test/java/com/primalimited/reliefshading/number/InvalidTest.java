@@ -2,10 +2,23 @@ package com.primalimited.reliefshading.number;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.math.BigDecimal;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class InvalidTest {
+    @Test
+    public void nullNumber() {
+        assertTrue(Invalid.test(null));
+    }
+
+    @Test
+    public void unsupportedNumber() {
+        assertThrows(IllegalArgumentException.class, () -> Invalid.test(new AtomicInteger()));
+        assertThrows(IllegalArgumentException.class, () -> Invalid.test(BigDecimal.valueOf(0L)));
+    }
+
     @Test
     public void invalidDoubles() {
         double value = 1234567.89;
@@ -32,6 +45,7 @@ class InvalidTest {
         assertFalse(Invalid.test(value));
         assertTrue(Invalid.test(Invalid.INVALID_INT));
 
+        assertFalse(Invalid.intInstance().invalid(Integer.valueOf(value)));
         assertFalse(Invalid.intInstance().invalid(value));
         assertTrue(Invalid.intInstance().invalid(Invalid.INVALID_INT));
     }
