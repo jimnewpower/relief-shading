@@ -32,13 +32,6 @@ public class Bounds2D {
         this.yBounds = Bounds.of(yMin, yMax);
     }
 
-    protected Bounds2D(Bounds2D from) {
-        if (from.xBounds.isValid())
-            this.xBounds = Bounds.immutable(from.xBounds.min(), from.xBounds.max());
-        if (from.yBounds.isValid())
-            this.yBounds = Bounds.immutable(from.yBounds.min(), from.yBounds.max());
-    }
-
     @Override
     public String toString() {
         String x = xBounds.format();
@@ -166,18 +159,6 @@ public class Bounds2D {
         return yBounds.range();
     }
 
-    public double ratioXY() {
-        if (!isValid() || Double.compare(0.0, height()) == 0)
-            return Invalid.INVALID_DOUBLE;
-        return width() / height();
-    }
-
-    public double ratioYX() {
-        if (!isValid() || Double.compare(0.0, width()) == 0)
-            return Invalid.INVALID_DOUBLE;
-        return height() / width();
-    }
-
     public int histogramBinX(double x, int nBins) {
         return xBounds.histogramBin(x, nBins);
     }
@@ -186,36 +167,11 @@ public class Bounds2D {
         return yBounds.histogramBin(y, nBins);
     }
 
-    public double getMidpointX() {
-        if (!xBounds.isValid())
-            return Invalid.INVALID_DOUBLE;
-        double midX = minX() + (width() / 2.0);
-        return midX;
-    }
-
-    public double getMidpointY() {
-        if (!yBounds.isValid())
-            return Invalid.INVALID_DOUBLE;
-        double midY = minY() + (height() / 2.0);
-        return midY;
-    }
-
     /**
      * @return false if any value (minX, minY, maxX, maxY) is == Dval.DVAL_DOUBLE,
      * OR if minX &gt;= maxX OR minY &gt;= maxY, true otherwise.
      */
     public boolean isValid() {
         return xBounds.isValid() && yBounds.isValid();
-    }
-
-    public boolean isDefault() {
-        if (
-                Double.compare(minX(), EmptyBounds.DEFAULT_VALUE) == 0
-                        && Double.compare(maxX(), -EmptyBounds.DEFAULT_VALUE) == 0
-                        && Double.compare(minY(), EmptyBounds.DEFAULT_VALUE) == 0
-                        && Double.compare(maxY(), -EmptyBounds.DEFAULT_VALUE) == 0
-        )
-            return true;
-        return false;
     }
 }
