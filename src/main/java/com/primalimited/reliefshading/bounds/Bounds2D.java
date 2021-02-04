@@ -11,8 +11,8 @@ import java.util.Objects;
  */
 public class Bounds2D {
     /* instance variables */
-    protected Bounds xBounds = Bounds.empty();
-    protected Bounds yBounds = Bounds.empty();
+    protected Bounds xBounds = Bounds.nullBounds();
+    protected Bounds yBounds = Bounds.nullBounds();
 
     public static Bounds2D empty() {
         return new Bounds2D();

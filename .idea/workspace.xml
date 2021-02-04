@@ -132,7 +132,7 @@
       <recent name="com.primalimited.reliefshading.number" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Bounds2DTest.equalsAndHashCode">
+  <component name="RunManager" selected="Gradle.relief-shading [test]">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -150,27 +150,6 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.Bounds2DTest.equalsAndHashCode&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="BoundsTest.histogramBins" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.BoundsTest.histogramBins&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -228,6 +207,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="relief-shading [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="relief-shading [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -251,11 +251,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Bounds2DTest.equalsAndHashCode" />
         <item itemvalue="Gradle.relief-shading [test]" />
+        <item itemvalue="Gradle.relief-shading [build]" />
+        <item itemvalue="Gradle.Bounds2DTest.equalsAndHashCode" />
         <item itemvalue="Gradle.GridTest.indexFromLocation" />
         <item itemvalue="Gradle.BoundsTest.histogramBins10" />
-        <item itemvalue="Gradle.BoundsTest.histogramBins" />
       </list>
     </recent_temporary>
   </component>

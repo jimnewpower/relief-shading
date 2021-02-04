@@ -2,6 +2,9 @@ package com.primalimited.reliefshading.bounds;
 
 import java.util.Objects;
 
+/**
+ * Immutable implementation of Bounds.
+ */
 final class ImmutableBounds implements Bounds {
     private final double min;
     private final double max;

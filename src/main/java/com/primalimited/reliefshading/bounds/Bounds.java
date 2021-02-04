@@ -90,10 +90,6 @@ public interface Bounds {
         return ImmutableBounds.of(min, max);
     }
 
-    static Bounds empty() {
-        return EmptyBounds.create();
-    }
-
     static Bounds nullBounds() {
         return new NullBounds();
     }
