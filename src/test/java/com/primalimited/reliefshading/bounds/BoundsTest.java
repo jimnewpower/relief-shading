@@ -59,6 +59,23 @@ public class BoundsTest {
     }
 
     @Test
+    public void validateArguments() {
+        assertThrows(IllegalArgumentException.class,
+                () -> Bounds.immutable(Invalid.INVALID_DOUBLE, 0));
+        assertThrows(IllegalArgumentException.class,
+                () -> Bounds.immutable(0, Invalid.INVALID_DOUBLE));
+    }
+
+    @Test
+    public void testStaticValidFunction() {
+        assertFalse(Bounds.valid(Invalid.INVALID_DOUBLE, 0));
+        assertFalse(Bounds.valid(0, Invalid.INVALID_DOUBLE));
+        assertFalse(Bounds.valid(Invalid.INVALID_DOUBLE, Invalid.INVALID_DOUBLE));
+        assertFalse(Bounds.valid(1, 0));
+        assertTrue(Bounds.valid(0, 1));
+    }
+
+    @Test
     public void zeroRange() {
         double min = 10.25;
         double max = 10.25;
@@ -68,7 +85,6 @@ public class BoundsTest {
 
         assertAll(
                 "Zero Range",
-                () -> assertTrue(bounds.isValid()),
                 () -> assertTrue(bounds.rangeIsZero()),
                 () -> assertEquals(min, bounds.min(), tolerance),
                 () -> assertEquals(max, bounds.max(), tolerance)
@@ -98,6 +114,12 @@ public class BoundsTest {
         final double tolerance = 1e-10;
         assertEquals(1, Bounds.of(array).min(), tolerance);
         assertEquals(100, Bounds.of(array).max(), tolerance);
+    }
+
+    @Test
+    public void createFromArrayAllInvalid() {
+        double[] array = new double[] {Invalid.INVALID_DOUBLE, Invalid.INVALID_DOUBLE };
+        assertTrue(Bounds.of(array).isNull());
     }
 
     @Test
@@ -145,6 +167,19 @@ public class BoundsTest {
             value += random;
             assertEquals(index, bounds.histogramBin(value, nBins), "value: " + value);
         }
+    }
+
+    @Test
+    public void histogramBinsInvalidArgs() {
+        Bounds bounds = Bounds.PERCENT;
+
+        assertEquals(-1, Bounds.nullBounds().histogramBin(0, 10));
+
+        assertEquals(-1, bounds.histogramBin(-3.25, 10), "Invalid value argument.");
+        assertEquals(-1, bounds.histogramBin(Invalid.INVALID_DOUBLE, 10), "Invalid value argument.");
+
+        assertEquals(-1, bounds.histogramBin(3.25, 0), "Invalid nBins argument.");
+        assertEquals(-1, bounds.histogramBin(3.25, Invalid.INVALID_INT), "Invalid nBins argument.");
     }
 
     @Test
