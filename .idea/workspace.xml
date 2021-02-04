@@ -37,6 +37,7 @@
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/BUILD" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/number/InvalidTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/Bounds2DTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/Bounds2DTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +132,7 @@
       <recent name="com.primalimited.reliefshading.number" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.relief-shading [test]">
+  <component name="RunManager" selected="Gradle.Bounds2DTest.equalsAndHashCode">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -143,12 +144,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Bounds2DTest.histogramBinY" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Bounds2DTest.equalsAndHashCode" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.Bounds2DTest.histogramBinY&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.Bounds2DTest.equalsAndHashCode&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -250,11 +251,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Bounds2DTest.equalsAndHashCode" />
         <item itemvalue="Gradle.relief-shading [test]" />
         <item itemvalue="Gradle.GridTest.indexFromLocation" />
         <item itemvalue="Gradle.BoundsTest.histogramBins10" />
         <item itemvalue="Gradle.BoundsTest.histogramBins" />
-        <item itemvalue="Gradle.Bounds2DTest.histogramBinY" />
       </list>
     </recent_temporary>
   </component>
@@ -266,7 +267,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612299677047</updated>
-      <workItem from="1612299679422" duration="27894000" />
+      <workItem from="1612299679422" duration="28459000" />
     </task>
     <servers />
   </component>

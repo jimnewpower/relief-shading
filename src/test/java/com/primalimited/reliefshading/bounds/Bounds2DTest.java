@@ -13,6 +13,26 @@ class Bounds2DTest {
     }
 
     @Test
+    public void equalsAndHashCode() {
+        // equal
+        Bounds2D bounds0 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
+        Bounds2D bounds1 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
+        assertAll("equals() and hashCode() for identical bounds",
+                () -> assertTrue(bounds0.equals(bounds1)),
+                () -> assertTrue(bounds1.equals(bounds0)),
+                () -> assertEquals(bounds0.hashCode(), bounds1.hashCode())
+        );
+
+        // not equal
+        Bounds2D bounds2 = Bounds2D.create(Bounds.LONGITUDE, Bounds.LATITUDE);
+        assertAll("equals() and hashCode() for different bounds",
+                () -> assertFalse(bounds0.equals(bounds2)),
+                () -> assertFalse(bounds2.equals(bounds1)),
+                () -> assertNotEquals(bounds2.hashCode(), bounds1.hashCode())
+        );
+    }
+
+    @Test
     public void valid() {
         Bounds2D bounds = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
         final double tolerance = 1e-10;
