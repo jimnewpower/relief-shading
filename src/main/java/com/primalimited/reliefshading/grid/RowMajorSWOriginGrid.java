@@ -2,6 +2,7 @@ package com.primalimited.reliefshading.grid;
 
 import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.bounds.Bounds2D;
+import com.primalimited.reliefshading.number.Invalid;
 
 import java.util.Objects;
 
@@ -55,6 +56,19 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
             );
 
         return (row * columns) + column;
+    }
+
+    @Override
+    public int index(double x, double y) {
+        int column = bounds.histogramBinX(x, columns());
+        if (column < 0 || Invalid.intInstance().invalid(column))
+            return -1;
+
+        int row = bounds.histogramBinY(y, rows());
+        if (row < 0 || Invalid.intInstance().invalid(row))
+            return -1;
+
+        return index(row, column);
     }
 
     @Override

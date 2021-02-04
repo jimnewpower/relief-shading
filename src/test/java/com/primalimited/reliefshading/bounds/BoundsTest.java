@@ -3,6 +3,8 @@ package com.primalimited.reliefshading.bounds;
 import com.primalimited.reliefshading.number.Invalid;
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.IntStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BoundsTest {
@@ -88,14 +90,8 @@ public class BoundsTest {
     public void histogramBins() {
         Bounds bounds = Bounds.of(0, 100);
         int nBins = 100;
-        assertAll("Histogram bins",
-                () -> assertEquals(0, bounds.histogramBin(0.5, nBins)),
-                () -> assertEquals(10, bounds.histogramBin(10.5, nBins)),
-                () -> assertEquals(22, bounds.histogramBin(22.0, nBins)),
-                () -> assertEquals(48, bounds.histogramBin(48.999, nBins)),
-                () -> assertEquals(97, bounds.histogramBin(97.0001, nBins)),
-                () -> assertEquals(99, bounds.histogramBin(100, nBins))
-        );
+        IntStream.range(0, 100).asDoubleStream()
+                .forEach(x -> assertEquals((int)x, bounds.histogramBin(x, nBins)));
     }
 
     @Test

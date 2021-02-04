@@ -35,6 +35,15 @@ public interface Grid<T> {
     int index(int row, int column);
 
     /**
+     * Return the index into the grid array for the x,y location.
+     *
+     * @param x the x location
+     * @param y the y location
+     * @return  the index into the grid array for the x,y location.
+     */
+    int index(double x, double y);
+
+    /**
      * Return the value at the grid node represented by row, column.
      *
      * @param row the row of the grid.

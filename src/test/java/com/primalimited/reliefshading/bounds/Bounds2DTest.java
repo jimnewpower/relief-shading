@@ -2,6 +2,8 @@ package com.primalimited.reliefshading.bounds;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.IntStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class Bounds2DTest {
@@ -42,5 +44,21 @@ class Bounds2DTest {
         Bounds2D disjoint = Bounds2D.create(Bounds.of(200, 300), Bounds.of(200, 300));
         assertTrue(percent.disjoint(disjoint));
         assertTrue(disjoint.disjoint(percent));
+    }
+
+    @Test
+    public void histogramBinX() {
+        Bounds2D percent = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
+        IntStream.range(0, 100)
+                .asDoubleStream()
+                .forEach(x -> assertEquals((int)x, percent.histogramBinX(x, 100)));
+    }
+
+    @Test
+    public void histogramBinY() {
+        Bounds2D percent = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
+        IntStream.range(0, 100)
+                .asDoubleStream()
+                .forEach(y -> assertEquals((int)y, percent.histogramBinY(y, 100)));
     }
 }

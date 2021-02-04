@@ -186,8 +186,11 @@ public interface Bounds {
             return -1;
         if (value < min() || value > max())
             return -1;
-        int bin = (int) Math.floor(getFractionBetween(value) * (nBins));
-        return Math.max(0, Math.min(nBins - 1, bin));
+
+        double numerator = value - min();
+        double denominator = range() / nBins;
+        int bin = (int) (numerator / denominator);
+        return bin;
     }
 
     /**

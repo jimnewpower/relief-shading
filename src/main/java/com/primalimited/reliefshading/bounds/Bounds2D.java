@@ -10,202 +10,212 @@ import java.util.Objects;
  * @author Jim Newpower
  */
 public class Bounds2D {
-  /* instance variables */
-  protected Bounds xBounds = Bounds.empty();
-  protected Bounds yBounds = Bounds.empty();
+    /* instance variables */
+    protected Bounds xBounds = Bounds.empty();
+    protected Bounds yBounds = Bounds.empty();
 
-  public static Bounds2D empty() {
-    return new Bounds2D();
-  }
-
-  public static Bounds2D create(Bounds x, Bounds y) {
-    Objects.requireNonNull(x, "x bounds cannot be null");
-    Objects.requireNonNull(y, "y bounds cannot be null");
-    return new Bounds2D(x.min(), x.max(), y.min(), y.max());
-  }
-
-  protected Bounds2D() {
-  }
-
-  private Bounds2D(double xMin, double xMax, double yMin, double yMax) {
-    this.xBounds = Bounds.of(xMin, xMax);
-    this.yBounds = Bounds.of(yMin, yMax);
-  }
-
-  protected Bounds2D(Bounds2D from) {
-    if (from.xBounds.isValid())
-      this.xBounds = Bounds.immutable(from.xBounds.min(), from.xBounds.max());
-    if (from.yBounds.isValid())
-      this.yBounds = Bounds.immutable(from.yBounds.min(), from.yBounds.max());
-  }
-
-  @Override public String toString() {
-    String x = xBounds.format();
-    String y = yBounds.format();
-    return getClass().getSimpleName() + " x=" + x + ", y=" + y;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    Bounds2D bounds2D = (Bounds2D) o;
-    return xBounds.equals(bounds2D.xBounds) && yBounds.equals(bounds2D.yBounds);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(xBounds, yBounds);
-  }
-
-  /**
-   * Returns true if the two rectangles have no intersections
-   *
-   * @param bounds bounds to test
-   * @return true if the two rectangles have no intersections, false otherwise
-   */
-  public boolean disjoint(Bounds2D bounds) {
-    if (!isValid())
-      return false;
-    if (!bounds.isValid())
-      return false;
-
-    if (contains(bounds))
-      return false;
-    if (bounds.contains(this))
-      return false;
-
-    boolean outsideX = false;
-    if (
-      (bounds.minX() < minX() && bounds.maxX() < minX()) ||
-      (bounds.minX() > maxX() && bounds.maxX() > maxX())
-    ) {
-      outsideX = true;
+    public static Bounds2D empty() {
+        return new Bounds2D();
     }
 
-    boolean outsideY = false;
-    if (
-      (bounds.minY() < minY() && bounds.maxY() < minY()) ||
-      (bounds.minY() > maxY() && bounds.maxY() > maxY())
-    ) {
-      outsideY = true;
+    public static Bounds2D create(Bounds x, Bounds y) {
+        Objects.requireNonNull(x, "x bounds cannot be null");
+        Objects.requireNonNull(y, "y bounds cannot be null");
+        return new Bounds2D(x.min(), x.max(), y.min(), y.max());
     }
 
-    return outsideX || outsideY;
-  }
+    protected Bounds2D() {
+    }
 
-  public double maxY() {
-    return yBounds.max();
-  }
+    private Bounds2D(double xMin, double xMax, double yMin, double yMax) {
+        this.xBounds = Bounds.of(xMin, xMax);
+        this.yBounds = Bounds.of(yMin, yMax);
+    }
 
-  public double minY() {
-    return yBounds.min();
-  }
+    protected Bounds2D(Bounds2D from) {
+        if (from.xBounds.isValid())
+            this.xBounds = Bounds.immutable(from.xBounds.min(), from.xBounds.max());
+        if (from.yBounds.isValid())
+            this.yBounds = Bounds.immutable(from.yBounds.min(), from.yBounds.max());
+    }
 
-  public double maxX() {
-    return xBounds.max();
-  }
+    @Override
+    public String toString() {
+        String x = xBounds.format();
+        String y = yBounds.format();
+        return getClass().getSimpleName() + " x=" + x + ", y=" + y;
+    }
 
-  public double minX() {
-    return xBounds.min();
-  }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bounds2D bounds2D = (Bounds2D) o;
+        return xBounds.equals(bounds2D.xBounds) && yBounds.equals(bounds2D.yBounds);
+    }
 
-  /**
-   * Returns true if and only if bounds arg is entirely inside this bounds
-   * @param bounds bounds
-   * @return true if and only if bounds arg is entirely inside this bounds
-   */
-  public boolean contains(Bounds2D bounds) {
-    if (!isValid())
-      return false;
-    if (!bounds.isValid())
-      return false;
+    @Override
+    public int hashCode() {
+        return Objects.hash(xBounds, yBounds);
+    }
 
-    if (bounds.minX() < minX())
-      return false;
-    if (bounds.maxX() > maxX())
-      return false;
-    if (bounds.minY() < minY())
-      return false;
-    if (bounds.maxY() > maxY())
-      return false;
+    /**
+     * Returns true if the two rectangles have no intersections
+     *
+     * @param bounds bounds to test
+     * @return true if the two rectangles have no intersections, false otherwise
+     */
+    public boolean disjoint(Bounds2D bounds) {
+        if (!isValid())
+            return false;
+        if (!bounds.isValid())
+            return false;
 
-    return true;
-  }
+        if (contains(bounds))
+            return false;
+        if (bounds.contains(this))
+            return false;
 
-  public boolean contains(double x, double y) {
-    if (!isValid())
-      return false;
+        boolean outsideX = false;
+        if (
+                (bounds.minX() < minX() && bounds.maxX() < minX()) ||
+                        (bounds.minX() > maxX() && bounds.maxX() > maxX())
+        ) {
+            outsideX = true;
+        }
 
-    if (x < minX() || x > maxX())
-      return false;
+        boolean outsideY = false;
+        if (
+                (bounds.minY() < minY() && bounds.maxY() < minY()) ||
+                        (bounds.minY() > maxY() && bounds.maxY() > maxY())
+        ) {
+            outsideY = true;
+        }
 
-    if (y < minY() || y > maxY())
-      return false;
+        return outsideX || outsideY;
+    }
 
-    return true;
-  }
+    public double maxY() {
+        return yBounds.max();
+    }
 
-  /**
-   * @return width (maxX - minX)
-   */
-  public double width() {
-    if (!xBounds.isValid())
-      return Invalid.INVALID_DOUBLE;
-    return xBounds.range();
-  }
+    public double minY() {
+        return yBounds.min();
+    }
 
-  /**
-   * @return height (maxY - minY)
-   */
-  public double height() {
-    if (!yBounds.isValid())
-      return Invalid.INVALID_DOUBLE;
-    return yBounds.range();
-  }
+    public double maxX() {
+        return xBounds.max();
+    }
 
-  public double ratioXY() {
-    if (!isValid() || Double.compare(0.0, height()) == 0)
-      return Invalid.INVALID_DOUBLE;
-    return width() / height();
-  }
+    public double minX() {
+        return xBounds.min();
+    }
 
-  public double ratioYX() {
-    if (!isValid() || Double.compare(0.0, width()) == 0)
-      return Invalid.INVALID_DOUBLE;
-    return height() / width();
-  }
+    /**
+     * Returns true if and only if bounds arg is entirely inside this bounds
+     *
+     * @param bounds bounds
+     * @return true if and only if bounds arg is entirely inside this bounds
+     */
+    public boolean contains(Bounds2D bounds) {
+        if (!isValid())
+            return false;
+        if (!bounds.isValid())
+            return false;
 
-  public double getMidpointX() {
-    if (!xBounds.isValid())
-      return Invalid.INVALID_DOUBLE;
-    double midX = minX() + (width() / 2.0);
-    return midX;
-  }
+        if (bounds.minX() < minX())
+            return false;
+        if (bounds.maxX() > maxX())
+            return false;
+        if (bounds.minY() < minY())
+            return false;
+        if (bounds.maxY() > maxY())
+            return false;
 
-  public double getMidpointY() {
-    if (!yBounds.isValid())
-      return Invalid.INVALID_DOUBLE;
-    double midY = minY() + (height() / 2.0);
-    return midY;
-  }
+        return true;
+    }
 
-  /**
-   * @return false if any value (minX, minY, maxX, maxY) is == Dval.DVAL_DOUBLE,
-   * OR if minX &gt;= maxX OR minY &gt;= maxY, true otherwise.
-   */
-  public boolean isValid() {
-    return xBounds.isValid() && yBounds.isValid();
-  }
+    public boolean contains(double x, double y) {
+        if (!isValid())
+            return false;
 
-  public boolean isDefault() {
-    if (
-        Double.compare(minX(), EmptyBounds.DEFAULT_VALUE) == 0
-        && Double.compare(maxX(), -EmptyBounds.DEFAULT_VALUE) == 0
-        && Double.compare(minY(), EmptyBounds.DEFAULT_VALUE) == 0
-        && Double.compare(maxY(), -EmptyBounds.DEFAULT_VALUE) == 0
-      )
-      return true;
-    return false;
-  }
+        if (x < minX() || x > maxX())
+            return false;
+
+        if (y < minY() || y > maxY())
+            return false;
+
+        return true;
+    }
+
+    /**
+     * @return width (maxX - minX)
+     */
+    public double width() {
+        if (!xBounds.isValid())
+            return Invalid.INVALID_DOUBLE;
+        return xBounds.range();
+    }
+
+    /**
+     * @return height (maxY - minY)
+     */
+    public double height() {
+        if (!yBounds.isValid())
+            return Invalid.INVALID_DOUBLE;
+        return yBounds.range();
+    }
+
+    public double ratioXY() {
+        if (!isValid() || Double.compare(0.0, height()) == 0)
+            return Invalid.INVALID_DOUBLE;
+        return width() / height();
+    }
+
+    public double ratioYX() {
+        if (!isValid() || Double.compare(0.0, width()) == 0)
+            return Invalid.INVALID_DOUBLE;
+        return height() / width();
+    }
+
+    public int histogramBinX(double x, int nBins) {
+        return xBounds.histogramBin(x, nBins);
+    }
+
+    public int histogramBinY(double y, int nBins) {
+        return yBounds.histogramBin(y, nBins);
+    }
+
+    public double getMidpointX() {
+        if (!xBounds.isValid())
+            return Invalid.INVALID_DOUBLE;
+        double midX = minX() + (width() / 2.0);
+        return midX;
+    }
+
+    public double getMidpointY() {
+        if (!yBounds.isValid())
+            return Invalid.INVALID_DOUBLE;
+        double midY = minY() + (height() / 2.0);
+        return midY;
+    }
+
+    /**
+     * @return false if any value (minX, minY, maxX, maxY) is == Dval.DVAL_DOUBLE,
+     * OR if minX &gt;= maxX OR minY &gt;= maxY, true otherwise.
+     */
+    public boolean isValid() {
+        return xBounds.isValid() && yBounds.isValid();
+    }
+
+    public boolean isDefault() {
+        if (
+                Double.compare(minX(), EmptyBounds.DEFAULT_VALUE) == 0
+                        && Double.compare(maxX(), -EmptyBounds.DEFAULT_VALUE) == 0
+                        && Double.compare(minY(), EmptyBounds.DEFAULT_VALUE) == 0
+                        && Double.compare(maxY(), -EmptyBounds.DEFAULT_VALUE) == 0
+        )
+            return true;
+        return false;
+    }
 }
