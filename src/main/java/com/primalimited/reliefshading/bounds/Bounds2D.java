@@ -58,33 +58,9 @@ public class Bounds2D {
      * @return true if the two rectangles have no intersections, false otherwise
      */
     public boolean disjoint(Bounds2D bounds) {
-        if (!isValid())
-            return true;
-        if (!bounds.isValid())
-            return true;
-
-        if (contains(bounds))
-            return false;
-        if (bounds.contains(this))
-            return false;
-
-        boolean outsideX = false;
-        if (
-                (bounds.minX() < minX() && bounds.maxX() < minX()) ||
-                        (bounds.minX() > maxX() && bounds.maxX() > maxX())
-        ) {
-            outsideX = true;
-        }
-
-        boolean outsideY = false;
-        if (
-                (bounds.minY() < minY() && bounds.maxY() < minY()) ||
-                        (bounds.minY() > maxY() && bounds.maxY() > maxY())
-        ) {
-            outsideY = true;
-        }
-
-        return outsideX || outsideY;
+        Objects.requireNonNull(bounds);
+        // only need 1 of x or y to be disjoint
+        return xBounds.disjoint(bounds.xBounds) || yBounds.disjoint(bounds.yBounds);
     }
 
     public double maxY() {

@@ -220,6 +220,9 @@ public interface Bounds {
         if (contains(other.min()) || contains(other.max()))
             return false;
 
+        if (other.contains(min()) || other.contains(max()))
+            return false;
+
         return true;
     }
 
