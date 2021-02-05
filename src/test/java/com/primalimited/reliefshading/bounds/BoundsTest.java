@@ -192,6 +192,25 @@ public class BoundsTest {
     }
 
     @Test
+    public void disjoint() {
+        Bounds bounds0 = Bounds.of(0, 1);
+        Bounds bounds1 = Bounds.of(1, 2);
+        assertFalse(bounds0.disjoint(bounds1));
+
+        bounds1 = Bounds.of(-1, 0);
+        assertFalse(bounds0.disjoint(bounds1));
+
+        bounds1 = Bounds.of(-2, -1);
+        assertTrue(bounds0.disjoint(bounds1));
+
+        bounds1 = Bounds.of(3, 4);
+        assertTrue(bounds0.disjoint(bounds1));
+
+        assertTrue(Bounds.nullBounds().disjoint(bounds0));
+        assertTrue(bounds0.disjoint(Bounds.nullBounds()));
+    }
+
+    @Test
     public void bind() {
         Bounds bounds = Bounds.of(-100, 100);
         final double tolerance = 1e-10;

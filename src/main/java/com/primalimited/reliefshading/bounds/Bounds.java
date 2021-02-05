@@ -206,6 +206,24 @@ public interface Bounds {
     }
 
     /**
+     * Return true if bounds are disjoint, i.e. don't overlap.
+     *
+     * @param other bounds to evaluate
+     * @return true if bounds are disjoint, i.e. don't overlap.
+     */
+    default boolean disjoint(Bounds other) {
+        Objects.requireNonNull(other, "other");
+
+        if (!isValid() || !other.isValid())
+            return true;
+
+        if (contains(other.min()) || contains(other.max()))
+            return false;
+
+        return true;
+    }
+
+    /**
      * Bind value to bounds, i.e. if value &lt; min, return min, if value &gt; max return max, otherwise return value.
      * @param value value to bind
      * @return if value &lt; min, return min, if value &gt; max return max, otherwise return value.
