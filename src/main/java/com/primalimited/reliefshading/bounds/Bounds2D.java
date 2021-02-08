@@ -20,15 +20,15 @@ public class Bounds2D {
     public static Bounds2D create(Bounds x, Bounds y) {
         Objects.requireNonNull(x, "x bounds cannot be null");
         Objects.requireNonNull(y, "y bounds cannot be null");
-        return new Bounds2D(x.min(), x.max(), y.min(), y.max());
+        return new Bounds2D(x, y);
     }
 
-    protected Bounds2D() {
+    private Bounds2D() {
     }
 
-    private Bounds2D(double xMin, double xMax, double yMin, double yMax) {
-        this.xBounds = Bounds.of(xMin, xMax);
-        this.yBounds = Bounds.of(yMin, yMax);
+    private Bounds2D(Bounds x, Bounds y) {
+        this.xBounds = Bounds.of(x.min(), x.max());
+        this.yBounds = Bounds.of(y.min(), y.max());
     }
 
     @Override
@@ -80,35 +80,17 @@ public class Bounds2D {
     }
 
     /**
-     * Returns true if and only if bounds arg is entirely inside this bounds
+     * Return true if both x and y are within bounds, false otherwise.
      *
-     * @param bounds bounds
-     * @return true if and only if bounds arg is entirely inside this bounds
+     * @param x x location
+     * @param y y location
+     * @return true if both x and y are within bounds, false otherwise.
      */
-    public boolean contains(Bounds2D bounds) {
-        if (!isValid())
-            return false;
-        if (!bounds.isValid())
-            return false;
-
-        if (bounds.minX() < minX())
-            return false;
-        if (bounds.maxX() > maxX())
-            return false;
-        if (bounds.minY() < minY())
-            return false;
-        if (bounds.maxY() > maxY())
-            return false;
-
-        return true;
-    }
-
     public boolean contains(double x, double y) {
         if (!isValid())
             return false;
 
-        return minX() <= x && x <= maxX()
-            && minY() <= y && y <= maxY();
+        return xBounds.contains(x) && yBounds.contains(y);
     }
 
     /**
