@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef928da7-480f-4eaf-b706-12a67a4438be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bazel-relief-shading/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/.idea/compiler.xml" beforeDir="false" />
@@ -23,6 +24,8 @@
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/gradlew" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/images/sanjuans.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bazel-relief-shading/images/sanjuans2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/settings.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/main/java/com/primalimited/reliefshading/bounds/Bounds.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/main/java/com/primalimited/reliefshading/bounds/Bounds2D.java" beforeDir="false" />
@@ -37,8 +40,7 @@
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/BUILD" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bazel-relief-shading/src/test/java/com/primalimited/reliefshading/number/InvalidTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/RowMajorSWOriginGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/grid/RowMajorSWOriginGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/grid/GridTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/Bounds2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/primalimited/reliefshading/bounds/Bounds2D.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,17 +142,40 @@
       <recent name="com.primalimited.reliefshading.number" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.relief-shading [jacocoTestReport]">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Gradle.relief-shading [test]">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="Bounds2DTest.disjoint" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.primalimited.reliefshading.bounds.Bounds2DTest.disjoint&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="relief-shading [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -185,27 +210,6 @@
         <option name="taskNames">
           <list>
             <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="relief-shading [jacocoTestCoverageVerification]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jacocoTestCoverageVerification" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -259,11 +263,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.relief-shading [jacocoTestReport]" />
-        <item itemvalue="Gradle.relief-shading [jacocoTestCoverageVerification]" />
         <item itemvalue="Gradle.relief-shading [test]" />
         <item itemvalue="Gradle.relief-shading [build]" />
+        <item itemvalue="Gradle.relief-shading [jacocoTestReport]" />
         <item itemvalue="Gradle.relief-shading [clean]" />
+        <item itemvalue="Gradle.Bounds2DTest.disjoint" />
       </list>
     </recent_temporary>
   </component>
@@ -275,7 +279,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612299677047</updated>
-      <workItem from="1612299679422" duration="35346000" />
+      <workItem from="1612299679422" duration="36579000" />
+      <workItem from="1612556807291" duration="4516000" />
     </task>
     <servers />
   </component>
@@ -292,6 +297,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -302,9 +308,14 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/BoundsTest.java</url>
+          <line>197</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/primalimited/reliefshading/bounds/Bounds2DTest.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="7" />
+          <line>98</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
