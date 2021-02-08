@@ -68,12 +68,12 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     public int index(int row, int column) {
         if (row < 0 || row >= rows())
             throw new IllegalArgumentException(
-                    INVALID_ROW + row + MUST_BE_WITHIN + Bounds.of(0, rows()).format()
+                    INVALID_ROW + row + MUST_BE_WITHIN + Bounds.of(0, rows()-1).format()
             );
 
         if (column < 0 || column >= columns())
             throw new IllegalArgumentException(
-                    INVALID_COLUMN + column + MUST_BE_WITHIN + Bounds.of(0, columns()).format()
+                    INVALID_COLUMN + column + MUST_BE_WITHIN + Bounds.of(0, columns()-1).format()
             );
 
         return (row * columns) + column;
@@ -82,11 +82,11 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     @Override
     public int index(double x, double y) {
         int column = bounds.histogramBinX(x, columns());
-        if (column < 0 || Invalid.intInstance().invalid(column))
+        if (column == -1)
             return -1;
 
         int row = bounds.histogramBinY(y, rows());
-        if (row < 0 || Invalid.intInstance().invalid(row))
+        if (row == -1)
             return -1;
 
         return index(row, column);

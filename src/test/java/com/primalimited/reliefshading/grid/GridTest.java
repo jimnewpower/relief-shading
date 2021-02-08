@@ -44,11 +44,11 @@ public class GridTest {
     public void factoryMethodInvalidValues() {
         // null values
         assertThrows(IllegalArgumentException.class,
-                () -> Grid.createRowMajorSWOrigin(10, 10, Bounds2D.empty(), null));
+                () -> Grid.createRowMajorSWOrigin(10, 10, mockBounds(), null));
 
         // values with wrong length
         assertThrows(IllegalArgumentException.class,
-                () -> Grid.createRowMajorSWOrigin(10, 10, Bounds2D.empty(), mockValues(3, 4)));
+                () -> Grid.createRowMajorSWOrigin(10, 10, mockBounds(), mockValues(3, 4)));
     }
 
     @Test
@@ -117,17 +117,17 @@ public class GridTest {
 
         // invalid arguments
         assertThrows(IllegalArgumentException.class,
-                () -> grid.value(-1, 2));
+                () -> grid.value(-1, 1));
         assertThrows(IllegalArgumentException.class,
-                () -> grid.value(99000, 2));
+                () -> grid.value(99000, 1));
         assertThrows(IllegalArgumentException.class,
-                () -> grid.value(Invalid.INVALID_INT, 2));
+                () -> grid.value(Invalid.INVALID_INT, 1));
         assertThrows(IllegalArgumentException.class,
-                () -> grid.value(2, -1));
+                () -> grid.value(1, -1));
         assertThrows(IllegalArgumentException.class,
-                () -> grid.value(2, 99000));
+                () -> grid.value(1, 99000));
         assertThrows(IllegalArgumentException.class,
-                () -> grid.value(2, Invalid.INVALID_INT));
+                () -> grid.value(1, Invalid.INVALID_INT));
     }
 
     @Test
