@@ -21,7 +21,7 @@ class ColorPaletteImpl implements ColorPalette {
     private final ControlPoint[] controlPoints;
     private int[] rgb;
 
-    public ColorPaletteImpl(int nColors, ControlPoint...controlPoints) {
+    ColorPaletteImpl(int nColors, ControlPoint...controlPoints) {
         if (nColors <= 0 || Invalid.intInstance().invalid(nColors))
             throw new IllegalArgumentException("nColors must be > 0");
 

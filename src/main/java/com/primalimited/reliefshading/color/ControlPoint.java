@@ -2,15 +2,28 @@ package com.primalimited.reliefshading.color;
 
 import java.util.Objects;
 
+/**
+ * Control points are used as interpolation end points for color palettes.
+ */
 public class ControlPoint {
     private final int index;
     private final int rgb;
 
+    /**
+     * Create a control point.
+     *
+     * @param index index into the master color array for the color palette
+     * @param rgb rgb value for this control point
+     */
     public ControlPoint(int index, int rgb) {
         this.index = index;
         this.rgb = rgb;
     }
 
+    /**
+     * Returns the index into the master color array for a color palette.
+     * @return the index into the master color array for a color palette.
+     */
     public int index() {
         return index;
     }
