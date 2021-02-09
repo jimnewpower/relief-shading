@@ -5,7 +5,6 @@ import com.primalimited.reliefshading.bounds.Bounds2D;
 import com.primalimited.reliefshading.grid.Grid;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
