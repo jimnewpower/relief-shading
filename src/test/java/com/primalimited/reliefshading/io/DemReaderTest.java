@@ -4,6 +4,7 @@ import com.primalimited.reliefshading.bounds.Bounds2D;
 import com.primalimited.reliefshading.grid.Grid;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,7 +15,7 @@ public class DemReaderTest {
     private static final String DEMO_FILENAME = "N37W108.hgt";
 
     @Test
-    public void readSRTM_HGT_DEM() {
+    public void readSRTM_HGT_DEM() throws IOException {
         URL url = getClass().getResource(DEMO_FILENAME);
         assertNotNull(url, "url");
 

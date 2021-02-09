@@ -2,6 +2,7 @@ package com.primalimited.reliefshading.io;
 
 import com.primalimited.reliefshading.grid.Grid;
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 public interface DemReader {
@@ -9,5 +10,5 @@ public interface DemReader {
         return new DemReaderSRTM(path);
     }
 
-    Grid read();
+    Grid read() throws IOException;
 }

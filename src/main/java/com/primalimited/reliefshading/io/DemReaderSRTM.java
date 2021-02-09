@@ -27,7 +27,7 @@ class DemReaderSRTM implements DemReader {
     }
 
     @Override
-    public Grid read() {
+    public Grid read() throws IOException {
         Bounds2D bounds = createBounds();
         Short[] values = new Short[SIZE];
 
@@ -40,13 +40,7 @@ class DemReaderSRTM implements DemReader {
 
             for (int index = 0; index < SIZE; index++)
                 values[index] = byteBuffer.getShort(index * Short.BYTES);
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
 
         return Grid.createRowMajorSWOrigin(N_ROWS, N_COLS, bounds, values);
     }
