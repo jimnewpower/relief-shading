@@ -1,5 +1,6 @@
 package com.primalimited.reliefshading.bounds;
 
+import com.primalimited.reliefshading.number.Invalid;
 import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;
@@ -33,6 +34,20 @@ class Bounds2DTest {
     }
 
     @Test
+    public void equalsSelf() {
+        Bounds2D bounds0 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
+        assertTrue(bounds0.equals(bounds0));
+    }
+
+    @Test
+    public void notEqualsNullOrOtherType() {
+        Bounds2D bounds0 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
+        Bounds2D nullBounds = null;
+        assertFalse(bounds0.equals(nullBounds));
+        assertFalse(bounds0.equals(Integer.valueOf(3)));
+    }
+
+    @Test
     public void toStringOutput() {
         Bounds2D bounds = Bounds2D.create(Bounds.LONGITUDE, Bounds.LATITUDE);
         assertEquals("Bounds2D x=[-180..180], y=[-90..90]", bounds.toString());
@@ -51,6 +66,12 @@ class Bounds2DTest {
                 () -> assertEquals(100, bounds.maxY(), tolerance),
                 () -> assertEquals(100, bounds.height(), tolerance)
         );
+    }
+
+    @Test
+    public void invalid() {
+        // both x and y invalid
+        assertFalse(Bounds2D.empty().isValid());
     }
 
     @Test
@@ -119,5 +140,27 @@ class Bounds2DTest {
         IntStream.range(0, 100)
                 .asDoubleStream()
                 .forEach(y -> assertEquals((int)y, percent.histogramBinY(y, 100)));
+    }
+
+    @Test
+    public void width() {
+        Bounds2D bounds0 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
+        assertEquals(1.0, bounds0.width(), 1e-10);
+    }
+
+    @Test
+    public void widthForInvalid() {
+        assertTrue(Invalid.doubleInstance().invalid(Bounds2D.empty().width()));
+    }
+
+    @Test
+    public void height() {
+        Bounds2D bounds0 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
+        assertEquals(1.0, bounds0.height(), 1e-10);
+    }
+
+    @Test
+    public void heightForInvalid() {
+        assertTrue(Invalid.doubleInstance().invalid(Bounds2D.empty().height()));
     }
 }
