@@ -43,5 +43,7 @@ public class DemReaderTest {
         assertEquals(expected, grid.value(3600, 3600));
         expected = 3776;
         assertEquals(expected, grid.value(0, 3600));
+        expected = 2728;
+        assertEquals(expected, grid.value(220, 340));
     }
 }
