@@ -33,7 +33,12 @@ class PaletteBuilderTest {
     public void constantColorPalette() {
         int nColors = 12;
         Color color = Color.CYAN;
-        int[] rgb = PaletteBuilder.buildRGB(nColors, new ControlPoint(0, color.getRGB()));
+        int[] rgb = PaletteBuilder
+                .buildRGB(
+                        nColors,
+                        new ControlPoint(0, color.getRGB())
+                );
+
         assertEquals(nColors, rgb.length);
         for (int rgbValue : rgb)
             assertEquals(color.getRGB(), rgbValue);
@@ -45,12 +50,13 @@ class PaletteBuilderTest {
                 .buildRGB(
                         3,
                         new ControlPoint(0, Color.WHITE.getRGB()),
-                        new ControlPoint(2, Color.BLACK.getRGB()));
+                        new ControlPoint(2, Color.BLACK.getRGB())
+                );
 
         assertEquals(3, rgb.length);
 
         assertEquals(Color.WHITE.getRGB(), rgb[0]);
-        assertEquals(-8421505, rgb[1]);
+        assertEquals(-8355712, rgb[1]);
         assertEquals(Color.BLACK.getRGB(), rgb[2]);
     }
 
@@ -60,7 +66,8 @@ class PaletteBuilderTest {
                 .buildRGB(
                         3,
                         new ControlPoint(0, Color.BLUE.getRGB()),
-                        new ControlPoint(2, Color.BLUE.getRGB()));
+                        new ControlPoint(2, Color.BLUE.getRGB())
+                );
 
         assertEquals(3, rgb.length);
 
@@ -69,4 +76,22 @@ class PaletteBuilderTest {
         assertEquals(Color.BLUE.getRGB(), rgb[2]);
     }
 
+    @Test
+    public void fiveColorPalette3ControlPoints() {
+        int[] rgb = PaletteBuilder
+                .buildRGB(
+                        5,
+                        new ControlPoint(0, Color.BLUE.getRGB()),
+                        new ControlPoint(2, Color.RED.getRGB()),
+                        new ControlPoint(4, Color.BLUE.getRGB())
+                );
+
+        assertEquals(5, rgb.length);
+        assertEquals(Color.BLUE.getRGB(), rgb[0]);
+        assertEquals(-8388480, rgb[1]);
+        assertEquals(Color.RED.getRGB(), rgb[2]);
+        assertEquals(-8388480, rgb[3]);
+        assertEquals(Color.BLUE.getRGB(), rgb[4]);
+
+    }
 }
