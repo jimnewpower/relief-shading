@@ -160,6 +160,36 @@ public class GridTest {
     }
 
     @Test
+    public void rowColumnFromCellIndex() {
+        Grid grid = mock();
+
+        // valid rows
+        assertEquals(0, grid.rowFromCellIndex(0));
+        assertEquals(1, grid.rowFromCellIndex(grid.columns()));
+        assertEquals(2, 2 * grid.rowFromCellIndex(grid.columns()));
+        assertEquals(3, 3 * grid.rowFromCellIndex(grid.columns()));
+        assertEquals(4, 4 * grid.rowFromCellIndex(grid.columns()));
+
+        // valid columns
+        assertEquals(0, grid.columnFromCellIndex(0));
+        assertEquals(1, grid.columnFromCellIndex(1));
+        assertEquals(2, grid.columnFromCellIndex(2));
+        assertEquals(3, grid.columnFromCellIndex(3));
+        assertEquals(8, grid.columnFromCellIndex(8));
+        assertEquals(9, grid.columnFromCellIndex(9));
+        assertEquals(0, grid.columnFromCellIndex(grid.columns()));
+        assertEquals(2, grid.columnFromCellIndex(grid.columns() + 2));
+        assertEquals(9, grid.columnFromCellIndex((grid.rows() * grid.columns())-1));
+
+        // invalid indexes
+        assertEquals(-1, grid.rowFromCellIndex(-1122));
+        assertEquals(-1, grid.rowFromCellIndex(grid.rows() * grid.columns()));
+        assertEquals(-1, grid.columnFromCellIndex(-1122));
+        assertEquals(-1, grid.columnFromCellIndex(grid.rows() * grid.columns()));
+
+    }
+
+    @Test
     public void indexFromLocation() {
         int rows = 5;
         int columns = 10;

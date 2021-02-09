@@ -80,6 +80,28 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     }
 
     @Override
+    public int rowFromCellIndex(int index) {
+        return index < 0
+                ? -1
+                : index >= rows() * columns()
+                ? -1
+                : index < columns()
+                ? 0
+                : index / columns();
+    }
+
+    @Override
+    public int columnFromCellIndex(int index) {
+        return index < 0
+                ? -1
+                : index >= rows() * columns()
+                ? -1
+                : index < columns()
+                ? index
+                : index % columns();
+    }
+
+    @Override
     public int index(double x, double y) {
         int column = bounds.histogramBinX(x, columns());
         if (column == -1)

@@ -35,6 +35,22 @@ public interface Grid<T> {
     int index(int row, int column);
 
     /**
+     * Compute row from cell (array) index.
+     *
+     * @param index index into values array
+     * @return row computed from cell index, or -1 if index is out of range.
+     */
+    int rowFromCellIndex(int index);
+
+    /**
+     * Compute column from cell (array) index.
+     *
+     * @param index index into values array
+     * @return column computed from cell index, or -1 of index is out of range.
+     */
+    int columnFromCellIndex(int index);
+
+    /**
      * Return the index into the grid array for the x,y location.
      *
      * @param x the x location
