@@ -35,6 +35,7 @@ public class DemReaderTest {
                 () -> assertEquals(38.0, bounds.maxY(), tolerance)
         );
 
+        // test some known values (corners, etc.)
         short expected = 2000;
         assertEquals(expected, grid.value(0, 0));
         expected = 2528;
@@ -45,5 +46,7 @@ public class DemReaderTest {
         assertEquals(expected, grid.value(0, 3600));
         expected = 1945;
         assertEquals(expected, grid.value(220, 340));
+        expected = 3374;
+        assertEquals(expected, grid.value(1800, 1800));
     }
 }

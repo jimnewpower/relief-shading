@@ -28,7 +28,6 @@ class DemReaderSRTM implements DemReader {
 
     @Override
     public Grid read() throws IOException {
-        Bounds2D bounds = createBounds();
         Short[] values = new Short[SIZE];
 
         try (FileChannel fileChannel = new FileInputStream(path.toFile()).getChannel()) {
@@ -43,7 +42,7 @@ class DemReaderSRTM implements DemReader {
         }
 
         Short[] flipped = flipNorthSouth(values);
-        return Grid.createRowMajorSWOrigin(N_ROWS, N_COLS, bounds, flipped);
+        return Grid.createRowMajorSWOrigin(N_ROWS, N_COLS, createBounds(), flipped);
     }
 
     private Short[] flipNorthSouth(Short[] values) {
