@@ -3,8 +3,6 @@ package com.primalimited.reliefshading.bounds;
 import com.primalimited.reliefshading.number.Invalid;
 import org.junit.jupiter.api.Test;
 
-import java.util.function.DoubleSupplier;
-import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;

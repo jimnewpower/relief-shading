@@ -28,26 +28,16 @@ final class ImmutableBounds implements Bounds {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == null)
-            return false;
-
-        if (this == obj)
-            return true;
-
-        if (obj instanceof Bounds) {
-            Bounds other = (Bounds) obj;
-            if (Double.compare(this.min(), other.min()) == 0
-                    && Double.compare(this.max(), other.max()) == 0)
-                return true;
-        }
-
-        return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ImmutableBounds that = (ImmutableBounds) o;
+        return Double.compare(that.min, min) == 0 && Double.compare(that.max, max) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(min(), max());
+        return Objects.hash(min, max);
     }
 
     @Override

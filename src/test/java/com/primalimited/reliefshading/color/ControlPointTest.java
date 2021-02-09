@@ -2,7 +2,7 @@ package com.primalimited.reliefshading.color;
 
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
+import java.awt.Color;
 
 import static org.junit.jupiter.api.Assertions.*;
 
