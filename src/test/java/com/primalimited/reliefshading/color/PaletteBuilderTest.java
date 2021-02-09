@@ -1,0 +1,72 @@
+package com.primalimited.reliefshading.color;
+
+import org.junit.jupiter.api.Test;
+
+import java.awt.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class PaletteBuilderTest {
+    @Test
+    public void oneColorOneControlPoint() {
+        // when asking for 1 color, the control point with index 0 should be that color
+        int[] rgb = PaletteBuilder.buildRGB(1, new ControlPoint(0, Color.PINK.getRGB()));
+        assertEquals(1, rgb.length, "length should == 1");
+        assertEquals(Color.PINK.getRGB(), rgb[0]);
+    }
+
+    @Test
+    public void oneColorMultipleControlPoints() {
+        // when asking for 1 color, the control point with index 0 should be that color
+        int[] rgb = PaletteBuilder.buildRGB(
+                1,
+                new ControlPoint(0, Color.PINK.getRGB()),
+                new ControlPoint(2, Color.ORANGE.getRGB()),
+                new ControlPoint(4, Color.YELLOW.getRGB()),
+                new ControlPoint(6, Color.GREEN.getRGB())
+        );
+        assertEquals(1, rgb.length, "length should == 1");
+        assertEquals(Color.PINK.getRGB(), rgb[0]);
+    }
+
+    @Test
+    public void constantColorPalette() {
+        int nColors = 12;
+        Color color = Color.CYAN;
+        int[] rgb = PaletteBuilder.buildRGB(nColors, new ControlPoint(0, color.getRGB()));
+        assertEquals(nColors, rgb.length);
+        for (int rgbValue : rgb)
+            assertEquals(color.getRGB(), rgbValue);
+    }
+
+    @Test
+    public void threeColorPalette() {
+        int[] rgb = PaletteBuilder
+                .buildRGB(
+                        3,
+                        new ControlPoint(0, Color.WHITE.getRGB()),
+                        new ControlPoint(2, Color.BLACK.getRGB()));
+
+        assertEquals(3, rgb.length);
+
+        assertEquals(Color.WHITE.getRGB(), rgb[0]);
+        assertEquals(-8421505, rgb[1]);
+        assertEquals(Color.BLACK.getRGB(), rgb[2]);
+    }
+
+    @Test
+    public void threeColorPaletteSameControlPointColors() {
+        int[] rgb = PaletteBuilder
+                .buildRGB(
+                        3,
+                        new ControlPoint(0, Color.BLUE.getRGB()),
+                        new ControlPoint(2, Color.BLUE.getRGB()));
+
+        assertEquals(3, rgb.length);
+
+        assertEquals(Color.BLUE.getRGB(), rgb[0]);
+        assertEquals(Color.BLUE.getRGB(), rgb[1]);
+        assertEquals(Color.BLUE.getRGB(), rgb[2]);
+    }
+
+}

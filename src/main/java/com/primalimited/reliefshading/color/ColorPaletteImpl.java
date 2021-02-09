@@ -3,9 +3,12 @@ package com.primalimited.reliefshading.color;
 import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.number.Invalid;
 
+import java.awt.*;
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Package-level (default) implementation of ColorPalette.
@@ -24,9 +27,9 @@ class ColorPaletteImpl implements ColorPalette {
 
         this.nColors = nColors;
         this.controlPoints = Objects.requireNonNull(controlPoints, "control points");
-
         validateControlPoints();
-        buildPalette();
+
+        rgb = PaletteBuilder.buildRGB(nColors, controlPoints);
     }
 
     private void validateControlPoints() {
@@ -45,18 +48,6 @@ class ColorPaletteImpl implements ColorPalette {
             if (statistics.getMin() != nColors-1)
                 throw new IllegalStateException("Must have a control point with index == " + (nColors-1) + ".");
         }
-    }
-
-    private void buildPalette() {
-        rgb = new int[nColors];
-
-        if (controlPoints.length == 1) {
-            Arrays.fill(rgb, controlPoints[0].rgb());
-            return;
-        }
-
-        //TODO: fill the rgb array
-
     }
 
     @Override
