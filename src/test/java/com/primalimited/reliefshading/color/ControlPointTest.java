@@ -2,9 +2,18 @@ package com.primalimited.reliefshading.color;
 
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControlPointTest {
+    @Test
+    public void invalidIndexShouldThrow() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new ControlPoint(-1, Color.WHITE.getRGB())
+        );
+    }
+
     @Test
     public void index() {
         ControlPoint controlPoint = new ControlPoint(0, 0);

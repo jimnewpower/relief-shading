@@ -19,6 +19,9 @@ public class ControlPoint {
      * @param rgb rgb value for this control point
      */
     public ControlPoint(int index, int rgb) {
+        if (index < 0)
+            throw new IllegalArgumentException("Index must be >= 0.");
+
         this.index = index;
         this.rgb = rgb;
     }

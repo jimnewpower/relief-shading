@@ -8,6 +8,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ColorPaletteTest {
     @Test
+    public void invalidNColors() {
+        assertThrows(IllegalArgumentException.class,
+                () -> ColorPalette.create(0));
+    }
+
+    @Test
+    public void emptyControlPoints() {
+        assertThrows(IllegalStateException.class,
+                () -> ColorPalette.create(256));
+    }
+
+    @Test
     public void nColors() {
         ColorPalette colorPalette = ColorPalette
                 .create(1, new ControlPoint(0, 0));
