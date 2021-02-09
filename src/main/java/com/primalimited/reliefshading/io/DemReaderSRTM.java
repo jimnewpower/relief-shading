@@ -11,6 +11,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 import java.nio.file.Path;
+import java.util.Locale;
 import java.util.Objects;
 
 class DemReaderSRTM implements DemReader {
@@ -119,6 +120,6 @@ class DemReaderSRTM implements DemReader {
     }
 
     String filename() {
-        return path.getFileName().toString().toUpperCase();
+        return path.getFileName().toString().toUpperCase(Locale.US);
     }
 }
