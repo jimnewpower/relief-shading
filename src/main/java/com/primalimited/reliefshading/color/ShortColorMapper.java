@@ -9,7 +9,7 @@ class ShortColorMapper implements ColorMapper<Short> {
         return new ShortColorMapper(bounds);
     }
 
-    private final Bounds bounds;
+    private transient final Bounds bounds;
 
     ShortColorMapper(Bounds bounds) {
         this.bounds = Objects.requireNonNull(bounds, "bounds");

@@ -14,9 +14,16 @@ import java.util.Objects;
  * interpolating between the control points.
  */
 class ColorPaletteImpl implements ColorPalette {
-    private final int nColors;
-    private final ControlPoint[] controlPoints;
-    private int[] rgb;
+    private static final int MULTIPLE_CONTROL_POINTS_MIN = 2;
+
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient final int nColors;
+
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient final ControlPoint[] controlPoints;
+
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient final int[] rgb;
 
     ColorPaletteImpl(int nColors, ControlPoint...controlPoints) {
         if (nColors <= 0 || Invalid.intInstance().invalid(nColors))
@@ -24,6 +31,7 @@ class ColorPaletteImpl implements ColorPalette {
 
         this.nColors = nColors;
         this.controlPoints = Objects.requireNonNull(controlPoints, "control points");
+
         validateControlPoints();
 
         rgb = PaletteBuilder.buildRGB(nColors, controlPoints);
@@ -34,15 +42,15 @@ class ColorPaletteImpl implements ColorPalette {
             throw new IllegalStateException("Must have at least 1 control point.");
 
         // 1 control point is allowed, which will result in a palette of all the same color
-        if (controlPoints.length > 1) {
+        if (controlPoints.length >= MULTIPLE_CONTROL_POINTS_MIN) {
             // must define endpoints
             IntSummaryStatistics statistics = Arrays
                     .stream(controlPoints)
-                    .mapToInt(cp -> cp.index())
+                    .mapToInt(ControlPoint::index)
                     .summaryStatistics();
             if (statistics.getMin() != 0)
                 throw new IllegalStateException("Must have a control point with index == 0.");
-            if (statistics.getMin() != nColors-1)
+            if (statistics.getMax() != nColors-1)
                 throw new IllegalStateException("Must have a control point with index == " + (nColors-1) + ".");
         }
     }

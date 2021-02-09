@@ -14,12 +14,12 @@ class ControlPointTest {
     }
 
     @Test
-    public void equals() {
+    public void testEquals() {
         ControlPoint controlPoint0 = new ControlPoint(0, 0);
         ControlPoint controlPoint1 = new ControlPoint(0, 0);
         assertEquals(controlPoint0, controlPoint1);
-        assertTrue(controlPoint0.equals(controlPoint1), "equals()");
-        assertTrue(controlPoint1.equals(controlPoint0), "equals()");
+        assertTrue(controlPoint0.equals(controlPoint1));
+        assertTrue(controlPoint1.equals(controlPoint0));
     }
 
     @Test
@@ -27,8 +27,8 @@ class ControlPointTest {
         ControlPoint controlPoint0 = new ControlPoint(0, 0);
         ControlPoint controlPoint1 = new ControlPoint(1, 0);
         assertNotEquals(controlPoint0, controlPoint1);
-        assertFalse(controlPoint0.equals(controlPoint1), "equals()");
-        assertFalse(controlPoint1.equals(controlPoint0), "equals()");
+        assertFalse(controlPoint0.equals(controlPoint1));
+        assertFalse(controlPoint1.equals(controlPoint0));
     }
 
     @Test
@@ -36,8 +36,8 @@ class ControlPointTest {
         ControlPoint controlPoint0 = new ControlPoint(0, 0);
         ControlPoint controlPoint1 = new ControlPoint(0, 1);
         assertNotEquals(controlPoint0, controlPoint1);
-        assertFalse(controlPoint0.equals(controlPoint1), "equals()");
-        assertFalse(controlPoint1.equals(controlPoint0), "equals()");
+        assertFalse(controlPoint0.equals(controlPoint1));
+        assertFalse(controlPoint1.equals(controlPoint0));
     }
 
     @Test

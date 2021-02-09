@@ -6,8 +6,11 @@ import java.util.Objects;
  * Control points are used as interpolation end points for color palettes.
  */
 public class ControlPoint {
-    private final int index;
-    private final int rgb;
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient final int index;
+
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient final int rgb;
 
     /**
      * Create a control point.
