@@ -3,12 +3,9 @@ package com.primalimited.reliefshading.color;
 import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.number.Invalid;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
-import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 /**
  * Package-level (default) implementation of ColorPalette.
