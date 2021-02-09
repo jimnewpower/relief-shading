@@ -35,15 +35,15 @@ public class DemReaderTest {
                 () -> assertEquals(38.0, bounds.maxY(), tolerance)
         );
 
-        short expected = 2528;
+        short expected = 2000;
         assertEquals(expected, grid.value(0, 0));
-        expected = 2000;
+        expected = 2528;
         assertEquals(expected, grid.value(3600, 0));
-        expected = 2535;
-        assertEquals(expected, grid.value(3600, 3600));
         expected = 3776;
+        assertEquals(expected, grid.value(3600, 3600));
+        expected = 2535;
         assertEquals(expected, grid.value(0, 3600));
-        expected = 2728;
+        expected = 1945;
         assertEquals(expected, grid.value(220, 340));
     }
 }

@@ -42,7 +42,18 @@ class DemReaderSRTM implements DemReader {
                 values[index] = byteBuffer.getShort(index * Short.BYTES);
         }
 
-        return Grid.createRowMajorSWOrigin(N_ROWS, N_COLS, bounds, values);
+        Short[] flipped = flipNorthSouth(values);
+        return Grid.createRowMajorSWOrigin(N_ROWS, N_COLS, bounds, flipped);
+    }
+
+    private Short[] flipNorthSouth(Short[] values) {
+        Short[] flipped = new Short[SIZE];
+        for (int row = 0; row < N_ROWS; row++) {
+            int srcPos = row * N_COLS;
+            int destPos = (N_ROWS - 1 - row) * N_COLS;
+            System.arraycopy(values, srcPos, flipped, destPos, N_COLS);
+        }
+        return flipped;
     }
 
     private ByteBuffer allocate() {
