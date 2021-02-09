@@ -17,13 +17,13 @@ public interface ColorMapper<T> {
     int rgb(T value);
 
     /**
-     * Creates a short-value color mapper.
+     * Creates a color mapper for numeric values.
      *
      * @param colorPalette color palette (provides the colors)
      * @param bounds the bounding values for the color palette
-     * @return new instance of a short-value color mapper for the given palette and bounds.
+     * @return new instance of a numeric-value color mapper for the given palette and bounds.
      */
-    static ColorMapper<Short> shortInstance(ColorPalette colorPalette, Bounds bounds) {
-        return ShortColorMapper.create(colorPalette, bounds);
+    static ColorMapper<Number> numeric(ColorPalette colorPalette, Bounds bounds) {
+        return new ColorMapperNumeric(colorPalette, bounds);
     }
 }
