@@ -17,6 +17,17 @@ public enum ColorPaletteDefaults {
                     new ControlPoint(nColors-1, new Color(255, 255, 255).getRGB())
             );
         }
+    },
+    RELIEF_SHADE {
+        @Override
+        public ColorPalette colorPalette() {
+            final int nColors = 100;
+            return ColorPalette.create(
+                    nColors,
+                    new ControlPoint(  0, new Color(64, 64, 64).getRGB()),
+                    new ControlPoint(nColors-1, new Color(192, 192, 192).getRGB())
+            );
+        }
     };
 
     public abstract ColorPalette colorPalette();
