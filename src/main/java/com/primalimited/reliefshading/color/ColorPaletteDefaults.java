@@ -2,7 +2,13 @@ package com.primalimited.reliefshading.color;
 
 import java.awt.*;
 
+/**
+ * Defines default color palettes
+ */
 public enum ColorPaletteDefaults {
+    /**
+     * DEM palette
+     */
     DEM {
         @Override
         public ColorPalette colorPalette() {
@@ -18,6 +24,9 @@ public enum ColorPaletteDefaults {
             );
         }
     },
+    /**
+     * Grayscale palette for relief-shading.
+     */
     RELIEF_SHADE {
         @Override
         public ColorPalette colorPalette() {
