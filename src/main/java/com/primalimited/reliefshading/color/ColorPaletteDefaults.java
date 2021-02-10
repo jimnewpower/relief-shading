@@ -30,7 +30,7 @@ public enum ColorPaletteDefaults {
     RELIEF_SHADE {
         @Override
         public ColorPalette colorPalette() {
-            final int nColors = 100;
+            final int nColors = 256;
             return ColorPalette.create(
                     nColors,
                     new ControlPoint(  0, new Color(64, 64, 64).getRGB()),
@@ -39,5 +39,10 @@ public enum ColorPaletteDefaults {
         }
     };
 
+    /**
+     * Get or create the color palette.
+     *
+     * @return color palette instance.
+     */
     public abstract ColorPalette colorPalette();
 }

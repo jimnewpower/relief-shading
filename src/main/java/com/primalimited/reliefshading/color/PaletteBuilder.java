@@ -29,29 +29,8 @@ class PaletteBuilder {
             int nColorsBetween = next.index() - first.index() - 1;
             if (nColorsBetween > 0) {
                 for (int arrayIndex = first.index() + 1, count = 1; arrayIndex < next.index(); arrayIndex++, count++) {
-                    double fraction0 = count / (double)(nColorsBetween + 1);
-                    double fraction1 = 1.0 - fraction0;
-
-                    int red = (int) Bounds.RGB_8_BIT.bind(
-                            Math.round(
-                                fraction0 * firstColor.getRed()
-                                + fraction1 * nextColor.getRed()
-                            )
-                    );
-                    int green = (int) Bounds.RGB_8_BIT.bind(
-                            Math.round(
-                                fraction0 * firstColor.getGreen()
-                                + fraction1 * nextColor.getGreen()
-                            )
-                    );
-                    int blue = (int) Bounds.RGB_8_BIT.bind(
-                            Math.round(
-                                fraction0 * firstColor.getBlue()
-                                + fraction1 * nextColor.getBlue()
-                            )
-                    );
-
-                    rgb[arrayIndex] = new Color(red, green, blue).getRGB();
+                    float fraction = count / (float)(nColorsBetween + 1);
+                    rgb[arrayIndex] = Gradient.computeRGB(fraction, firstColor, nextColor);
                 }
             }
 
