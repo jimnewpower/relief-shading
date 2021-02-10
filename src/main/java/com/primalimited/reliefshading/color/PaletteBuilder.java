@@ -4,7 +4,18 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Build 32-bit opaque color array given nColors and control points.
+ */
 class PaletteBuilder {
+
+    /**
+     * Build 32-bit opaque color array given nColors and control points.
+     *
+     * @param nColors number of colors for the array
+     * @param controlPoints the control points (compute gradients between)
+     * @return array of rgb values
+     */
     static int[] buildRGB(int nColors, ControlPoint...controlPoints) {
         if (controlPoints.length == 1 || nColors == 1) {
             int[] rgb = new int[nColors];
