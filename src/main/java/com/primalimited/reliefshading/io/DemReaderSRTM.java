@@ -1,6 +1,8 @@
 package com.primalimited.reliefshading.io;
 
+import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.grid.Grid;
+import com.primalimited.reliefshading.number.Invalid;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,6 +28,9 @@ class DemReaderSRTM implements DemReader {
 
     @Override
     public Grid read() throws IOException {
+        double min = (double)Short.MAX_VALUE;
+        double max = (double)Short.MIN_VALUE;
+
         Short[] values = new Short[SIZE];
 
         try (FileChannel fileChannel = new FileInputStream(path.toFile()).getChannel()) {
@@ -35,12 +40,29 @@ class DemReaderSRTM implements DemReader {
 
             fileChannel.read(byteBuffer, 0L);
 
-            for (int index = 0; index < SIZE; index++)
+            for (int index = 0; index < SIZE; index++) {
                 values[index] = byteBuffer.getShort(index * Short.BYTES);
+
+                if (!Invalid.shortInstance().invalid(values[index])) {
+                    min = Math.min(min, values[index]);
+                    max = Math.max(max, values[index]);
+                }
+            }
         }
 
+        Bounds zBounds = Bounds.valid(min, max)
+            ? Bounds.of(min, max)
+                : Bounds.nullBounds();
+
         Short[] flipped = flipNorthSouth(values);
-        return Grid.createRowMajorSWOrigin(N_ROWS, N_COLS, filename.createBounds(), flipped);
+
+        return Grid.createRowMajorSWOriginWithZBounds(
+                N_ROWS,
+                N_COLS,
+                filename.createBounds(),
+                zBounds,
+                flipped
+        );
     }
 
     private Short[] flipNorthSouth(Short[] values) {

@@ -1,5 +1,6 @@
 package com.primalimited.reliefshading.io;
 
+import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.bounds.Bounds2D;
 import com.primalimited.reliefshading.grid.Grid;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,13 @@ class DemReaderSRTMTest {
                 () -> assertEquals(-107.0, bounds.maxX(), tolerance),
                 () -> assertEquals(37.0, bounds.minY(), tolerance),
                 () -> assertEquals(38.0, bounds.maxY(), tolerance)
+        );
+
+        Bounds zBounds = grid.zBounds();
+        assertAll(
+                "grid z bounds",
+                () -> assertEquals(1807, zBounds.min(), tolerance),
+                () -> assertEquals(4285, zBounds.max(), tolerance)
         );
 
         // test some known values (corners, etc.)

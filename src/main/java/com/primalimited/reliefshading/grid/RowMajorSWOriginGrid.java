@@ -20,7 +20,15 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
     private transient final Bounds2D bounds;
 
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
+    private transient Bounds zBounds = Bounds.nullBounds();
+
     private transient final T[] values;
+
+    RowMajorSWOriginGrid(int rows, int columns, Bounds2D bounds, Bounds zBounds, T[] values) {
+        this(rows, columns, bounds, values);
+        this.zBounds = Objects.requireNonNull(zBounds, "z bounds");
+    }
 
     RowMajorSWOriginGrid(int rows, int columns, Bounds2D bounds, T[] values) {
         if (rows <= 0)
@@ -62,6 +70,11 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     @Override
     public Bounds2D bounds() {
         return bounds;
+    }
+
+    @Override
+    public Bounds zBounds() {
+        return zBounds;
     }
 
     @Override

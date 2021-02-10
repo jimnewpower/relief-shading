@@ -1,10 +1,21 @@
 package com.primalimited.reliefshading.grid;
 
+import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.bounds.Bounds2D;
 
 public interface Grid<T> {
     static <T> Grid<T> createRowMajorSWOrigin(int rows, int columns, Bounds2D bounds, T[] values) {
         return new RowMajorSWOriginGrid<>(rows, columns, bounds, values);
+    }
+
+    static <T> Grid<T> createRowMajorSWOriginWithZBounds(
+            int rows,
+            int columns,
+            Bounds2D bounds,
+            Bounds zBounds,
+            T[] values
+    ) {
+        return new RowMajorSWOriginGrid<>(rows, columns, bounds, zBounds, values);
     }
 
     /**
@@ -24,6 +35,12 @@ public interface Grid<T> {
      * @return the spatial extents of the grid.
      */
     Bounds2D bounds();
+
+    /**
+     * Return the z bounds, if applicable.
+     * @return the bounds for the grid z values.
+     */
+    Bounds zBounds();
 
     /**
      * Return the index into the grid array.
