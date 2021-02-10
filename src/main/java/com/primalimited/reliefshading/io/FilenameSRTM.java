@@ -12,6 +12,7 @@ public class FilenameSRTM {
         return new FilenameSRTM(filename);
     }
 
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
     private transient final String filename;
 
     private FilenameSRTM(String filename) {

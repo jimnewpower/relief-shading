@@ -7,16 +7,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FilenameSRTMTest {
+    private static final String DEMO_FILENAME = "N37W108.hgt";
+
     @Test
     public void filename() {
-        String name = "N37W108.hgt";
+        String name = DEMO_FILENAME;
         FilenameSRTM filename = FilenameSRTM.create(name);
         assertEquals(name, filename.filename());
     }
 
     @Test
     public void longitude() {
-        String name = "N37W108.hgt";
+        String name = DEMO_FILENAME;
         FilenameSRTM filename = FilenameSRTM.create(name);
         assertAll("Longitude for " + name,
                 () -> assertTrue(filename.isWest()),
@@ -28,7 +30,7 @@ class FilenameSRTMTest {
 
     @Test
     public void latitude() {
-        String name = "N37W108.hgt";
+        String name = DEMO_FILENAME;
         FilenameSRTM filename = FilenameSRTM.create(name);
         assertAll("Latitude for " + name,
                 () -> assertTrue(filename.isNorth()),
@@ -40,7 +42,7 @@ class FilenameSRTMTest {
 
     @Test
     public void bounds2D() {
-        String name = "N37W108.hgt";
+        String name = DEMO_FILENAME;
         FilenameSRTM filename = FilenameSRTM.create(name);
         assertEquals(
                 Bounds2D.create(Bounds.of(-108, -107), Bounds.of(37, 38)),
