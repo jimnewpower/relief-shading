@@ -1,7 +1,6 @@
 package com.primalimited.reliefshading.color;
 
 import com.primalimited.reliefshading.bounds.Bounds;
-import com.primalimited.reliefshading.bounds.Bounds2D;
 import com.primalimited.reliefshading.number.Invalid;
 import org.junit.jupiter.api.Test;
 

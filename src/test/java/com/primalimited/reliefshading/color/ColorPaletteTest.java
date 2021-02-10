@@ -3,7 +3,7 @@ package com.primalimited.reliefshading.color;
 import com.primalimited.reliefshading.number.Invalid;
 import org.junit.jupiter.api.Test;
 
-import java.awt.Color;
+import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 

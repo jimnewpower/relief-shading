@@ -1,7 +1,6 @@
 package com.primalimited.reliefshading.algorithm;
 
 import com.primalimited.reliefshading.grid.Grid;
-import com.primalimited.reliefshading.grid.GridTest;
 import com.primalimited.reliefshading.io.DemReader;
 import com.primalimited.reliefshading.io.DemReaderTest;
 import com.primalimited.reliefshading.prefs.Preferences;
