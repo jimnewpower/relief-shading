@@ -1,7 +1,5 @@
 package com.primalimited.reliefshading.color;
 
-import com.primalimited.reliefshading.bounds.Bounds;
-
 import java.awt.*;
 import java.util.Arrays;
 import java.util.List;

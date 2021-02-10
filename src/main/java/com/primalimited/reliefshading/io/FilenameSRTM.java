@@ -3,8 +3,6 @@ package com.primalimited.reliefshading.io;
 import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.bounds.Bounds2D;
 
-import java.io.File;
-import java.util.Locale;
 import java.util.Objects;
 
 public class FilenameSRTM {
