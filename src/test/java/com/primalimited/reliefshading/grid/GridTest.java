@@ -1,12 +1,11 @@
 package com.primalimited.reliefshading.grid;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.bounds.Bounds2D;
 import com.primalimited.reliefshading.number.Invalid;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GridTest {
     @Test
@@ -55,7 +54,7 @@ public class GridTest {
     public void rowsAndColumns() {
         int rows = 21;
         int columns = 34;
-        Grid<Double> grid = Grid.createRowMajorSWOrigin(
+        Grid grid = Grid.createRowMajorSWOrigin(
                 rows,
                 columns,
                 Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION),
@@ -69,7 +68,7 @@ public class GridTest {
     public void bounds() {
         int rows = 21;
         int columns = 34;
-        Grid<Double> grid = Grid.createRowMajorSWOrigin(
+        Grid grid = Grid.createRowMajorSWOrigin(
                 rows,
                 columns,
                 Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION),
@@ -92,7 +91,7 @@ public class GridTest {
         for (int index = 0; index < values.length; index++)
             values[index] = (double) index;
 
-        Grid<Double> grid = Grid.createRowMajorSWOrigin(
+        Grid grid = Grid.createRowMajorSWOrigin(
                 rows,
                 columns,
                 Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION),
@@ -104,16 +103,16 @@ public class GridTest {
         int row = 0;
         int col = 0;
 
-        assertEquals(0, grid.value(row, col++), tolerance);
-        assertEquals(1, grid.value(row, col++), tolerance);
-        assertEquals(2, grid.value(row, col++), tolerance);
+        assertEquals(0, grid.value(row, col++).intValue());
+        assertEquals(1, grid.value(row, col++).intValue());
+        assertEquals(2, grid.value(row, col++).intValue());
 
         row++;
         col = 0;
 
-        assertEquals(3, grid.value(row, col++), tolerance);
-        assertEquals(4, grid.value(row, col++), tolerance);
-        assertEquals(5, grid.value(row, col++), tolerance);
+        assertEquals(3, grid.value(row, col++).intValue());
+        assertEquals(4, grid.value(row, col++).intValue());
+        assertEquals(5, grid.value(row, col++).intValue());
 
         // invalid arguments
         assertThrows(IllegalArgumentException.class,
@@ -163,6 +162,14 @@ public class GridTest {
     public void rowColumnFromCellIndex() {
         Grid grid = mock();
 
+        for (int row = 0; row < grid.rows(); row++) {
+            for (int col = 0; col < grid.columns(); col++) {
+                int index = grid.index(row, col);
+                assertNotEquals(-1, grid.rowFromCellIndex(index));
+                assertNotEquals(-1, grid.columnFromCellIndex(index));
+            }
+        }
+
         // valid rows
         assertEquals(0, grid.rowFromCellIndex(0));
         assertEquals(1, grid.rowFromCellIndex(grid.columns()));
@@ -199,7 +206,7 @@ public class GridTest {
         for (int index = 0; index < values.length; index++)
             values[index] = (double) index;
 
-        Grid<Double> grid = Grid.createRowMajorSWOrigin(
+        Grid grid = Grid.createRowMajorSWOrigin(
                 rows,
                 columns,
                 Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT),
@@ -238,7 +245,7 @@ public class GridTest {
         // create grid values where value == index
         Double[] values = mockValues(rows, columns);
 
-        Grid<Double> grid = Grid.createRowMajorSWOrigin(
+        Grid grid = Grid.createRowMajorSWOrigin(
                 rows,
                 columns,
                 mockBounds(),

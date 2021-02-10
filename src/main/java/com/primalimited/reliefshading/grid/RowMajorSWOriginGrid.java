@@ -7,7 +7,7 @@ import com.primalimited.reliefshading.number.Invalid;
 import java.util.Objects;
 
 @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
-class RowMajorSWOriginGrid<T> implements Grid<T> {
+class RowMajorSWOriginGrid implements Grid {
     public static final String MUST_BE_WITHIN = ". Must be within ";
     public static final String INVALID_ROW = "Invalid row: ";
     public static final String INVALID_COLUMN = "Invalid column: ";
@@ -16,14 +16,14 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     private transient final int columns;
     private transient final Bounds2D bounds;
     private transient Bounds zBounds = Bounds.nullBounds();
-    private transient final T[] values;
+    private transient final Number[] values;
 
-    RowMajorSWOriginGrid(int rows, int columns, Bounds2D bounds, Bounds zBounds, T[] values) {
+    RowMajorSWOriginGrid(int rows, int columns, Bounds2D bounds, Bounds zBounds, Number[] values) {
         this(rows, columns, bounds, values);
         this.zBounds = Objects.requireNonNull(zBounds, "z bounds");
     }
 
-    RowMajorSWOriginGrid(int rows, int columns, Bounds2D bounds, T[] values) {
+    RowMajorSWOriginGrid(int rows, int columns, Bounds2D bounds, Number[] values) {
         if (rows <= 0)
             throw new IllegalArgumentException("Rows must be > 0.");
         if (Invalid.intInstance().invalid(rows))
@@ -121,7 +121,7 @@ class RowMajorSWOriginGrid<T> implements Grid<T> {
     }
 
     @Override
-    public T value(int row, int column) {
+    public Number value(int row, int column) {
         if (row < 0 || row >= rows())
             throw new IllegalArgumentException(
                     INVALID_ROW + row + MUST_BE_WITHIN + Bounds.of(0, rows()).format()

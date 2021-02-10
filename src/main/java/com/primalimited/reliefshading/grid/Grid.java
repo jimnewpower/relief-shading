@@ -3,19 +3,19 @@ package com.primalimited.reliefshading.grid;
 import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.bounds.Bounds2D;
 
-public interface Grid<T> {
-    static <T> Grid<T> createRowMajorSWOrigin(int rows, int columns, Bounds2D bounds, T[] values) {
-        return new RowMajorSWOriginGrid<>(rows, columns, bounds, values);
+public interface Grid {
+    static Grid createRowMajorSWOrigin(int rows, int columns, Bounds2D bounds, Number[] values) {
+        return new RowMajorSWOriginGrid(rows, columns, bounds, values);
     }
 
-    static <T> Grid<T> createRowMajorSWOriginWithZBounds(
+    static Grid createRowMajorSWOriginWithZBounds(
             int rows,
             int columns,
             Bounds2D bounds,
             Bounds zBounds,
-            T[] values
+            Number[] values
     ) {
-        return new RowMajorSWOriginGrid<>(rows, columns, bounds, zBounds, values);
+        return new RowMajorSWOriginGrid(rows, columns, bounds, zBounds, values);
     }
 
     /**
@@ -83,5 +83,5 @@ public interface Grid<T> {
      * @param column the column of the grid.
      * @return the value at the grid node represented by row, column.
      */
-    T value(int row, int column);
+    Number value(int row, int column);
 }

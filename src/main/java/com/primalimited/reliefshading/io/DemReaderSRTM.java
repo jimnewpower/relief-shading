@@ -12,14 +12,14 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 import java.util.Objects;
 
-class DemReaderSRTM implements DemReader {
+class DemReaderSRTM<T extends Number> implements DemReader {
     private static final int N_ROWS = 3601;
     private static final int N_COLS = 3601;
     private static final int SIZE = N_ROWS * N_COLS;
     private static final ByteOrder BYTE_ORDER = ByteOrder.BIG_ENDIAN;
 
     private transient final Path path;
-    private transient FilenameSRTM filename;
+    private transient final FilenameSRTM filename;
 
     DemReaderSRTM(Path path) {
         this.path = Objects.requireNonNull(path, "Path for DEM file.");
@@ -41,11 +41,12 @@ class DemReaderSRTM implements DemReader {
             fileChannel.read(byteBuffer, 0L);
 
             for (int index = 0; index < SIZE; index++) {
-                values[index] = byteBuffer.getShort(index * Short.BYTES);
+                short value = byteBuffer.getShort(index * Short.BYTES);
+                values[index] = value;
 
                 if (!Invalid.shortInstance().invalid(values[index])) {
-                    min = Math.min(min, values[index]);
-                    max = Math.max(max, values[index]);
+                    min = Math.min(min, value);
+                    max = Math.max(max, value);
                 }
             }
         }
@@ -54,7 +55,8 @@ class DemReaderSRTM implements DemReader {
             ? Bounds.of(min, max)
                 : Bounds.nullBounds();
 
-        Short[] flipped = flipNorthSouth(values);
+        Short[] flipped = new Short[SIZE];
+        flipNorthSouth(values, flipped);
 
         return Grid.createRowMajorSWOriginWithZBounds(
                 N_ROWS,
@@ -65,14 +67,12 @@ class DemReaderSRTM implements DemReader {
         );
     }
 
-    private Short[] flipNorthSouth(Short[] values) {
-        Short[] flipped = new Short[SIZE];
+    private void flipNorthSouth(Short[] values, Short[] flipped) {
         for (int row = 0; row < N_ROWS; row++) {
             int srcPos = row * N_COLS;
             int destPos = (N_ROWS - 1 - row) * N_COLS;
             System.arraycopy(values, srcPos, flipped, destPos, N_COLS);
         }
-        return flipped;
     }
 
     private ByteBuffer allocate() {
