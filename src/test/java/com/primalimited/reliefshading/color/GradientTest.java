@@ -8,10 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GradientTest {
     @Test
-    public void testGradient() {
+    public void whiteBlack() {
         assertEquals(Color.WHITE.getRGB(), Gradient.computeRGB(0.f, Color.WHITE, Color.BLACK));
         assertEquals(Color.BLACK.getRGB(), Gradient.computeRGB(1.f, Color.WHITE, Color.BLACK));
+    }
 
+    @Test
+    public void gray() {
         assertEquals(
                 new Color(128, 128, 128).getRGB(),
                 Gradient.computeRGB(0.5f, Color.WHITE, Color.BLACK)
@@ -19,6 +22,18 @@ class GradientTest {
         assertEquals(
                 new Color(128, 128, 128).getRGB(),
                 Gradient.computeRGB(0.5f, Color.BLACK, Color.WHITE)
+        );
+    }
+
+    @Test
+    public void redBlue() {
+        assertEquals(
+                new Color(128, 0, 128).getRGB(),
+                Gradient.computeRGB(0.5f, Color.RED, Color.BLUE)
+        );
+        assertEquals(
+                new Color(128, 0, 128).getRGB(),
+                Gradient.computeRGB(0.5f, Color.BLUE, Color.RED)
         );
     }
 
