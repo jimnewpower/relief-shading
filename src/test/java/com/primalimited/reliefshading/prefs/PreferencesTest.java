@@ -10,8 +10,8 @@ class PreferencesTest {
         Preferences preferences = Preferences.createDefault();
         assertAll(
                 "Default values",
-                () -> assertEquals(315, preferences.azimuth()),
-                () -> assertEquals(45, preferences.altitude()),
+                () -> assertEquals(315, preferences.azimuthDegrees()),
+                () -> assertEquals(45, preferences.altitudeDegrees()),
                 () -> assertEquals(70, preferences.opacityPercent())
         );
     }
@@ -24,8 +24,8 @@ class PreferencesTest {
         Preferences preferences = Preferences.with(azimuth, altitude, opacityPercent);
         assertAll(
                 "Explicit values",
-                () -> assertEquals(azimuth, preferences.azimuth()),
-                () -> assertEquals(altitude, preferences.altitude()),
+                () -> assertEquals(azimuth, preferences.azimuthDegrees()),
+                () -> assertEquals(altitude, preferences.altitudeDegrees()),
                 () -> assertEquals(opacityPercent, preferences.opacityPercent())
         );
     }
