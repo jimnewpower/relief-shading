@@ -23,6 +23,8 @@ public class ColorPaletteDefaultsDemo implements Runnable {
     }
 
     private static class Panel extends JPanel {
+        public static final long serialVersionUID = 4848482121L;
+
         @Override
         public void paint(Graphics g) {
             super.paint(g);
@@ -54,5 +56,4 @@ public class ColorPaletteDefaultsDemo implements Runnable {
             }
         }
     }
-
 }
