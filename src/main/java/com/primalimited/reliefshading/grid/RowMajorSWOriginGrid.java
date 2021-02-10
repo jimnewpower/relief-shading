@@ -6,23 +6,16 @@ import com.primalimited.reliefshading.number.Invalid;
 
 import java.util.Objects;
 
+@SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
 class RowMajorSWOriginGrid<T> implements Grid<T> {
     public static final String MUST_BE_WITHIN = ". Must be within ";
     public static final String INVALID_ROW = "Invalid row: ";
     public static final String INVALID_COLUMN = "Invalid column: ";
 
-    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
     private transient final int rows;
-
-    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
     private transient final int columns;
-
-    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
     private transient final Bounds2D bounds;
-
-    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
     private transient Bounds zBounds = Bounds.nullBounds();
-
     private transient final T[] values;
 
     RowMajorSWOriginGrid(int rows, int columns, Bounds2D bounds, Bounds zBounds, T[] values) {
