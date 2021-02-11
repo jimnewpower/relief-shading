@@ -1,12 +1,16 @@
 package com.primalimited.reliefshading.algorithm;
 
-public class ZFactorCartesian implements ZFactorDem {
-    public ZFactorCartesian() {
+import com.primalimited.reliefshading.units.Length;
 
+public class ZFactorCartesian implements ZFactorDem {
+    private final float zFactor;
+
+    public ZFactorCartesian(Length xyUnit, Length zUnit) {
+        this.zFactor = (float) (zUnit.metersPerUnit / xyUnit.metersPerUnit);
     }
 
     @Override
     public float getZFactor() {
-        return 0;
+        return zFactor;
     }
 }
