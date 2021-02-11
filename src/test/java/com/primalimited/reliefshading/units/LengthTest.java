@@ -51,7 +51,7 @@ class LengthTest {
         assertAll("Given invalid input values, the result should be Invalid.",
                 () -> assertTrue(
                         Invalid.doubleInstance().invalid(
-                            Length.METERS.from(Invalid.INVALID_DOUBLE).to(Length.METERS)
+                                Length.METERS.from(Invalid.INVALID_DOUBLE).to(Length.METERS)
                         )
                 ),
                 () -> assertTrue(
