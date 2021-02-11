@@ -1,5 +1,6 @@
 package com.primalimited.reliefshading.units;
 
+import com.primalimited.reliefshading.number.Invalid;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,4 +46,29 @@ class LengthTest {
         assertEquals(5280, Length.MILES.from(1).to(Length.FEET), 0.1);
     }
 
+    @Test
+    public void invalid() {
+        assertAll("Invalid value",
+                () -> assertTrue(
+                        Invalid.doubleInstance().invalid(
+                            Length.METERS.from(Invalid.INVALID_DOUBLE).to(Length.METERS)
+                        )
+                ),
+                () -> assertTrue(
+                        Invalid.doubleInstance().invalid(
+                                Length.KILOMETERS.from(Invalid.INVALID_DOUBLE).to(Length.METERS)
+                        )
+                ),
+                () -> assertTrue(
+                        Invalid.doubleInstance().invalid(
+                                Length.FEET.from(Invalid.INVALID_DOUBLE).to(Length.METERS)
+                        )
+                ),
+                () -> assertTrue(
+                        Invalid.doubleInstance().invalid(
+                                Length.MILES.from(Invalid.INVALID_DOUBLE).to(Length.METERS)
+                        )
+                )
+        );
+    }
 }

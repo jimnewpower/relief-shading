@@ -1,5 +1,7 @@
 package com.primalimited.reliefshading.units;
 
+import com.primalimited.reliefshading.number.Invalid;
+
 /**
  * Length unit definitions and converters.
  */
@@ -34,6 +36,9 @@ public enum Length {
      * @return the converted value.
      */
     public double to(Length unit) {
+        if (Invalid.doubleInstance().invalid(value))
+            return value;
+
         double factor = metersPerUnit / unit.metersPerUnit;
         return value * factor;
     }
