@@ -27,17 +27,18 @@ class ReliefShaderTest {
         ReliefShader reliefShader = ReliefShader
                 .create(Preferences.createDefault());
 
-        Grid shaded = reliefShader.apply(grid);
+        float zFactor = 0.00001036f;
+        Grid shaded = reliefShader.apply(grid, zFactor);
 
         int row = 52;
         int col = 65;
         assertEquals(2020, grid.value(row, col).intValue());
-        assertEquals(137, shaded.value(row, col).intValue());
+        assertEquals(188, shaded.value(row, col).intValue());
 
         row = 52;
         col = 70;
         assertEquals(2021, grid.value(row, col).intValue());
-        assertEquals(81, shaded.value(row, col).intValue());
+        assertEquals(185, shaded.value(row, col).intValue());
 
     }
 }

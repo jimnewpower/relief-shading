@@ -25,7 +25,9 @@ public interface ReliefShader {
      * relief shading values.
      *
      * @param grid input grid
+     * @param zFactor conversion factor that adjusts the units of measure for
+     *                the elevation units when they differ from the horizontal units
      * @return result grid
      */
-    Grid apply(Grid grid);
+    Grid apply(Grid grid, float zFactor);
 }

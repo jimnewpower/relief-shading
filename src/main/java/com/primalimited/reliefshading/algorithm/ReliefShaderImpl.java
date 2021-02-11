@@ -44,7 +44,7 @@ class ReliefShaderImpl implements ReliefShader {
     }
 
     @Override
-    public Grid apply(Grid grid) {
+    public Grid apply(Grid grid, float zFactor) {
         Objects.requireNonNull(grid, "grid");
 
         meanExtents = mean(grid.bounds().width(), grid.bounds().height());
@@ -56,10 +56,6 @@ class ReliefShaderImpl implements ReliefShader {
             return grid;
 
         zRange = zBounds.range();
-        zFactor = meanExtents > zRange
-                ? meanExtents / zRange
-                : zRange / meanExtents;
-
         sinTheta = Math.sin(altitudeRadians);
         cosTheta = Math.cos(altitudeRadians);
 
@@ -78,8 +74,6 @@ class ReliefShaderImpl implements ReliefShader {
         int[] dy = {-1, 0, 1, 1, 1, 0, -1, -1};
         int[] dx = {1, 1, 1, 0, -1, -1, -1, 0};
         double[] neighbor = new double[N_SURROUNDING_CELLS];
-
-        double zFraction = 0.0;
 
         for (int index = 0; index < size; index++) {
             int row = grid.rowFromCellIndex(index);
