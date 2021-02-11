@@ -246,11 +246,13 @@ public interface Bounds {
     }
 
     /**
-     * Bind value to bounds, i.e. if value &lt; min, return min, if value &gt; max return max, otherwise return value.
+     * Constrain value to bounds, i.e. if value &lt; min, return min,
+     * if value &gt; max return max, otherwise return value.
+     *
      * @param value value to bind
      * @return if value &lt; min, return min, if value &gt; max return max, otherwise return value.
      */
-    default double bind(double value) {
+    default double constrain(double value) {
         return Math.min(max(), Math.max(min(), value));
     }
 }

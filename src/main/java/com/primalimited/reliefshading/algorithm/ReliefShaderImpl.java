@@ -8,6 +8,11 @@ import com.primalimited.reliefshading.prefs.Preferences;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * Implementation based on:
+ * Burrough, P. A. and McDonell, R. A., 1998. Principles of Geographical Information
+ * Systems (Oxford University Press, New York), 190 pp.
+ */
 class ReliefShaderImpl implements ReliefShader {
     private static final int N_SURROUNDING_CELLS = 8;
     private static final int UNSIGNED_BYTE_MAX = 255;
@@ -72,7 +77,7 @@ class ReliefShaderImpl implements ReliefShader {
 
         int[] dy = {-1, 0, 1, 1, 1, 0, -1, -1};
         int[] dx = {1, 1, 1, 0, -1, -1, -1, 0};
-        double[] N = new double[N_SURROUNDING_CELLS];
+        double[] neighbor = new double[N_SURROUNDING_CELLS];
 
         double zFraction = 0.0;
 
@@ -86,11 +91,11 @@ class ReliefShaderImpl implements ReliefShader {
                 continue;
             }
 
-            double z = gridZ.doubleValue();
+            double elevation = gridZ.doubleValue();
 
             // neighboring cells
             for (int c = 0; c < 8; c++) {
-                N[c] = z;
+                neighbor[c] = elevation;
 
                 int neighborRow = row + dy[c];
                 if (neighborRow < 0 || neighborRow >= grid.rows())
@@ -104,12 +109,12 @@ class ReliefShaderImpl implements ReliefShader {
                 if (Invalid.test(value))
                     continue;
 
-                N[c] = value.doubleValue() * zFactor;
+                neighbor[c] = value.doubleValue() * zFactor;
             }
 
             // slope and aspect
-            double fx = (N[2] - N[4] + 2 * (N[1] - N[5]) + N[0] - N[6]) / gridRes8;
-            double fy = (N[6] - N[4] + 2 * (N[7] - N[3]) + N[0] - N[2]) / gridRes8;
+            double fx = (neighbor[2] - neighbor[4] + 2 * (neighbor[1] - neighbor[5]) + neighbor[0] - neighbor[6]) / gridRes8;
+            double fy = (neighbor[6] - neighbor[4] + 2 * (neighbor[7] - neighbor[3]) + neighbor[0] - neighbor[2]) / gridRes8;
             if (Double.compare(0.0, fx) != 0) {
                 double tanSlope = Math.sqrt(fx * fx + fy * fy);
                 double aspect = (180 - Math.atan(fy / fx)
@@ -118,13 +123,12 @@ class ReliefShaderImpl implements ReliefShader {
                 double term1 = tanSlope / Math.sqrt(1 + tanSlope * tanSlope);
                 double term2 = sinTheta / tanSlope;
                 double term3 = cosTheta * Math.sin(azimuthRadians - aspect);
-                z = term1 * (term2 - term3);
+                elevation = term1 * (term2 - term3);
             } else {
-                z = DEFAULT_Z;
+                elevation = DEFAULT_Z;
             }
 
-            z = Bounds.RGB_8_BIT.bind(Math.round(z * UNSIGNED_BYTE_MAX));
-            values[index] = (short) Math.round(z);
+            values[index] = (short) Bounds.RGB_8_BIT.constrain(Math.round(elevation * UNSIGNED_BYTE_MAX));
         }
 
         Grid result = Grid.createRowMajorSWOriginWithZBounds(

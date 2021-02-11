@@ -51,7 +51,7 @@ class Gradient {
     }
 
     private static int computeColorComponent(float fraction, float fraction1, int begin, int end) {
-        return (int) Bounds.RGB_8_BIT.bind(
+        return (int) Bounds.RGB_8_BIT.constrain(
                 Math.round(fraction1 * begin + fraction * end)
         );
     }

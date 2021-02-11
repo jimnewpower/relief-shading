@@ -212,7 +212,7 @@ public class BoundsTest {
     public void bind() {
         Bounds bounds = Bounds.of(-100, 100);
         final double tolerance = 1e-10;
-        assertEquals(bounds.min(), bounds.bind(-2293847), tolerance);
-        assertEquals(bounds.max(), bounds.bind(987345), tolerance);
+        assertEquals(bounds.min(), bounds.constrain(-2293847), tolerance);
+        assertEquals(bounds.max(), bounds.constrain(987345), tolerance);
     }
 }
