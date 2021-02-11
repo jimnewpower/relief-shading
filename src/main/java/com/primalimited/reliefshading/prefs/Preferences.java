@@ -13,10 +13,23 @@ public class Preferences {
     private static final int ALTITUDE_DEGREES_DEFAULT = 45;
     private static final int OPACITY_PERCENT_DEFAULT = 70;
 
+    /**
+     * Create default preferences.
+     *
+     * @return new instance of Preferences with default values.
+     */
     public static Preferences createDefault() {
         return new Preferences(AZIMUTH_DEGREES_DEFAULT, ALTITUDE_DEGREES_DEFAULT, OPACITY_PERCENT_DEFAULT);
     }
 
+    /**
+     * Create custom preferences.
+     *
+     * @param azimuthDegrees azimuth in degrees [0..360].
+     * @param altitudeDegrees altitude in degrees [0..90].
+     * @param opacityPercent opacity in percent [0..100].
+     * @return new instance of Preferences with custom values.
+     */
     public static Preferences with(int azimuthDegrees, int altitudeDegrees, int opacityPercent) {
         return new Preferences(azimuthDegrees, altitudeDegrees, opacityPercent);
     }
