@@ -2,6 +2,11 @@ package com.primalimited.reliefshading.number;
 
 import java.util.function.DoublePredicate;
 
+/**
+ * Grid files usually support the concept of a "non-existant" value.
+ * Because grid files store all of their values as numbers, any
+ * missing data must be represented by a known numeric value.
+ */
 public interface Invalid {
     double INVALID_DOUBLE = Double.MAX_VALUE;
     float INVALID_FLOAT = Float.MAX_VALUE;

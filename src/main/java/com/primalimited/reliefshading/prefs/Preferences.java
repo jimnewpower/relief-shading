@@ -4,6 +4,9 @@ import com.primalimited.reliefshading.bounds.Bounds;
 
 import java.util.Objects;
 
+/**
+ * Relief shading algorithm preferences.
+ */
 @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
 public class Preferences {
     private static final int AZIMUTH_DEGREES_DEFAULT = 315;

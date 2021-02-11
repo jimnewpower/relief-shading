@@ -34,6 +34,11 @@ public class ControlPoint {
         return index;
     }
 
+    /**
+     * Return the rgb color value for this control point.
+     *
+     * @return the rgb color value for this control point.
+     */
     public int rgb() {
         return rgb;
     }

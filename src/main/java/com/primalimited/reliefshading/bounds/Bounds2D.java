@@ -13,10 +13,21 @@ public class Bounds2D {
     private transient Bounds xBounds = Bounds.nullBounds();
     private transient Bounds yBounds = Bounds.nullBounds();
 
+    /**
+     * Create empty bounds
+     * @return empty bounds
+     */
     public static Bounds2D empty() {
         return new Bounds2D();
     }
 
+    /**
+     * Create 2D bounding values
+     *
+     * @param x x bounds
+     * @param y y bounds
+     * @return instance of Bounds2D
+     */
     public static Bounds2D create(Bounds x, Bounds y) {
         Objects.requireNonNull(x, "x bounds cannot be null");
         Objects.requireNonNull(y, "y bounds cannot be null");
@@ -63,18 +74,34 @@ public class Bounds2D {
         return xBounds.disjoint(bounds.xBounds) || yBounds.disjoint(bounds.yBounds);
     }
 
+    /**
+     * Return the maximum y value
+     * @return the maximum y value
+     */
     public double maxY() {
         return yBounds.max();
     }
 
+    /**
+     * Return the minimum y value
+     * @return the minimum y value
+     */
     public double minY() {
         return yBounds.min();
     }
 
+    /**
+     * Return the maximum x value
+     * @return the maximum x value
+     */
     public double maxX() {
         return xBounds.max();
     }
 
+    /**
+     * Return the minimum x value
+     * @return the minimum x value
+     */
     public double minX() {
         return xBounds.min();
     }
@@ -111,10 +138,26 @@ public class Bounds2D {
         return yBounds.range();
     }
 
+    /**
+     * Determine the histogram bin for the given x value and the
+     * specified number of bins.
+     *
+     * @param x the x value
+     * @param nBins the number of bins
+     * @return which histogram bin the x value lies in, or -1 if x is out of bounds.
+     */
     public int histogramBinX(double x, int nBins) {
         return xBounds.histogramBin(x, nBins);
     }
 
+    /**
+     * Determine the histogram bin for the given y value and the
+     * specified number of bins.
+     *
+     * @param y the y value
+     * @param nBins the number of bins
+     * @return which histogram bin the y value lies in, or -1 if y is out of bounds.
+     */
     public int histogramBinY(double y, int nBins) {
         return yBounds.histogramBin(y, nBins);
     }

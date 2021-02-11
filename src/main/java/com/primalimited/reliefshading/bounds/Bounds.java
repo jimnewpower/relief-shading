@@ -86,14 +86,33 @@ public interface Bounds {
         return immutable(min, max);
     }
 
+    /**
+     * Create immutable bounds.
+     *
+     * @param min min value
+     * @param max max value
+     * @return instance of immutable bounds
+     */
     static Bounds immutable(double min, double max) {
         return ImmutableBounds.of(min, max);
     }
 
+    /**
+     * Create null bounds.
+     *
+     * @return a bounds instance that returns invalid values for min(), max(), range().
+     */
     static Bounds nullBounds() {
         return NullBounds.create();
     }
 
+    /**
+     * Determine if arguments would make valid bounds.
+     *
+     * @param min minimum value
+     * @param max maximum value
+     * @return true if min <= max and both min and max are valid values, false otherwise.
+     */
     static boolean valid(double min, double max) {
         if (Invalid.test(min))
             return false;
