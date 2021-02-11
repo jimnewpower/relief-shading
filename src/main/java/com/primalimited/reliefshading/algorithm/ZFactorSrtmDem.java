@@ -1,6 +1,7 @@
-package com.primalimited.reliefshading.io;
+package com.primalimited.reliefshading.algorithm;
 
 import com.primalimited.reliefshading.bounds.Bounds;
+import com.primalimited.reliefshading.io.FilenameSRTM;
 
 public class ZFactorSrtmDem implements ZFactorDem {
     /**

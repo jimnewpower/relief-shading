@@ -1,8 +1,9 @@
-package com.primalimited.reliefshading.io;
+package com.primalimited.reliefshading.algorithm;
 
+import com.primalimited.reliefshading.io.FilenameSRTM;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ZFactorSrtmDemTest {
 

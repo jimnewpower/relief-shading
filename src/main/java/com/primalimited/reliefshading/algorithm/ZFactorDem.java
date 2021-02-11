@@ -1,4 +1,4 @@
-package com.primalimited.reliefshading.io;
+package com.primalimited.reliefshading.algorithm;
 
 public interface ZFactorDem {
     float getZFactor();
