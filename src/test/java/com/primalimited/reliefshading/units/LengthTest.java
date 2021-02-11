@@ -48,10 +48,30 @@ class LengthTest {
 
     @Test
     public void invalid() {
-        assertAll("Invalid value",
+        assertAll("Given invalid input values, the result should be Invalid.",
                 () -> assertTrue(
                         Invalid.doubleInstance().invalid(
                             Length.METERS.from(Invalid.INVALID_DOUBLE).to(Length.METERS)
+                        )
+                ),
+                () -> assertTrue(
+                        Invalid.doubleInstance().invalid(
+                                Length.METERS.from(Double.MAX_VALUE).to(Length.METERS)
+                        )
+                ),
+                () -> assertTrue(
+                        Invalid.doubleInstance().invalid(
+                                Length.METERS.from(Double.NaN).to(Length.METERS)
+                        )
+                ),
+                () -> assertTrue(
+                        Invalid.doubleInstance().invalid(
+                                Length.METERS.from(Double.POSITIVE_INFINITY).to(Length.METERS)
+                        )
+                ),
+                () -> assertTrue(
+                        Invalid.doubleInstance().invalid(
+                                Length.METERS.from(Double.NEGATIVE_INFINITY).to(Length.METERS)
                         )
                 ),
                 () -> assertTrue(
