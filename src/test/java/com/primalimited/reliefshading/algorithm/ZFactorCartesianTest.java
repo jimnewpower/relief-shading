@@ -17,4 +17,15 @@ class ZFactorCartesianTest {
         ZFactorDem zFactorDem = new ZFactorCartesian(Length.KILOMETERS, Length.METERS);
         assertEquals(0.001f, zFactorDem.getZFactor());
     }
+
+    @Test
+    public void same() {
+        assertAll(
+                "Same units for x,y and z",
+                () -> assertEquals(1.f, new ZFactorCartesian(Length.METERS, Length.METERS).getZFactor()),
+                () -> assertEquals(1.f, new ZFactorCartesian(Length.KILOMETERS, Length.KILOMETERS).getZFactor()),
+                () -> assertEquals(1.f, new ZFactorCartesian(Length.FEET, Length.FEET).getZFactor()),
+                () -> assertEquals(1.f, new ZFactorCartesian(Length.MILES, Length.MILES).getZFactor())
+        );
+    }
 }
