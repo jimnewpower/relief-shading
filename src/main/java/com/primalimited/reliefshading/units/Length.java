@@ -12,6 +12,8 @@ public enum Length {
     MILES(1609.34);
 
     public final double metersPerUnit;
+
+    // value to convert
     private double value;
 
     Length(double metersPerUnit) {
