@@ -19,6 +19,15 @@ public interface Grid {
     }
 
     /**
+     * Return true if grid origin is on the north/top, or false if
+     * origin is south/bottom.
+     *
+     * @return true if grid origin is on the north/top, or false if
+     * origin is south/bottom.
+     */
+    boolean isOriginNorth();
+
+    /**
      * Return number of rows in the grid.
      * @return number of rows in the grid.
      */

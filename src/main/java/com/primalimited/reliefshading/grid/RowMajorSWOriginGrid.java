@@ -51,6 +51,11 @@ class RowMajorSWOriginGrid implements Grid {
     }
 
     @Override
+    public boolean isOriginNorth() {
+        return false;
+    }
+
+    @Override
     public int rows() {
         return rows;
     }
