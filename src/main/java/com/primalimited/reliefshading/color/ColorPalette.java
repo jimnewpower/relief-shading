@@ -26,6 +26,17 @@ public interface ColorPalette {
     }
 
     /**
+     * Apply transparency to a color palette.
+     *
+     * @param colorPalette input color palette
+     * @param opacityPercent opacity percent
+     * @return clone of the input color palette, with transparent colors.
+     */
+    static ColorPalette applyTransparency(ColorPalette colorPalette, int opacityPercent) {
+        return new ColorPaletteTransparent(colorPalette, opacityPercent);
+    }
+
+    /**
      * Return the number of colors in the palette.
      *
      * @return the number of colors in the palette.
