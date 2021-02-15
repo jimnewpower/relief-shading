@@ -1,4 +1,7 @@
-package com.primalimited.reliefshading.color;
+package com.primalimited.reliefshading.main;
+
+import com.primalimited.reliefshading.color.ColorPalette;
+import com.primalimited.reliefshading.color.ColorPaletteDefaults;
 
 import javax.swing.*;
 import java.awt.*;
