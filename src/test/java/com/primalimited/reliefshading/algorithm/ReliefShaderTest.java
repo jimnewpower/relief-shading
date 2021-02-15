@@ -20,8 +20,6 @@ class ReliefShaderTest {
         URL url = DemReaderTest.class.getResource(DEMO_FILENAME);
         Path path = Path.of(url.getPath());
 
-        DemReader.shuttleRadarTopographyMissionHGT(path);
-
         Grid grid = DemReader.shuttleRadarTopographyMissionHGT(path).read();
 
         ReliefShader reliefShader = ReliefShader
