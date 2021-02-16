@@ -6,6 +6,7 @@ import java.awt.*;
 import java.util.Objects;
 
 public class ColorPaletteTransparent implements ColorPalette {
+    @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
     private transient final int[] rgb;
 
     ColorPaletteTransparent(ColorPalette colorPalette, int opacityPercent) {

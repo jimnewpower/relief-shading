@@ -27,16 +27,6 @@ class ReliefShaderImpl implements ReliefShader {
     private final transient double azimuthRadians;
     private final transient double altitudeRadians;
 
-    private transient double meanExtents;
-    private transient double zRange;
-    private transient double zFactor = 1.0;
-    private transient double sinTheta;
-    private transient double cosTheta;
-    private transient double gridRes;
-    private transient double gridRes8;
-
-    private transient Short[] values;
-
     ReliefShaderImpl(Preferences preferences) {
         Objects.requireNonNull(preferences, "preferences");
         this.azimuthRadians = Math.toRadians(preferences.azimuthDegrees());
@@ -47,7 +37,7 @@ class ReliefShaderImpl implements ReliefShader {
     public Grid apply(Grid grid, float zFactor) {
         Objects.requireNonNull(grid, "grid");
 
-        meanExtents = mean(grid.bounds().width(), grid.bounds().height());
+        double meanExtents = mean(grid.bounds().width(), grid.bounds().height());
         if (Double.compare(0.0, meanExtents) == 0)
             return grid;
 
@@ -55,18 +45,17 @@ class ReliefShaderImpl implements ReliefShader {
         if (zBounds.rangeIsZero())
             return grid;
 
-        zRange = zBounds.range();
-        sinTheta = Math.sin(altitudeRadians);
-        cosTheta = Math.cos(altitudeRadians);
+        double sinTheta = Math.sin(altitudeRadians);
+        double cosTheta = Math.cos(altitudeRadians);
 
-        gridRes = mean(
-                grid.bounds().width()/grid.columns(),
-                grid.bounds().height()/grid.rows()
+        double gridRes = mean(
+                grid.bounds().width() / grid.columns(),
+                grid.bounds().height() / grid.rows()
         );
-        gridRes8 = gridRes * N_SURROUNDING_CELLS;
+        double gridRes8 = gridRes * N_SURROUNDING_CELLS;
 
         int size = grid.rows() * grid.columns();
-        values = new Short[size];
+        Short[] values = new Short[size];
         Arrays.fill(values, (short)0);
 
         short missingZ = 0;
@@ -85,11 +74,11 @@ class ReliefShaderImpl implements ReliefShader {
                 continue;
             }
 
-            double elevation = gridZ.doubleValue();
+            double adjustedElevation = gridZ.doubleValue() * zFactor;
 
             // neighboring cells
             for (int c = 0; c < 8; c++) {
-                neighbor[c] = elevation;
+                neighbor[c] = adjustedElevation;
 
                 int neighborRow = row + dy[c];
                 if (neighborRow < 0 || neighborRow >= grid.rows())
@@ -106,6 +95,8 @@ class ReliefShaderImpl implements ReliefShader {
                 neighbor[c] = value.doubleValue() * zFactor;
             }
 
+            double zValue = DEFAULT_Z;
+
             // slope and aspect
             double fx = (neighbor[2] - neighbor[4] + 2 * (neighbor[1] - neighbor[5]) + neighbor[0] - neighbor[6]) / gridRes8;
             double fy = (neighbor[6] - neighbor[4] + 2 * (neighbor[7] - neighbor[3]) + neighbor[0] - neighbor[2]) / gridRes8;
@@ -117,22 +108,21 @@ class ReliefShaderImpl implements ReliefShader {
                 double term1 = tanSlope / Math.sqrt(1 + tanSlope * tanSlope);
                 double term2 = sinTheta / tanSlope;
                 double term3 = cosTheta * Math.sin(azimuthRadians - aspect);
-                elevation = term1 * (term2 - term3);
-            } else {
-                elevation = DEFAULT_Z;
+                zValue = term1 * (term2 - term3);
             }
 
-            values[index] = (short) Bounds.RGB_8_BIT.constrain(Math.round(elevation * UNSIGNED_BYTE_MAX));
+            int value = (int) Math.round(zValue * UNSIGNED_BYTE_MAX);
+            value = (int) Bounds.RGB_8_BIT.constrain(value);
+            values[index] = (short) value;
         }
 
-        Grid result = Grid.createRowMajorSWOriginWithZBounds(
+        return Grid.createRowMajorSWOriginWithZBounds(
                 grid.rows(),
                 grid.columns(),
                 grid.bounds(),
                 zBounds,
                 values
         );
-        return result;
     }
 
     private double mean(double a, double b) {

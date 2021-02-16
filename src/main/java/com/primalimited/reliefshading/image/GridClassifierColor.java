@@ -47,9 +47,7 @@ public class GridClassifierColor implements GridClassifier {
         ColorMapper<Number> colorMapper = ColorMapper.numeric(colorPalette, zBounds);
 
         BufferedImage image = new BufferedImage(grid.columns(), grid.rows(), IMAGE_TYPE_DEFAULT);
-
         int[] rgbValues = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
-
         int size = grid.rows() * grid.columns();
 
         for (int index = 0; index < size; index++) {
