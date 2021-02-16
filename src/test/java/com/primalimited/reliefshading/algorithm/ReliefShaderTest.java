@@ -3,6 +3,7 @@ package com.primalimited.reliefshading.algorithm;
 import com.primalimited.reliefshading.grid.Grid;
 import com.primalimited.reliefshading.io.DemReader;
 import com.primalimited.reliefshading.io.DemReaderTest;
+import com.primalimited.reliefshading.io.FilenameSRTM;
 import com.primalimited.reliefshading.prefs.Preferences;
 import org.junit.jupiter.api.Test;
 
@@ -25,8 +26,9 @@ class ReliefShaderTest {
         ReliefShader reliefShader = ReliefShader
                 .create(Preferences.createDefault());
 
-        float zFactor = 0.00001036f;
-        Grid shaded = reliefShader.apply(grid, zFactor);
+        ZFactorDem zFactorDem = new ZFactorSrtmDem(FilenameSRTM.create(DEMO_FILENAME));
+
+        Grid shaded = reliefShader.apply(grid, zFactorDem.getZFactor());
 
         int row = 52;
         int col = 65;
@@ -37,6 +39,5 @@ class ReliefShaderTest {
         col = 70;
         assertEquals(2021, grid.value(row, col).intValue());
         assertEquals(185, shaded.value(row, col).intValue());
-
     }
 }
