@@ -1,3 +1,5 @@
+[![Java CI with Gradle](https://github.com/jimnewpower/relief-shading/actions/workflows/gradle.yml/badge.svg)](https://github.com/jimnewpower/relief-shading/actions/workflows/gradle.yml)
+
 # Relief Shading
 Create shaded-relief raster images from Digital Elevation Models (DEM).
 
