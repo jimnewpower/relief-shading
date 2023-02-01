@@ -144,6 +144,8 @@ public class BoundsTest {
 
         assertEquals(0, bounds.histogramBin(0.0, 10));
         assertEquals(0, bounds.histogramBin(7.0, 10));
+        assertEquals(1, bounds.histogramBin(11.0, 10));
+        assertEquals(2, bounds.histogramBin(25.0, 10));
         assertEquals(9, bounds.histogramBin(90.0, 10));
         assertEquals(9, bounds.histogramBin(97.0, 10));
         assertEquals(9, bounds.histogramBin(100.0, 10));
