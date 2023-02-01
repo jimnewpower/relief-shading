@@ -8,8 +8,11 @@ import com.primalimited.reliefshading.prefs.Preferences;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,9 +20,10 @@ class ReliefShaderTest {
     private static final String DEMO_FILENAME = "N37W108.hgt";
 
     @Test
-    public void reliefShader() throws IOException {
-        URL url = DemReaderTest.class.getResource(DEMO_FILENAME);
-        Path path = Path.of(url.getPath());
+    public void reliefShader() throws IOException, URISyntaxException {
+        URI uri = DemReader.class.getResource(DEMO_FILENAME).toURI();
+        String filePath = Paths.get(uri).toString();
+        Path path = Paths.get(filePath);
 
         Grid grid = DemReader.shuttleRadarTopographyMissionHGT(path).read();
 

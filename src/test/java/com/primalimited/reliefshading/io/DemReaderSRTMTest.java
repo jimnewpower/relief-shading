@@ -6,23 +6,23 @@ import com.primalimited.reliefshading.grid.Grid;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DemReaderSRTMTest {
-    private static final String DEMO_FILENAME = "N37W108.hgt";
 
     @Test
-    public void readSRTM_HGT_DEM() throws IOException {
+    public void readSRTM_HGT_DEM() throws IOException, URISyntaxException {
         DemReader reader = createReader();
         Grid grid = reader.read();
         assertNotNull(grid, "Grid");
 
         final double tolerance = 1e-8;
         Bounds2D bounds = grid.bounds();
-        assertAll("Bounds checks for " + DEMO_FILENAME,
+        assertAll("Bounds checks for demo file",
                 () -> assertEquals(-108.0, bounds.minX(), tolerance),
                 () -> assertEquals(-107.0, bounds.maxX(), tolerance),
                 () -> assertEquals(37.0, bounds.minY(), tolerance),
@@ -51,9 +51,8 @@ class DemReaderSRTMTest {
         assertEquals(expected, grid.value(1800, 1800));
     }
 
-    private DemReaderSRTM createReader() {
-        URL url = getClass().getResource(DEMO_FILENAME);
-        Path path = Path.of(url.getPath());
+    private DemReaderSRTM createReader() throws IOException, URISyntaxException {
+        Path path = new LocalFileReader().getDemoPath();
         return new DemReaderSRTM(path);
     }
 }

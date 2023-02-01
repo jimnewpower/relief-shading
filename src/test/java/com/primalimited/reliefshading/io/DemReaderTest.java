@@ -5,20 +5,17 @@ import com.primalimited.reliefshading.grid.Grid;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DemReaderTest {
-    private static final String DEMO_FILENAME = "N37W108.hgt";
 
     @Test
-    public void readSRTM_HGT_DEM() throws IOException {
-        URL url = getClass().getResource(DEMO_FILENAME);
-        assertNotNull(url, "url");
-
-        Path path = Path.of(url.getPath());
+    public void readSRTM_HGT_DEM() throws IOException, URISyntaxException {
+        Path path = new LocalFileReader().getDemoPath();
         assertNotNull(path, "Path");
 
         DemReader reader = DemReader.shuttleRadarTopographyMissionHGT(path);
@@ -27,7 +24,7 @@ public class DemReaderTest {
 
         final double tolerance = 1e-8;
         Bounds2D bounds = grid.bounds();
-        assertAll("Bounds checks for " + DEMO_FILENAME,
+        assertAll("Bounds checks for demo file",
                 () -> assertEquals(-108.0, bounds.minX(), tolerance),
                 () -> assertEquals(-107.0, bounds.maxX(), tolerance),
                 () -> assertEquals(37.0, bounds.minY(), tolerance),

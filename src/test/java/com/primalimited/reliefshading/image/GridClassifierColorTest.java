@@ -4,11 +4,14 @@ import com.primalimited.reliefshading.color.ColorPaletteDefaults;
 import com.primalimited.reliefshading.grid.Grid;
 import com.primalimited.reliefshading.io.DemReader;
 import com.primalimited.reliefshading.io.DemReaderTest;
+import com.primalimited.reliefshading.io.LocalFileReader;
 import org.junit.jupiter.api.Test;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,17 +19,18 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GridClassifierColorTest {
-    private static final String DEMO_FILENAME = "N37W108.hgt";
 
     @Test
-    public void classify() throws IOException {
+    public void classify() throws IOException, URISyntaxException {
         GridClassifier classifier = GridClassifierColor
                 .of(ColorPaletteDefaults.DEM.colorPalette());
 
         BufferedImage image = classifier.classify(loadGrid());
-//        Path output = Paths.get("N37w108.png");
-//        ImageIO.write(image, "png", output.toFile());
         assertNotNull(image);
+
+        // Un-comment to get this image file in the project root:
+        Path output = Paths.get("N37w108-color.png");
+        ImageIO.write(image, "png", output.toFile());
 
         assertEquals(-726934, image.getRGB(0, 0));
         assertEquals(-732071, image.getRGB(100, 200));
@@ -37,9 +41,8 @@ class GridClassifierColorTest {
         assertEquals(-727191, image.getRGB(3600, 3600));
     }
 
-    private Grid loadGrid() throws IOException {
-        URL url = DemReaderTest.class.getResource(DEMO_FILENAME);
-        Path path = Path.of(url.getPath());
+    private Grid loadGrid() throws IOException, URISyntaxException {
+        Path path = new LocalFileReader().getDemoPath();
         return DemReader.shuttleRadarTopographyMissionHGT(path).read();
     }
 }
