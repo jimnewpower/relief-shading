@@ -166,5 +166,6 @@ fabric.properties
 # Ignore test data files
 /N37w108-color.png
 /N37w108-shaded.png
+/N37w108-color-z.png
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij
