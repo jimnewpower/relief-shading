@@ -15,7 +15,8 @@ Create shaded relief image:
         GridClassifier classifier = GridClassifierShadedRelief
                 .of(Preferences.createDefault(), zFactorDem);
 
-        BufferedImage image = classifier.classify(loadGrid());
+        Grid grid = DemReader.shuttleRadarTopographyMissionHGT(path).read();
+        BufferedImage image = classifier.classify(grid);
 
         Path output = Paths.get("shaded.png");
         ImageIO.write(image, "png", output.toFile());
