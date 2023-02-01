@@ -55,8 +55,10 @@ Layer shaded on top of colored, and reduce opacity of shaded layer (30% in this 
 
 ## Adjustments
 The two key settings for relief shading are:  
->'azimuth' the azimuth of the sun (0-360 degrees), default is 315.  
->'altitude' the elevation of the sun (0-90 degrees), default is 45.  
+
+>*azimuth* the azimuth of the sun (0-360 degrees), default is 315.  
+>*altitude* the elevation of the sun (0-90 degrees), default is 45.  
+
 These may be adjusted in the Preferences class.
 
 
