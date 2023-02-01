@@ -6,6 +6,8 @@ This package allows you to create shaded-relief raster images from Digital Eleva
 ## What is Relief Shading?
 Relief shading (sometimes referred to as hill shading, or shaded relief) refers to a technique used in cartography and computer graphics to create a three-dimensional representation of a surface on a flat map or image. This is achieved by simulating the effects of sunlight falling on the surface and casting shadows. The shadows are created by calculating the angles of the sun and the surface and mapping those angles to grayscale values, which are then applied to the surface. This creates a sense of depth and topography, making it easier to visualize and interpret the features of the surface.
 
+[Technical reference](https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/how-hillshade-works.htm)
+
 ## Examples With SRTM .hgt
 [Download .hgt files](https://eospso.gsfc.nasa.gov/missions/shuttle-radar-topography-mission)  
 
