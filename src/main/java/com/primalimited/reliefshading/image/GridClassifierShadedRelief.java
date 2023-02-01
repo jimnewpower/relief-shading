@@ -25,6 +25,8 @@ public class GridClassifierShadedRelief implements GridClassifier {
     private final Preferences preferences;
     private final ZFactorDem zFactorDem;
 
+    private ColorPalette colorPalette = ColorPaletteDefaults.RELIEF_SHADE_DYNAMIC.colorPalette();
+
     private GridClassifierShadedRelief(Preferences preferences, ZFactorDem zFactorDem) {
         this.preferences = Objects.requireNonNull(preferences, "preferences");
         this.zFactorDem = Objects.requireNonNull(zFactorDem, "z-factor");
@@ -41,8 +43,7 @@ public class GridClassifierShadedRelief implements GridClassifier {
         ReliefShader reliefShader = ReliefShader.create(preferences);
         Grid shaded = reliefShader.apply(grid, zFactorDem.getZFactor());
 
-        ColorPalette grayPalette = ColorPaletteDefaults.RELIEF_SHADE.colorPalette();
-        ColorMapper<Number> colorMapper = ColorMapper.numeric(grayPalette, Bounds.RGB_8_BIT);
+        ColorMapper<Number> colorMapper = ColorMapper.numeric(colorPalette, Bounds.RGB_8_BIT);
 
         for (int index = 0; index < size; index++) {
             rgbValues[index] = TRANSPARENT;

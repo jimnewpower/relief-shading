@@ -50,13 +50,42 @@ public enum ColorPaletteDefaults {
         @Override
         public ColorPalette colorPalette() {
             final int nColors = 256;
+            final int min = 64;
+            final int max = 192;
             return ColorPalette.create(
                     nColors,
-                    new ControlPoint(  0, new Color(64, 64, 64).getRGB()),
-                    new ControlPoint(nColors-1, new Color(192, 192, 192).getRGB())
+                    new ControlPoint(  0, new Color(min, min, min).getRGB()),
+                    new ControlPoint(nColors-1, new Color(max, max, max).getRGB())
+            );
+        }
+    },
+    RELIEF_SHADE_DYNAMIC {
+        @Override
+        public ColorPalette colorPalette() {
+            final int nColors = 256;
+            final int min = 64;
+            final int max = 240;
+            return ColorPalette.create(
+                    nColors,
+                    new ControlPoint(  0, new Color(min, min, min).getRGB()),
+                    new ControlPoint(nColors-1, new Color(max, max, max).getRGB())
+            );
+        }
+    },
+    RELIEF_SHADE_DARK {
+        @Override
+        public ColorPalette colorPalette() {
+            final int nColors = 256;
+            final int min = 24;
+            final int max = 128;
+            return ColorPalette.create(
+                    nColors,
+                    new ControlPoint(  0, new Color(min, min, min).getRGB()),
+                    new ControlPoint(nColors-1, new Color(max, max, max).getRGB())
             );
         }
     };
+
 
     /**
      * Get or create the color palette.
