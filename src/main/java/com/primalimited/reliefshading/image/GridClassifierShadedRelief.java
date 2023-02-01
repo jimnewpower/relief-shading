@@ -22,8 +22,8 @@ public class GridClassifierShadedRelief implements GridClassifier {
         return new GridClassifierShadedRelief(preferences, zFactorDem);
     }
 
-    private transient final Preferences preferences;
-    private transient final ZFactorDem zFactorDem;
+    private final Preferences preferences;
+    private final ZFactorDem zFactorDem;
 
     private GridClassifierShadedRelief(Preferences preferences, ZFactorDem zFactorDem) {
         this.preferences = Objects.requireNonNull(preferences, "preferences");

@@ -34,6 +34,11 @@ public interface Bounds {
     Bounds DEGREES = Bounds.of(0, 360);
 
     /**
+     * ALtitude bounds (0-90).
+     */
+    Bounds ALTITUDE = Bounds.of(0, 90);
+
+    /**
      * Latitude bounds.
      */
     Bounds LATITUDE = Bounds.of(-90, 90);

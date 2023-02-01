@@ -9,9 +9,9 @@ import java.util.Objects;
  */
 @SuppressWarnings("PMD.AvoidFieldNameMatchingMethodName")
 public class Preferences {
-    private static final int AZIMUTH_DEGREES_DEFAULT = 315;
-    private static final int ALTITUDE_DEGREES_DEFAULT = 45;
-    private static final int OPACITY_PERCENT_DEFAULT = 70;
+    static final int AZIMUTH_DEGREES_DEFAULT = 315;
+    static final int ALTITUDE_DEGREES_DEFAULT = 45;
+    static final int OPACITY_PERCENT_DEFAULT = 70;
 
     /**
      * Create default preferences.

@@ -8,6 +8,7 @@ import com.primalimited.reliefshading.io.DemReaderTest;
 import com.primalimited.reliefshading.io.FilenameSRTM;
 import com.primalimited.reliefshading.io.LocalFileReader;
 import com.primalimited.reliefshading.prefs.Preferences;
+import com.primalimited.reliefshading.prefs.PreferencesBuilder;
 import org.junit.jupiter.api.Test;
 
 import javax.imageio.ImageIO;
@@ -27,12 +28,19 @@ class GridClassifierShadedReliefTest {
     public void shadedRelief() throws IOException, URISyntaxException {
         ZFactorDem zFactorDem = new ZFactorSrtmDem(FilenameSRTM.create(DEMO_FILENAME));
 
+        Preferences preferences = new PreferencesBuilder()
+                .altitudeDegrees(30)
+                .azimuthDegrees(225)
+                .build();
+
         GridClassifier classifier = GridClassifierShadedRelief
-                .of(Preferences.createDefault(), zFactorDem);
+                .of(preferences, zFactorDem);
 
-        BufferedImage image = classifier.classify(loadGrid());
+        BufferedImage image = classifier
+                .classify(loadGrid());
 
-        Path output = Paths.get("N37w108-shaded.png");
+        Path output = Paths
+                .get("N37w108-shaded.png");
         ImageIO.write(image, "png", output.toFile());
     }
 
