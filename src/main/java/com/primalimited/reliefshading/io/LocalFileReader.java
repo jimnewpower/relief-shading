@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 
 public class LocalFileReader {
 
-    private static final String DEMO_FILENAME = "N37W108.hgt";
+    public static final String DEMO_FILENAME = "N37W108.hgt";
 
     public Path getDemoPath() throws IOException, URISyntaxException {
         URI uri = LocalFileReader.class.getResource(DEMO_FILENAME).toURI();
