@@ -20,8 +20,8 @@ Create shaded relief image:
         final String filename = "./N37W108.hgt";
         ZFactorDem zFactorDem = new ZFactorSrtmDem(FilenameSRTM.create(filename));
 
-        GridClassifier classifier = GridClassifierShadedRelief
-                .of(Preferences.createDefault(), zFactorDem);
+        GridClassifier classifier = GridClassifier
+                .shaded(Preferences.createDefault(), zFactorDem);
 
         Grid grid = DemReader.shuttleRadarTopographyMissionHGT(path).read();
         BufferedImage image = classifier.classify(grid);
@@ -38,13 +38,33 @@ Create color-filled image:
 
         final String filename = "./N37W108.hgt";
 
-        GridClassifier classifier = GridClassifierColor
-                .of(ColorPaletteDefaults.DEM.colorPalette());
+        GridClassifier classifier = GridClassifier
+                .color(ColorPaletteDefaults.DEM.colorPalette());
 
         Grid grid = DemReader.shuttleRadarTopographyMissionHGT(path).read();
         BufferedImage image = classifier.classify(grid);
 
         Path output = Paths.get("color.png");
+        ImageIO.write(image, "png", output.toFile());
+```
+<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color.png" alt="Color Filled" width="400" height="400">
+
+## Color Filled, Constrained to Custom Z Bounds
+Create color-filled image with custom z bounds:  
+```
+        // Create color-filled image from .hgt file.
+
+        final String filename = "./N37W108.hgt";
+
+        Bounds zBounds = Bounds.of(0, 3000);//meters
+
+        GridClassifier classifier = GridClassifier
+                .color(ColorPaletteDefaults.DEM.colorPalette(), zBounds);
+
+        Grid grid = DemReader.shuttleRadarTopographyMissionHGT(path).read();
+        BufferedImage image = classifier.classify(grid);
+
+        Path output = Paths.get("color-z.png");
         ImageIO.write(image, "png", output.toFile());
 ```
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color.png" alt="Color Filled" width="400" height="400">
@@ -69,13 +89,15 @@ These may be adjusted in the Preferences class.
 
 ## Set Preferences
 ```
+        // Set preferences
+        
         Preferences preferences = new PreferencesBuilder()
                 .altitudeDegrees(30)
                 .azimuthDegrees(225)
                 .build();
 
-        GridClassifier classifier = GridClassifierShadedRelief
-                .of(preferences, zFactorDem);
+        GridClassifier classifier = GridClassifier
+                .shaded(preferences, zFactorDem);
 ```
 
 
