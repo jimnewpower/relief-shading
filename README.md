@@ -3,8 +3,10 @@
 # Relief Shading
 Create shaded-relief raster images from Digital Elevation Models (DEM).
 
-## Example With SRTM .hgt
+## Examples With SRTM .hgt
 [Download .hgt files](https://eospso.gsfc.nasa.gov/missions/shuttle-radar-topography-mission)  
+
+## Shaded Relief
 Create shaded relief image:  
 ```
         // Create shaded relief image from .hgt file.
@@ -22,7 +24,8 @@ Create shaded relief image:
         ImageIO.write(image, "png", output.toFile());
 ```
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-shaded.png" alt="Shaded Relief" width="400" height="400">
-  
+
+## Color Filled
 Create color-filled image:  
 ```
         // Create color-filled image from .hgt file.
