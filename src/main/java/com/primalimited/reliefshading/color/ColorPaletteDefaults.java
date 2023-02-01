@@ -3,7 +3,10 @@ package com.primalimited.reliefshading.color;
 import java.awt.*;
 
 /**
- * Defines default color palettes
+ * Defines default color palettes.
+ *
+ * Example palettes can be found and copied here:
+ * http://soliton.vm.bytemark.co.uk/pub/cpt-city/views/totp-svg.html
  */
 public enum ColorPaletteDefaults {
     /**
@@ -20,6 +23,22 @@ public enum ColorPaletteDefaults {
                     new ControlPoint(200, new Color(244, 240, 113).getRGB()),
                     new ControlPoint(400, new Color(244, 189, 69).getRGB()),
                     new ControlPoint(600, new Color(153, 100, 43).getRGB()),
+                    new ControlPoint(nColors-1, new Color(255, 255, 255).getRGB())
+            );
+        }
+    },
+    DEM_PRINT {
+        @Override
+        public ColorPalette colorPalette() {
+            final int nColors = 800;
+            return ColorPalette.create(
+                    nColors,
+                    new ControlPoint(  0, new Color(51, 102, 0).getRGB()),
+                    new ControlPoint(100, new Color(129, 195, 31).getRGB()),
+                    new ControlPoint(200, new Color(255, 255, 204).getRGB()),
+                    new ControlPoint(400, new Color(244, 189, 69).getRGB()),
+                    new ControlPoint(500, new Color(102, 51, 12).getRGB()),
+                    new ControlPoint(600, new Color(102, 51, 0).getRGB()),
                     new ControlPoint(nColors-1, new Color(255, 255, 255).getRGB())
             );
         }

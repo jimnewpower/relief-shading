@@ -2,6 +2,8 @@ package com.primalimited.reliefshading.color;
 
 import com.primalimited.reliefshading.bounds.Bounds;
 
+import java.awt.*;
+
 public class ColorUtility {
 
     /**
@@ -15,5 +17,9 @@ public class ColorUtility {
         return (int) Bounds.UNSIGNED_BYTE_BOUNDS.constrain(
                 Math.round(Bounds.PERCENT.constrain(percent) * 2.55f)
         );
+    }
+
+    public static Color from(int r, int g, int b) {
+        return new Color(r, g, b);
     }
 }
