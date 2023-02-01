@@ -64,4 +64,15 @@ The two key settings for relief shading are:
 
 These may be adjusted in the Preferences class.
 
+## Set Preferences
+```
+        Preferences preferences = new PreferencesBuilder()
+                .altitudeDegrees(30)
+                .azimuthDegrees(225)
+                .build();
+
+        GridClassifier classifier = GridClassifierShadedRelief
+                .of(preferences, zFactorDem);
+```
+
 
