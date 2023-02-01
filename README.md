@@ -17,7 +17,7 @@ Create shaded-relief raster images from Digital Elevation Models (DEM).
         Path output = Paths.get("N37w108-shaded.png");
         ImageIO.write(image, "png", output.toFile());
 ```
-<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-shaded.png" alt="Shaded Relief" width="500" height="600">
+<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-shaded.png" alt="Shaded Relief" width="400" height="400">
 
 ## Supported DEMs
 Shuttle Radar Topography Mission (SRTM) .hgt (height) files.
