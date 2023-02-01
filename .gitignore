@@ -163,4 +163,8 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/12206-codestream
 .idea/codestream.xml
 
+# Ignore test data files
+N37w108-color.png
+N37w108-shaded.png
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij
