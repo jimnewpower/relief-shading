@@ -56,7 +56,7 @@ Create color-filled image with custom z bounds:
 
         final String filename = "./N37W108.hgt";
 
-        Bounds zBounds = Bounds.of(0, 3000);//meters
+        Bounds zBounds = Bounds.of(2250, 4310);//meters
 
         GridClassifier classifier = GridClassifier
                 .color(ColorPaletteDefaults.DEM.colorPalette(), zBounds);
@@ -67,7 +67,7 @@ Create color-filled image with custom z bounds:
         Path output = Paths.get("color-z.png");
         ImageIO.write(image, "png", output.toFile());
 ```
-<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color.png" alt="Color Filled" width="400" height="400">
+<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color-z.png" alt="Color Filled" width="400" height="400">
 
 ## Combined Image 1
 Layer color on top of shaded, and reduce opacity of color layer (50% in this case).
