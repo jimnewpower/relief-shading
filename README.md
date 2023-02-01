@@ -50,8 +50,3 @@ Layer shaded on top of colored, and reduce opacity of shaded layer (30% in this 
 
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/colored-and-shaded.png" alt="Colored and Shaded" width="400" height="400">
 
-## Other Examples
-
-![San Juan Mountains, Colorado](images/sanjuans.png?raw=true "San Juan Mountains, Colorado USA")
-
-![San Juan Mountains, Colorado](images/sanjuans2.png?raw=true "San Juan Mountains, Colorado USA")
