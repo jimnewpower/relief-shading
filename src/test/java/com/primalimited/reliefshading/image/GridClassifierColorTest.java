@@ -22,8 +22,8 @@ class GridClassifierColorTest {
 
     @Test
     public void classify() throws IOException, URISyntaxException {
-        GridClassifier classifier = GridClassifierColor
-                .of(ColorPaletteDefaults.DEM.colorPalette());
+        GridClassifier classifier = GridClassifier
+                .color(ColorPaletteDefaults.DEM.colorPalette());
 
         BufferedImage image = classifier.classify(loadGrid());
         assertNotNull(image);

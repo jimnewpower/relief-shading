@@ -3,6 +3,7 @@ package com.primalimited.reliefshading.image;
 import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.color.ColorMapper;
 import com.primalimited.reliefshading.color.ColorPalette;
+import com.primalimited.reliefshading.color.ColorPaletteDefaults;
 import com.primalimited.reliefshading.grid.Grid;
 
 import java.awt.*;
@@ -25,8 +26,8 @@ public class GridClassifierColor implements GridClassifier {
         return new GridClassifierColor(colorPalette);
     }
 
-    private transient final ColorPalette colorPalette;
-    private transient Bounds zBounds = Bounds.nullBounds();
+    private final ColorPalette colorPalette;
+    private Bounds zBounds = Bounds.nullBounds();
 
     private GridClassifierColor(ColorPalette colorPalette) {
         this.colorPalette = Objects.requireNonNull(colorPalette, "color palette");

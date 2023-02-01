@@ -29,12 +29,12 @@ class GridClassifierShadedReliefTest {
         ZFactorDem zFactorDem = new ZFactorSrtmDem(FilenameSRTM.create(DEMO_FILENAME));
 
         Preferences preferences = new PreferencesBuilder()
-                .altitudeDegrees(30)
-                .azimuthDegrees(225)
+//                .altitudeDegrees(30)
+//                .azimuthDegrees(225)
                 .build();
 
-        GridClassifier classifier = GridClassifierShadedRelief
-                .of(preferences, zFactorDem);
+        GridClassifier classifier = GridClassifier
+                .shaded(preferences, zFactorDem);
 
         BufferedImage image = classifier
                 .classify(loadGrid());
