@@ -6,7 +6,8 @@ Create shaded-relief raster images from Digital Elevation Models (DEM).
 ## Example With SRTM .hgt
 [Download .hgt files](https://eospso.gsfc.nasa.gov/missions/shuttle-radar-topography-mission)
 ```
-        ZFactorDem zFactorDem = new ZFactorSrtmDem(FilenameSRTM.create(DEMO_FILENAME));
+        final String filename = "./N37W108.hgt";
+        ZFactorDem zFactorDem = new ZFactorSrtmDem(FilenameSRTM.create(filename));
 
         GridClassifier classifier = GridClassifierShadedRelief
                 .of(Preferences.createDefault(), zFactorDem);
@@ -16,6 +17,7 @@ Create shaded-relief raster images from Digital Elevation Models (DEM).
         Path output = Paths.get("N37w108-shaded.png");
         ImageIO.write(image, "png", output.toFile());
 ```
+![Result](images/N37w108-shaded.png?raw=true "Result")
 
 ## Supported DEMs
 Shuttle Radar Topography Mission (SRTM) .hgt (height) files.
