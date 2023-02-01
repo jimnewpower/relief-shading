@@ -42,8 +42,17 @@ public class GridClassifierColor implements GridClassifier {
     public BufferedImage classify(Grid grid) {
         Objects.requireNonNull(grid, "grid");
 
+        Bounds gridZBounds = grid.zBounds();
+
         if (zBounds.isNull() || !zBounds.isValid())
             zBounds = grid.zBounds();
+
+        // Avoid "washed out" color ranges when client specifies
+        // a color range that is wider than the z bounds of the grid.
+        zBounds = Bounds.of(
+                Math.max(zBounds.min(), gridZBounds.min()),
+                Math.min(zBounds.max(), gridZBounds.max())
+        );
 
         ColorMapper<Number> colorMapper = ColorMapper.numeric(colorPalette, zBounds);
 

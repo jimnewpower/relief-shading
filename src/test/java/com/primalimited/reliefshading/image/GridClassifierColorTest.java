@@ -43,8 +43,8 @@ class GridClassifierColorTest {
     }
 
     @Test
-    public void classifyToZBounds() throws IOException, URISyntaxException {
-        Bounds zBounds = Bounds.of(2250, 4310);//meters
+    public void classifyToZBoundsInsideGridZBounds() throws IOException, URISyntaxException {
+        Bounds zBounds = Bounds.of(2250, 3600);//meters
 
         GridClassifier classifier = GridClassifier
                 .color(ColorPaletteDefaults.DEM.colorPalette(), zBounds);
@@ -53,7 +53,29 @@ class GridClassifierColorTest {
         assertNotNull(image);
 
         // Un-comment to get this image file in the project root:
-        Path output = Paths.get("N37w108-color.png");
+        Path output = Paths.get("N37w108-color-z-in.png");
+        ImageIO.write(image, "png", output.toFile());
+
+        // Tests for Bounds.of(0, 3000)
+//        assertEquals(-4219270, image.getRGB(0, 0));
+//        assertEquals(-2043970, image.getRGB(100, 200));
+//        assertEquals(16777215, image.getRGB(1000, 2000));
+//        assertEquals(-5999551, image.getRGB(2000, 3000));
+//        assertEquals(-5474768, image.getRGB(3000, 3600));
+    }
+
+    @Test
+    public void classifyToZBoundsOutsideGridZBounds() throws IOException, URISyntaxException {
+        Bounds zBounds = Bounds.of(0, 10000);//meters
+
+        GridClassifier classifier = GridClassifier
+                .color(ColorPaletteDefaults.DEM.colorPalette(), zBounds);
+
+        BufferedImage image = classifier.classify(loadGrid());
+        assertNotNull(image);
+
+        // Un-comment to get this image file in the project root:
+        Path output = Paths.get("N37w108-color-z-out.png");
         ImageIO.write(image, "png", output.toFile());
 
         // Tests for Bounds.of(0, 3000)
