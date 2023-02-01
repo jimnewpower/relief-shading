@@ -1,5 +1,6 @@
 package com.primalimited.reliefshading.image;
 
+import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.color.ColorPaletteDefaults;
 import com.primalimited.reliefshading.grid.Grid;
 import com.primalimited.reliefshading.io.DemReader;
@@ -39,6 +40,27 @@ class GridClassifierColorTest {
         assertEquals(-13646076, image.getRGB(3000, 3600));
         assertEquals(-3895753, image.getRGB(1800, 1800));
         assertEquals(-727191, image.getRGB(3600, 3600));
+    }
+
+    @Test
+    public void classifyToZBounds() throws IOException, URISyntaxException {
+        Bounds zBounds = Bounds.of(0, 3000);//meters
+
+        GridClassifier classifier = GridClassifier
+                .color(ColorPaletteDefaults.DEM.colorPalette(), zBounds);
+
+        BufferedImage image = classifier.classify(loadGrid());
+        assertNotNull(image);
+
+        // Un-comment to get this image file in the project root:
+        Path output = Paths.get("N37w108-color.png");
+        ImageIO.write(image, "png", output.toFile());
+
+        assertEquals(-4219270, image.getRGB(0, 0));
+        assertEquals(-2043970, image.getRGB(100, 200));
+        assertEquals(16777215, image.getRGB(1000, 2000));
+        assertEquals(-5999551, image.getRGB(2000, 3000));
+        assertEquals(-5474768, image.getRGB(3000, 3600));
     }
 
     private Grid loadGrid() throws IOException, URISyntaxException {

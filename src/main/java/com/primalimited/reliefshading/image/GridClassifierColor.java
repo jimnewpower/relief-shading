@@ -23,7 +23,7 @@ public class GridClassifierColor implements GridClassifier {
     }
 
     public static GridClassifier with(ColorPalette colorPalette, Bounds zBounds) {
-        return new GridClassifierColor(colorPalette);
+        return new GridClassifierColor(colorPalette, zBounds);
     }
 
     private final ColorPalette colorPalette;
