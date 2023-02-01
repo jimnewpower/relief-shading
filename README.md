@@ -40,8 +40,12 @@ Create color-filled image:
 ```
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color.png" alt="Color Filled" width="400" height="400">
 
-## Supported DEMs
-Shuttle Radar Topography Mission (SRTM) .hgt (height) files.
+## Combined Image
+Layer color on top of shaded, and reduce opacity of color layer (50% in this case).
+
+<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/shaded-and-colored.png" alt="Shaded and Colored" width="400" height="400">
+
+## Other Examples
 
 ![San Juan Mountains, Colorado](images/sanjuans.png?raw=true "San Juan Mountains, Colorado USA")
 
