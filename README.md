@@ -74,17 +74,12 @@ Create color-filled image with custom z bounds:
         Path output = Paths.get("color-z.png");
         ImageIO.write(image, "png", output.toFile());
 ```
-<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color-z.png" alt="Color Filled" width="400" height="400">
+<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color-z-in.png" alt="Color Filled" width="400" height="400">
 
 ## Combined Image
 Shaded image with 30% opacity overlaid onto color image.
 
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-overlay.png" alt="Shaded and Colored" width="400" height="400">
-
-## Combined Image 2
-Layer shaded on top of colored, and reduce opacity of shaded layer (30% in this case).
-
-<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/colored-and-shaded.png" alt="Colored and Shaded" width="400" height="400">
 
 ## Adjustments
 The two key settings for relief shading are:  
