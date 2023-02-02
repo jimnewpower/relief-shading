@@ -13,6 +13,12 @@ Digital Elevation Models (DEM) provide nice inputs to see relief shading. You ma
  - [About the SRTM](https://eospso.gsfc.nasa.gov/missions/shuttle-radar-topography-mission)  
  - [Mission Page, Downloads](https://www2.jpl.nasa.gov/srtm/)
 
+## Reference Image (from Google Maps)
+
+>30-minute quad, 37-38 degrees north latitude, 107-108 degrees west longitude.
+ 
+<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/reference.png" alt="Reference Image" width="400" height="400">
+
 ## Shaded Relief
 Create shaded relief image:  
 ```
