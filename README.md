@@ -10,7 +10,8 @@ Relief shading (sometimes referred to as hill shading, or shaded relief) refers 
 
 ## Data
 Digital Elevation Models (DEM) provide nice inputs to see relief shading. You may use Shuttle Radar Topography Mission (.hgt) files directly.
-[Download .hgt files](https://eospso.gsfc.nasa.gov/missions/shuttle-radar-topography-mission)  
+ - [Download .hgt files](https://eospso.gsfc.nasa.gov/missions/shuttle-radar-topography-mission)  
+ - [Mission Page](https://www2.jpl.nasa.gov/srtm/)
 
 ## Shaded Relief
 Create shaded relief image:  
