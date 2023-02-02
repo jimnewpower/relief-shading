@@ -26,7 +26,7 @@ class GridClassifierColorTest {
         GridClassifier classifier = GridClassifier
                 .color(ColorPaletteDefaults.DEM.colorPalette());
 
-        BufferedImage image = classifier.classify(loadGrid());
+        BufferedImage image = classifier.apply(loadGrid());
         assertNotNull(image);
 
         // Un-comment to get this image file in the project root:
@@ -49,7 +49,7 @@ class GridClassifierColorTest {
         GridClassifier classifier = GridClassifier
                 .color(ColorPaletteDefaults.DEM.colorPalette(), zBounds);
 
-        BufferedImage image = classifier.classify(loadGrid());
+        BufferedImage image = classifier.apply(loadGrid());
         assertNotNull(image);
 
         // Un-comment to get this image file in the project root:
@@ -71,7 +71,7 @@ class GridClassifierColorTest {
         GridClassifier classifier = GridClassifier
                 .color(ColorPaletteDefaults.DEM.colorPalette(), zBounds);
 
-        BufferedImage image = classifier.classify(loadGrid());
+        BufferedImage image = classifier.apply(loadGrid());
         assertNotNull(image);
 
         // Un-comment to get this image file in the project root:

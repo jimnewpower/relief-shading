@@ -38,4 +38,9 @@ public class ColorPaletteTransparent implements ColorPalette {
             throw new IllegalArgumentException("Index is out of range: " + Bounds.of(0, nColors()-1));
         return rgb[index];
     }
+
+    @Override
+    public Color color(int index) {
+        return new Color(rgb(index));
+    }
 }

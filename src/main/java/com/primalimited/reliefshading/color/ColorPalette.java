@@ -1,5 +1,7 @@
 package com.primalimited.reliefshading.color;
 
+import java.awt.*;
+
 /**
  * Essentially an array of color values.
  */
@@ -50,4 +52,6 @@ public interface ColorPalette {
      * @return the rgb value at the specified index.
      */
     int rgb(int index);
+
+    Color color(int index);
 }

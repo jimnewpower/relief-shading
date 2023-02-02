@@ -3,6 +3,7 @@ package com.primalimited.reliefshading.color;
 import com.primalimited.reliefshading.bounds.Bounds;
 import com.primalimited.reliefshading.number.Invalid;
 
+import java.awt.*;
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.Objects;
@@ -65,5 +66,10 @@ class ColorPaletteImpl implements ColorPalette {
         if (index < 0 || index >= nColors)
             throw new IllegalArgumentException("Index is out of range: " + Bounds.of(0, nColors-1));
         return rgb[index];
+    }
+
+    @Override
+    public Color color(int index) {
+        return new Color(rgb(index));
     }
 }

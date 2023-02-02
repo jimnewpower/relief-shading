@@ -38,8 +38,14 @@ public class GridClassifierColor implements GridClassifier {
         this.zBounds = Objects.requireNonNull(zBounds, "z bounds");
     }
 
+    /**
+     * Classify the given grid into an image (raster).
+     *
+     * @param grid the grid input.
+     * @return the classified grid as an image.
+     */
     @Override
-    public BufferedImage classify(Grid grid) {
+    public BufferedImage apply(Grid grid) {
         Objects.requireNonNull(grid, "grid");
 
         Bounds gridZBounds = grid.zBounds();

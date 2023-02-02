@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Preferences {
     static final int AZIMUTH_DEGREES_DEFAULT = 315;
     static final int ALTITUDE_DEGREES_DEFAULT = 45;
-    static final int OPACITY_PERCENT_DEFAULT = 70;
+    static final int OPACITY_PERCENT_DEFAULT = 100;
 
     /**
      * Create default preferences.

@@ -2,6 +2,8 @@ package com.primalimited.reliefshading.color;
 
 import com.primalimited.reliefshading.bounds.Bounds;
 
+import java.awt.*;
+
 /**
  * Maps a generic-type value to a (rgb) color.
  *
@@ -15,6 +17,8 @@ public interface ColorMapper<T> {
      * @return the rgb value for the given value.
      */
     int rgb(T value);
+
+    Color color(T value);
 
     /**
      * Creates a color mapper for numeric values.

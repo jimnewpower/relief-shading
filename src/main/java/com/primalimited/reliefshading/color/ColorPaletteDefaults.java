@@ -63,7 +63,7 @@ public enum ColorPaletteDefaults {
         @Override
         public ColorPalette colorPalette() {
             final int nColors = 256;
-            final int min = 64;
+            final int min = 16;
             final int max = 240;
             return ColorPalette.create(
                     nColors,

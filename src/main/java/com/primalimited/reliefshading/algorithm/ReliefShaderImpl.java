@@ -33,8 +33,18 @@ class ReliefShaderImpl implements ReliefShader {
         this.altitudeRadians = Math.toRadians(preferences.altitudeDegrees());
     }
 
+    /**
+     * Apply relief shading algorithm to the input grid, returning a result
+     * grid of the same dimensions, but with z values representing grayscale
+     * relief shading values.
+     *
+     * @param grid input grid
+     * @param zFactor conversion factor that adjusts the units of measure for
+     *                the elevation units when they differ from the horizontal units
+     * @return result grid
+     */
     @Override
-    public Grid apply(Grid grid, float zFactor) {
+    public Grid apply(Grid grid, Float zFactor) {
         Objects.requireNonNull(grid, "grid");
 
         double meanExtents = mean(grid.bounds().width(), grid.bounds().height());

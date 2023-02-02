@@ -8,19 +8,13 @@ import com.primalimited.reliefshading.grid.Grid;
 import com.primalimited.reliefshading.prefs.Preferences;
 
 import java.awt.image.BufferedImage;
+import java.util.function.Function;
 
 /**
  * Classify grid z values into e.g. colors or shaded relief values.
  */
 @FunctionalInterface
-public interface GridClassifier {
-    /**
-     * Classify the given grid into an image (raster).
-     *
-     * @param grid the grid input.
-     * @return the classified grid as an image.
-     */
-    BufferedImage classify(Grid grid);
+public interface GridClassifier extends Function<Grid, BufferedImage> {
 
     static GridClassifier color(ColorPalette colorPalette) {
         return GridClassifierColor.of(colorPalette);
