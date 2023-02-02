@@ -77,8 +77,45 @@ Create color-filled image with custom z bounds:
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color-z-in.png" alt="Color Filled" width="400" height="400">
 
 ## Combined Image
-Shaded image with 30% opacity overlaid onto color image.
+Shaded image with 30% opacity overlaid onto color image.  
+```
+        // Create overlay (final) image.
+        
+        final String filename = "./N37W108.hgt";
 
+        Grid grid = DemReader.shuttleRadarTopographyMissionHGT(path).read();
+
+        GridClassifier classifier = GridClassifier
+                .color(ColorPaletteDefaults.DEM.colorPalette());
+
+        BufferedImage colorImage = classifier.apply(grid);
+
+        ZFactorDem zFactorDem = new ZFactorSrtmDem(FilenameSRTM.create(DEMO_FILENAME));
+
+        Preferences preferences = new PreferencesBuilder()
+                .opacityPercent(30)
+                .build();
+
+        classifier = GridClassifier
+                .shaded(preferences, zFactorDem);
+
+        BufferedImage shadedImage = classifier.apply(loadGrid());
+
+        int width = shadedImage.getWidth();
+        int height = shadedImage.getHeight();
+
+        BufferedImage combined = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics g = combined.getGraphics();
+        ((Graphics2D)g).setComposite(AlphaComposite.SrcOver);
+        g.drawImage(colorImage, 0, 0, null);
+        g.drawImage(shadedImage, 0, 0, null);
+
+        Path output = Paths.get("N37w108-overlay.png");
+        ImageIO.write(combined, "png", output.toFile());
+
+        g.dispose();
+```
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-overlay.png" alt="Shaded and Colored" width="400" height="400">
 
 ## Adjustments
