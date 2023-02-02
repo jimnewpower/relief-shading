@@ -26,6 +26,11 @@ Digital Elevation Models (DEM) provide nice inputs to see relief shading. You ma
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-overlay.png" alt="Shaded and Colored" width="400" height="400">
 </p>
 
+<p float="left">
+<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/reference-satellite.png" alt="Reference Image" width="400" height="400">
+<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-overlay.png" alt="Shaded and Colored" width="400" height="400">
+</p>
+
 <br>
 
 ## Shaded Relief
