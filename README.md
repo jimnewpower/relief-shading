@@ -17,7 +17,7 @@ Digital Elevation Models (DEM) provide nice inputs to see relief shading. You ma
 
 >30-minute quad, 37-38 degrees north latitude, 107-108 degrees west longitude.
  
-<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/reference.png" alt="Reference Image" width="400" height="400">
+<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/reference.png" alt="Reference Image">
 
 ## Shaded Relief
 Create shaded relief image:  
