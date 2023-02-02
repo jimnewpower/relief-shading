@@ -76,10 +76,10 @@ Create color-filled image with custom z bounds:
 ```
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color-z.png" alt="Color Filled" width="400" height="400">
 
-## Combined Image 1
-Layer color on top of shaded, and reduce opacity of color layer (50% in this case).
+## Combined Image
+Shaded image with 30% opacity overlaid onto color image.
 
-<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/shaded-and-colored.png" alt="Shaded and Colored" width="400" height="400">
+<img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-overlay.png" alt="Shaded and Colored" width="400" height="400">
 
 ## Combined Image 2
 Layer shaded on top of colored, and reduce opacity of shaded layer (30% in this case).
