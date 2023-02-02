@@ -8,16 +8,22 @@ Relief shading (sometimes referred to as hill shading, or shaded relief) refers 
 
 [Technical reference](https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/how-hillshade-works.htm)
 
+<br>
+
 ## Data
 Digital Elevation Models (DEM) provide nice inputs to see relief shading. You may use Shuttle Radar Topography Mission (.hgt) files directly.
  - [About the SRTM](https://eospso.gsfc.nasa.gov/missions/shuttle-radar-topography-mission)  
  - [Mission Page, Downloads](https://www2.jpl.nasa.gov/srtm/)
+
+<br>
 
 ## Reference Image (from Google Maps)
 
 >1 arc-second (90 meter) quad, 37-38 degrees north latitude, 107-108 degrees west longitude.
  
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/reference.png" alt="Reference Image" width="400" height="400">
+
+<br>
 
 ## Shaded Relief
 Create shaded relief image:  
@@ -38,6 +44,8 @@ Create shaded relief image:
 ```
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-shaded.png" alt="Shaded Relief" width="400" height="400">
 
+<br>
+
 ## Color Filled
 Create color-filled image:  
 ```
@@ -55,6 +63,8 @@ Create color-filled image:
         ImageIO.write(image, "png", output.toFile());
 ```
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color.png" alt="Color Filled" width="400" height="400">
+
+<br>
 
 ## Color Filled, Constrained to Custom Z Bounds
 Create color-filled image with custom z bounds:  
@@ -75,6 +85,8 @@ Create color-filled image with custom z bounds:
         ImageIO.write(image, "png", output.toFile());
 ```
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-color-z-in.png" alt="Color Filled" width="400" height="400">
+
+<br>
 
 ## Combined Image
 Shaded image with 30% opacity overlaid onto color image.  
@@ -118,6 +130,8 @@ Shaded image with 30% opacity overlaid onto color image.
 ```
 <img src="https://github.com/jimnewpower/relief-shading/blob/main/images/N37w108-overlay.png" alt="Shaded and Colored" width="400" height="400">
 
+<br>
+
 ## Adjustments
 The two key settings for relief shading are:  
 
@@ -125,6 +139,8 @@ The two key settings for relief shading are:
 > - *altitude* the elevation of the sun (0-90 degrees), default is 45. The lower the value, the more accentuated the features should become, while the higher the value, the features will become less severe.
 
 These may be adjusted in the Preferences class.
+
+<br>
 
 ## Set Preferences
 ```
