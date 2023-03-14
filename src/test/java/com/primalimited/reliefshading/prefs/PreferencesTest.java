@@ -12,7 +12,7 @@ class PreferencesTest {
                 "Default values",
                 () -> assertEquals(315, preferences.azimuthDegrees()),
                 () -> assertEquals(45, preferences.altitudeDegrees()),
-                () -> assertEquals(70, preferences.opacityPercent())
+                () -> assertEquals(100, preferences.opacityPercent())
         );
     }
 
@@ -90,7 +90,7 @@ class PreferencesTest {
     @Test
     public void testToString() {
         assertEquals(
-                "Preferences{azimuth=315, altitude=45, opacityPercent=70}",
+                "Preferences{azimuth=315, altitude=45, opacityPercent=100}",
                 Preferences.createDefault().toString()
         );
     }
