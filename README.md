@@ -1,3 +1,5 @@
+![Stats](https://github-readme-stats.vercel.app/api?username=jimnewpower&show_icons=true)
+
 [![Java CI with Gradle](https://github.com/jimnewpower/relief-shading/actions/workflows/gradle.yml/badge.svg)](https://github.com/jimnewpower/relief-shading/actions/workflows/gradle.yml)
 
 # Relief Shading
