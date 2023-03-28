@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PaletteBuilderTest {
     @Test
-    public void oneColorOneControlPoint() {
+    void oneColorOneControlPoint() {
         // when asking for 1 color, the control point with index 0 should be that color
         int[] rgb = PaletteBuilder.buildRGB(1, new ControlPoint(0, Color.PINK.getRGB()));
         assertEquals(1, rgb.length, "length should == 1");
@@ -16,7 +16,7 @@ class PaletteBuilderTest {
     }
 
     @Test
-    public void oneColorMultipleControlPoints() {
+    void oneColorMultipleControlPoints() {
         // when asking for 1 color, the control point with index 0 should be that color
         int[] rgb = PaletteBuilder.buildRGB(
                 1,
@@ -30,7 +30,7 @@ class PaletteBuilderTest {
     }
 
     @Test
-    public void constantColorPalette() {
+    void constantColorPalette() {
         int nColors = 12;
         Color color = Color.CYAN;
         int[] rgb = PaletteBuilder
@@ -45,7 +45,7 @@ class PaletteBuilderTest {
     }
 
     @Test
-    public void threeColorPalette() {
+    void threeColorPalette() {
         int[] rgb = PaletteBuilder
                 .buildRGB(
                         3,
@@ -61,7 +61,7 @@ class PaletteBuilderTest {
     }
 
     @Test
-    public void threeColorPaletteSameControlPointColors() {
+    void threeColorPaletteSameControlPointColors() {
         int[] rgb = PaletteBuilder
                 .buildRGB(
                         3,
@@ -77,7 +77,7 @@ class PaletteBuilderTest {
     }
 
     @Test
-    public void fiveColorPalette3ControlPoints() {
+    void fiveColorPalette3ControlPoints() {
         int[] rgb = PaletteBuilder
                 .buildRGB(
                         5,

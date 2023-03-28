@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GridTest {
     @Test
-    public void factoryMethodInvalidRows() {
+    void factoryMethodInvalidRows() {
         // rows < 0
         assertThrows(IllegalArgumentException.class,
                 () -> Grid.createRowMajorSWOrigin(-1, 10, mockBounds(), mockValues(2, 2)));
@@ -19,7 +19,7 @@ public class GridTest {
     }
 
     @Test
-    public void factoryMethodInvalidColumns() {
+    void factoryMethodInvalidColumns() {
         // columns < 0
         assertThrows(IllegalArgumentException.class,
                 () -> Grid.createRowMajorSWOrigin(10, -1, mockBounds(), mockValues(2, 2)));
@@ -29,7 +29,7 @@ public class GridTest {
     }
 
     @Test
-    public void factoryMethodInvalidBounds() {
+    void factoryMethodInvalidBounds() {
         // null bounds
         assertThrows(IllegalArgumentException.class,
                 () -> Grid.createRowMajorSWOrigin(10, 10, null, mockValues(10, 10)));
@@ -40,7 +40,7 @@ public class GridTest {
     }
 
     @Test
-    public void factoryMethodInvalidValues() {
+    void factoryMethodInvalidValues() {
         // null values
         assertThrows(IllegalArgumentException.class,
                 () -> Grid.createRowMajorSWOrigin(10, 10, mockBounds(), null));
@@ -51,7 +51,7 @@ public class GridTest {
     }
 
     @Test
-    public void rowsAndColumns() {
+    void rowsAndColumns() {
         int rows = 21;
         int columns = 34;
         Grid grid = Grid.createRowMajorSWOrigin(
@@ -65,7 +65,7 @@ public class GridTest {
     }
 
     @Test
-    public void bounds() {
+    void bounds() {
         int rows = 21;
         int columns = 34;
         Grid grid = Grid.createRowMajorSWOrigin(
@@ -82,7 +82,7 @@ public class GridTest {
     }
 
     @Test
-    public void value() {
+    void value() {
         int rows = 2;
         int columns = 3;
 
@@ -130,7 +130,7 @@ public class GridTest {
     }
 
     @Test
-    public void indexFromRowColumn() {
+    void indexFromRowColumn() {
         Grid grid = mock();
 
         // invalid row, valid column
@@ -159,7 +159,7 @@ public class GridTest {
     }
 
     @Test
-    public void rowColumnFromCellIndex() {
+    void rowColumnFromCellIndex() {
         Grid grid = mock();
 
         for (int row = 0; row < grid.rows(); row++) {
@@ -197,7 +197,7 @@ public class GridTest {
     }
 
     @Test
-    public void indexFromLocation() {
+    void indexFromLocation() {
         int rows = 5;
         int columns = 10;
 

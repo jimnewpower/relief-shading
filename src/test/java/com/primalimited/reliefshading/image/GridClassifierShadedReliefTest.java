@@ -25,7 +25,7 @@ class GridClassifierShadedReliefTest {
     private static final String DEMO_FILENAME = "N37W108.hgt";
 
     @Test
-    public void shadedRelief() throws IOException, URISyntaxException {
+    void shadedRelief() throws IOException, URISyntaxException {
         ZFactorDem zFactorDem = new ZFactorSrtmDem(FilenameSRTM.create(DEMO_FILENAME));
 
         Preferences preferences = new PreferencesBuilder()

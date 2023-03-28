@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ColorMapperTest {
     @Test
-    public void numeric() {
+    void numeric() {
         ColorPalette colorPalette = ColorPalette.create(
                 100,
                 new ControlPoint(0, Color.WHITE.getRGB()),
@@ -27,7 +27,7 @@ class ColorMapperTest {
     }
 
     @Test
-    public void invalidBounds() {
+    void invalidBounds() {
         ColorPalette colorPalette = ColorPalette.create(
                 100,
                 new ControlPoint(0, Color.WHITE.getRGB()),
@@ -42,7 +42,7 @@ class ColorMapperTest {
     }
 
     @Test
-    public void invalidRGBQuery() {
+    void invalidRGBQuery() {
         ColorPalette colorPalette = ColorPalette.create(
                 100,
                 new ControlPoint(0, Color.WHITE.getRGB()),

@@ -10,14 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ControlPointComparatorTest {
     @Test
-    public void compareSame() {
+    void compareSame() {
         ControlPoint cp0 = new ControlPoint(0, 0);
         ControlPoint cp1 = new ControlPoint(0, 24352);
         assertEquals(0, new ControlPointComparator().compare(cp0, cp1));
     }
 
     @Test
-    public void compareDifferent() {
+    void compareDifferent() {
         ControlPoint cp0 = new ControlPoint(0, 0);
         ControlPoint cp1 = new ControlPoint(1, 24352);
         assertEquals(-1, new ControlPointComparator().compare(cp0, cp1));
@@ -25,7 +25,7 @@ class ControlPointComparatorTest {
     }
 
     @Test
-    public void testComparator() {
+    void testComparator() {
         ControlPoint cp0 = new ControlPoint(0, 0);
         ControlPoint cp1 = new ControlPoint(1, 0);
         SortedSet<ControlPoint> sortedSet = new TreeSet<>(new ControlPointComparator());
@@ -36,7 +36,7 @@ class ControlPointComparatorTest {
     }
 
     @Test
-    public void getSortedListFromArray() {
+    void getSortedListFromArray() {
         ControlPoint cp0 = new ControlPoint(1, 0);
         ControlPoint cp1 = new ControlPoint(0, 0);
         ControlPoint cp2 = new ControlPoint(2, 0);
@@ -51,7 +51,7 @@ class ControlPointComparatorTest {
     }
 
     @Test
-    public void duplicateIndexes() {
+    void duplicateIndexes() {
         ControlPoint cp0 = new ControlPoint(0, 0);
         ControlPoint cp1 = new ControlPoint(0, -928734);
         ControlPoint cp2 = new ControlPoint(2, 0);

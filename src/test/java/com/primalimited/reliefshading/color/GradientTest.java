@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GradientTest {
     @Test
-    public void whiteBlack() {
+    void whiteBlack() {
         assertEquals(Color.WHITE.getRGB(), Gradient.computeRGB(0.f, Color.WHITE, Color.BLACK));
         assertEquals(Color.BLACK.getRGB(), Gradient.computeRGB(1.f, Color.WHITE, Color.BLACK));
     }
 
     @Test
-    public void gray() {
+    void gray() {
         assertEquals(
                 new Color(128, 128, 128).getRGB(),
                 Gradient.computeRGB(0.5f, Color.WHITE, Color.BLACK)
@@ -26,7 +26,7 @@ class GradientTest {
     }
 
     @Test
-    public void redBlue() {
+    void redBlue() {
         assertEquals(
                 new Color(128, 0, 128).getRGB(),
                 Gradient.computeRGB(0.5f, Color.RED, Color.BLUE)
@@ -38,7 +38,7 @@ class GradientTest {
     }
 
     @Test
-    public void invalidFraction() {
+    void invalidFraction() {
         Color begin = Color.BLACK;
         Color end = Color.WHITE;
 
@@ -56,7 +56,7 @@ class GradientTest {
     }
 
     @Test
-    public void nullColorArgs() {
+    void nullColorArgs() {
         assertAll(
                 "Invalid color arguments",
                 () -> assertThrows(

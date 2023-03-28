@@ -8,14 +8,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ControlPointTest {
     @Test
-    public void invalidIndexShouldThrow() {
+    void invalidIndexShouldThrow() {
         assertThrows(IllegalArgumentException.class,
                 () -> new ControlPoint(-1, Color.WHITE.getRGB())
         );
     }
 
     @Test
-    public void index() {
+    void index() {
         ControlPoint controlPoint = new ControlPoint(0, 0);
         assertAll("ControlPoint constructor",
                 () -> assertEquals(0, controlPoint.index()),
@@ -23,7 +23,7 @@ class ControlPointTest {
     }
 
     @Test
-    public void testEquals() {
+    void testEquals() {
         ControlPoint controlPoint0 = new ControlPoint(0, 0);
         assertEquals(controlPoint0, controlPoint0);
 
@@ -39,7 +39,7 @@ class ControlPointTest {
     }
 
     @Test
-    public void notEquals_dueToDifferingIndex() {
+    void notEquals_dueToDifferingIndex() {
         ControlPoint controlPoint0 = new ControlPoint(0, 0);
         ControlPoint controlPoint1 = new ControlPoint(1, 0);
         assertNotEquals(controlPoint0, controlPoint1);
@@ -48,7 +48,7 @@ class ControlPointTest {
     }
 
     @Test
-    public void notEquals_dueToDifferingRGB() {
+    void notEquals_dueToDifferingRGB() {
         ControlPoint controlPoint0 = new ControlPoint(0, 0);
         ControlPoint controlPoint1 = new ControlPoint(0, 1);
         assertNotEquals(controlPoint0, controlPoint1);
@@ -57,7 +57,7 @@ class ControlPointTest {
     }
 
     @Test
-    public void testHashCode() {
+    void testHashCode() {
         // same
         ControlPoint controlPoint0 = new ControlPoint(0, 0);
         ControlPoint controlPoint1 = new ControlPoint(0, 0);
@@ -80,7 +80,7 @@ class ControlPointTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         assertEquals("ControlPoint{index=0, rgb=0}", new ControlPoint(0, 0).toString());
     }
 }

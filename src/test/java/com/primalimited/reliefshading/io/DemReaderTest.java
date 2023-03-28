@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DemReaderTest {
 
     @Test
-    public void readSRTM_HGT_DEM() throws IOException, URISyntaxException {
+    void readSRTM_HGT_DEM() throws IOException, URISyntaxException {
         Path path = new LocalFileReader().getDemoPath();
         assertNotNull(path, "Path");
 

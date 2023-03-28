@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Bounds2DTest {
     @Test
-    public void empty() {
+    void empty() {
         assertFalse(Bounds2D.empty().isValid());
     }
 
     @Test
-    public void equalsAndHashCode() {
+    void equalsAndHashCode() {
         // equal
         Bounds2D bounds0 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
         Bounds2D bounds1 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
@@ -34,27 +34,27 @@ class Bounds2DTest {
     }
 
     @Test
-    public void equalsSelf() {
+    void equalsSelf() {
         Bounds2D bounds0 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
-        assertTrue(bounds0.equals(bounds0));
+        assertEquals(bounds0, bounds0);
     }
 
     @Test
-    public void notEqualsNullOrOtherType() {
+    void notEqualsNullOrOtherType() {
         Bounds2D bounds0 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
         Bounds2D nullBounds = null;
-        assertFalse(bounds0.equals(nullBounds));
-        assertFalse(bounds0.equals(Integer.valueOf(3)));
+        assertNotEquals(bounds0, nullBounds);
+        assertNotEquals(bounds0, Integer.valueOf(3));
     }
 
     @Test
-    public void toStringOutput() {
+    void toStringOutput() {
         Bounds2D bounds = Bounds2D.create(Bounds.LONGITUDE, Bounds.LATITUDE);
         assertEquals("Bounds2D x=[-180..180], y=[-90..90]", bounds.toString());
     }
 
     @Test
-    public void valid() {
+    void valid() {
         Bounds2D bounds = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
         final double tolerance = 1e-10;
         assertAll("Percent bounds",
@@ -69,13 +69,13 @@ class Bounds2DTest {
     }
 
     @Test
-    public void invalid() {
+    void invalid() {
         // both x and y invalid
         assertFalse(Bounds2D.empty().isValid());
     }
 
     @Test
-    public void contains() {
+    void contains() {
         Bounds2D fractionBounds = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
         // valid arguments
         assertTrue(fractionBounds.contains(Math.random(), Math.random()));
@@ -90,7 +90,7 @@ class Bounds2DTest {
     }
 
     @Test
-    public void disjoint() {
+    void disjoint() {
         // disjoint, valid bounds
         Bounds2D percent = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
         Bounds2D disjoint = Bounds2D.create(Bounds.of(200, 300), Bounds.of(200, 300));
@@ -127,7 +127,7 @@ class Bounds2DTest {
     }
 
     @Test
-    public void histogramBinX() {
+    void histogramBinX() {
         Bounds2D percent = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
         IntStream.range(0, 100)
                 .asDoubleStream()
@@ -135,7 +135,7 @@ class Bounds2DTest {
     }
 
     @Test
-    public void histogramBinY() {
+    void histogramBinY() {
         Bounds2D percent = Bounds2D.create(Bounds.PERCENT, Bounds.PERCENT);
         IntStream.range(0, 100)
                 .asDoubleStream()
@@ -143,24 +143,24 @@ class Bounds2DTest {
     }
 
     @Test
-    public void width() {
+    void width() {
         Bounds2D bounds0 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
         assertEquals(1.0, bounds0.width(), 1e-10);
     }
 
     @Test
-    public void widthForInvalid() {
+    void widthForInvalid() {
         assertTrue(Invalid.doubleInstance().invalid(Bounds2D.empty().width()));
     }
 
     @Test
-    public void height() {
+    void height() {
         Bounds2D bounds0 = Bounds2D.create(Bounds.FRACTION, Bounds.FRACTION);
         assertEquals(1.0, bounds0.height(), 1e-10);
     }
 
     @Test
-    public void heightForInvalid() {
+    void heightForInvalid() {
         assertTrue(Invalid.doubleInstance().invalid(Bounds2D.empty().height()));
     }
 }

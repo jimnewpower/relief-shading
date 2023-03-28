@@ -7,19 +7,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ZFactorCartesianTest {
     @Test
-    public void xyInMeters_ZInFeet() {
+    void xyInMeters_ZInFeet() {
         ZFactorDem zFactorDem = new ZFactorCartesian(Length.METERS, Length.FEET);
         assertEquals(0.3048f, zFactorDem.getZFactor());
     }
 
     @Test
-    public void xyInKilometers_ZInMeters() {
+    void xyInKilometers_ZInMeters() {
         ZFactorDem zFactorDem = new ZFactorCartesian(Length.KILOMETERS, Length.METERS);
         assertEquals(0.001f, zFactorDem.getZFactor());
     }
 
     @Test
-    public void same() {
+    void same() {
         assertAll(
                 "Same units for x,y and z",
                 () -> assertEquals(1.f, new ZFactorCartesian(Length.METERS, Length.METERS).getZFactor()),

@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ZFactorSrtmDemTest {
 
     @Test
-    public void testZFactorsSouthLatitude() {
+    void testZFactorsSouthLatitude() {
         FilenameSRTM filename = FilenameSRTM.create("S81W108.hgt");
         ZFactorDem zFactorDem = new ZFactorSrtmDem(filename);
         assertEquals(0.00005156f, zFactorDem.getZFactor());
@@ -47,7 +47,7 @@ class ZFactorSrtmDemTest {
     }
 
     @Test
-    public void testZFactorsNorthLatitude() {
+    void testZFactorsNorthLatitude() {
         FilenameSRTM filename = FilenameSRTM.create("N81W108.hgt");
         ZFactorDem zFactorDem = new ZFactorSrtmDem(filename);
         assertEquals(0.00005156f, zFactorDem.getZFactor());

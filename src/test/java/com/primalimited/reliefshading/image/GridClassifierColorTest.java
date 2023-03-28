@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class GridClassifierColorTest {
 
     @Test
-    public void classify() throws IOException, URISyntaxException {
+    void classify() throws IOException, URISyntaxException {
         GridClassifier classifier = GridClassifier
                 .color(ColorPaletteDefaults.DEM.colorPalette());
 
@@ -43,7 +43,7 @@ class GridClassifierColorTest {
     }
 
     @Test
-    public void classifyToZBoundsInsideGridZBounds() throws IOException, URISyntaxException {
+    void classifyToZBoundsInsideGridZBounds() throws IOException, URISyntaxException {
         Bounds zBounds = Bounds.of(2250, 3600);//meters
 
         GridClassifier classifier = GridClassifier
@@ -65,7 +65,7 @@ class GridClassifierColorTest {
     }
 
     @Test
-    public void classifyToZBoundsOutsideGridZBounds() throws IOException, URISyntaxException {
+    void classifyToZBoundsOutsideGridZBounds() throws IOException, URISyntaxException {
         Bounds zBounds = Bounds.of(0, 10000);//meters
 
         GridClassifier classifier = GridClassifier

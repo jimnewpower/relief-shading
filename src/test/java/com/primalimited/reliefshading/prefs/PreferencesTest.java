@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PreferencesTest {
     @Test
-    public void defaults() {
+    void defaults() {
         Preferences preferences = Preferences.createDefault();
         assertAll(
                 "Default values",
@@ -17,7 +17,7 @@ class PreferencesTest {
     }
 
     @Test
-    public void explicit() {
+    void explicit() {
         int azimuth = 270;
         int altitude = 23;
         int opacityPercent = 50;
@@ -31,7 +31,7 @@ class PreferencesTest {
     }
 
     @Test
-    public void invalidAzimuth() {
+    void invalidAzimuth() {
         int azimuthTooLarge = 365;
         int azimuthTooSmall = -2;
         int altitude = 23;
@@ -50,7 +50,7 @@ class PreferencesTest {
     }
 
     @Test
-    public void invalidAltitude() {
+    void invalidAltitude() {
         int azimuth = 310;
         int altitudeTooSmall = -1;
         int altitudeTooLarge = 91;
@@ -69,7 +69,7 @@ class PreferencesTest {
     }
 
     @Test
-    public void invalidOpacity() {
+    void invalidOpacity() {
         int azimuth = 310;
         int altitude = 50;
         int opacityPercentTooSmall = -4;
@@ -88,7 +88,7 @@ class PreferencesTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         assertEquals(
                 "Preferences{azimuth=315, altitude=45, opacityPercent=100}",
                 Preferences.createDefault().toString()
@@ -96,10 +96,9 @@ class PreferencesTest {
     }
 
     @Test
-    public void testEquals() {
+    void testEquals() {
         // same values
         assertEquals(Preferences.createDefault(), Preferences.createDefault());
-        assertTrue(Preferences.createDefault().equals(Preferences.createDefault()));
 
         Preferences defaults = Preferences.createDefault();
 
@@ -108,21 +107,21 @@ class PreferencesTest {
         int altitude = 23;
         int opacityPercent = 50;
         Preferences custom = Preferences.with(azimuth, altitude, opacityPercent);
-        assertFalse(defaults.equals(custom));
+        assertNotEquals(defaults, custom);
 
         // identical object reference
-        assertTrue(defaults.equals(defaults));
+        assertEquals(defaults, defaults);
 
         // null object
         Preferences nullPreferences = null;
-        assertFalse(defaults.equals(nullPreferences));
+        assertNotEquals(defaults, nullPreferences);
 
         // different type
-        assertFalse(defaults.equals(Integer.valueOf(10)));
+        assertNotEquals(defaults, Integer.valueOf(10));
     }
 
     @Test
-    public void testHashCode() {
+    void testHashCode() {
         Preferences defaults = Preferences.createDefault();
         int azimuth = 270;
         int altitude = 23;

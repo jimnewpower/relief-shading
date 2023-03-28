@@ -10,14 +10,14 @@ class FilenameSRTMTest {
     private static final String DEMO_FILENAME = "N37W108.hgt";
 
     @Test
-    public void filename() {
+    void filename() {
         String name = DEMO_FILENAME;
         FilenameSRTM filename = FilenameSRTM.create(name);
         assertEquals(name, filename.filename());
     }
 
     @Test
-    public void longitude() {
+    void longitude() {
         String name = DEMO_FILENAME;
         FilenameSRTM filename = FilenameSRTM.create(name);
         assertAll("Longitude for " + name,
@@ -29,7 +29,7 @@ class FilenameSRTMTest {
     }
 
     @Test
-    public void latitude() {
+    void latitude() {
         String name = DEMO_FILENAME;
         FilenameSRTM filename = FilenameSRTM.create(name);
         assertAll("Latitude for " + name,
@@ -41,7 +41,7 @@ class FilenameSRTMTest {
     }
 
     @Test
-    public void bounds2D() {
+    void bounds2D() {
         String name = DEMO_FILENAME;
         FilenameSRTM filename = FilenameSRTM.create(name);
         assertEquals(

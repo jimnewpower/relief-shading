@@ -20,7 +20,7 @@ class ReliefShaderTest {
     private static final String DEMO_FILENAME = "N37W108.hgt";
 
     @Test
-    public void reliefShader() throws IOException, URISyntaxException {
+    void reliefShader() throws IOException, URISyntaxException {
         URI uri = DemReader.class.getResource(DEMO_FILENAME).toURI();
         String filePath = Paths.get(uri).toString();
         Path path = Paths.get(filePath);

@@ -9,18 +9,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class InvalidTest {
     @Test
-    public void nullNumber() {
+    void nullNumber() {
         assertTrue(Invalid.test(null));
     }
 
     @Test
-    public void unsupportedNumber() {
+    void unsupportedNumber() {
         assertThrows(IllegalArgumentException.class, () -> Invalid.test(new AtomicInteger()));
         assertThrows(IllegalArgumentException.class, () -> Invalid.test(BigDecimal.valueOf(0L)));
     }
 
     @Test
-    public void invalidDoubles() {
+    void invalidDoubles() {
         double value = 1234567.89;
         assertFalse(Invalid.test(value));
         assertTrue(Invalid.test(Invalid.INVALID_DOUBLE));
@@ -30,7 +30,7 @@ class InvalidTest {
     }
 
     @Test
-    public void invalidFloats() {
+    void invalidFloats() {
         float value = 1234567.89f;
         assertFalse(Invalid.test(value));
         assertTrue(Invalid.test(Invalid.INVALID_FLOAT));
@@ -40,7 +40,7 @@ class InvalidTest {
     }
 
     @Test
-    public void invalidInts() {
+    void invalidInts() {
         int value = 123456789;
         assertFalse(Invalid.test(value));
         assertTrue(Invalid.test(Invalid.INVALID_INT));
@@ -51,7 +51,7 @@ class InvalidTest {
     }
 
     @Test
-    public void invalidShorts() {
+    void invalidShorts() {
         short value = 12345;
         assertFalse(Invalid.test(value));
         assertTrue(Invalid.test(Invalid.INVALID_SHORT));

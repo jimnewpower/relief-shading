@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ColorPaletteTransparentTest {
 
     @Test
-    public void transparentColorPalette() {
+    void transparentColorPalette() {
         ColorPalette opaque = ColorPaletteDefaults.DEM.colorPalette();
         ColorPalette transparent = ColorPalette.applyTransparency(opaque, 50);
         assertNotNull(transparent, "transparent color palette");

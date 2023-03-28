@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DemReaderSRTMTest {
 
     @Test
-    public void readSRTM_HGT_DEM() throws IOException, URISyntaxException {
+    void readSRTM_HGT_DEM() throws IOException, URISyntaxException {
         DemReader reader = createReader();
         Grid grid = reader.read();
         assertNotNull(grid, "Grid");

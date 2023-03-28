@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LengthTest {
     @Test
-    public void meters() {
+    void meters() {
         final double delta = 1e-5;
 
         assertEquals(1, Length.METERS.from(1).to(Length.METERS), delta);
@@ -17,7 +17,7 @@ class LengthTest {
     }
 
     @Test
-    public void kilometers() {
+    void kilometers() {
         final double delta = 1e-5;
 
         assertEquals(1, Length.KILOMETERS.from(1).to(Length.KILOMETERS), delta);
@@ -27,7 +27,7 @@ class LengthTest {
     }
 
     @Test
-    public void feet() {
+    void feet() {
         final double delta = 1e-5;
 
         assertEquals(1, Length.FEET.from(1).to(Length.FEET), delta);
@@ -37,7 +37,7 @@ class LengthTest {
     }
 
     @Test
-    public void miles() {
+    void miles() {
         final double delta = 1e-5;
 
         assertEquals(1, Length.MILES.from(1).to(Length.MILES), delta);
@@ -47,7 +47,7 @@ class LengthTest {
     }
 
     @Test
-    public void invalid() {
+    void invalid() {
         assertAll("Given invalid input values, the result should be Invalid.",
                 () -> assertTrue(
                         Invalid.doubleInstance().invalid(

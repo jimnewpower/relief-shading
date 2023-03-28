@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ColorPaletteDefaultsTest {
     @Test
-    public void testPalette_DEM() {
+    void testPalette_DEM() {
         assertNotNull(ColorPaletteDefaults.DEM.colorPalette());
         assertEquals(800, ColorPaletteDefaults.DEM.colorPalette().nColors());
     }

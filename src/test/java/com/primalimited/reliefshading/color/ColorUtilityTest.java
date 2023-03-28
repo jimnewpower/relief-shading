@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ColorUtilityTest {
 
     @Test
-    public void percentTo8Bit() {
+    void percentTo8Bit() {
         assertEquals(0, ColorUtility.percentTo8BitValue(-1));
         assertEquals(25, ColorUtility.percentTo8BitValue(10));
         assertEquals(64, ColorUtility.percentTo8BitValue(25));

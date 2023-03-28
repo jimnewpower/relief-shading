@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BoundsTest {
     @Test
-    public void legalBounds() {
+    void legalBounds() {
         double min = 3.5;
         double max = 987.654;
         Bounds bounds = Bounds.of(min, max);
@@ -25,18 +25,18 @@ public class BoundsTest {
     }
 
     @Test
-    public void nonzeroRange() {
+    void nonzeroRange() {
         assertEquals(27.42, Bounds.of(1000.12, 1027.54).range(), 1e-10);
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         String expected = "ImmutableBounds [0..100]";
         assertEquals(expected, Bounds.PERCENT.toString());
     }
 
     @Test
-    public void immutableBoundsEquals() {
+    void immutableBoundsEquals() {
         Bounds bounds0 = Bounds.immutable(0, 5);
         Bounds bounds1 = mockNullBounds();
         assertFalse(bounds0.equals(bounds1));
@@ -50,14 +50,14 @@ public class BoundsTest {
     }
 
     @Test
-    public void nullBounds() {
+    void nullBounds() {
         Bounds bounds = Bounds.nullBounds();
         assertEquals("NullBounds [Unknown..Unknown]", bounds.toString());
         assertTrue(Invalid.doubleInstance().invalid(bounds.range()));
     }
 
     @Test
-    public void validateArguments() {
+    void validateArguments() {
         assertThrows(IllegalArgumentException.class,
                 () -> Bounds.immutable(Invalid.INVALID_DOUBLE, 0));
         assertThrows(IllegalArgumentException.class,
@@ -65,7 +65,7 @@ public class BoundsTest {
     }
 
     @Test
-    public void testStaticValidFunction() {
+    void testStaticValidFunction() {
         assertFalse(Bounds.valid(Invalid.INVALID_DOUBLE, 0));
         assertFalse(Bounds.valid(0, Invalid.INVALID_DOUBLE));
         assertFalse(Bounds.valid(Invalid.INVALID_DOUBLE, Invalid.INVALID_DOUBLE));
@@ -74,7 +74,7 @@ public class BoundsTest {
     }
 
     @Test
-    public void zeroRange() {
+    void zeroRange() {
         double min = 10.25;
         double max = 10.25;
         Bounds bounds = Bounds.of(min, max);
@@ -90,14 +90,14 @@ public class BoundsTest {
     }
 
     @Test
-    public void illegalBounds() {
+    void illegalBounds() {
         double min = 10.0;
         double max = 7.0;
         assertThrows(IllegalArgumentException.class, () -> Bounds.of(min, max));
     }
 
     @Test
-    public void createFromArray() {
+    void createFromArray() {
         double[] array = new double[] { 0, 1, 2, 50, 60, 100, 200 };
 
         final double tolerance = 1e-10;
@@ -106,7 +106,7 @@ public class BoundsTest {
     }
 
     @Test
-    public void createFromArrayWithInvalids() {
+    void createFromArrayWithInvalids() {
         double[] array = new double[] {Invalid.INVALID_DOUBLE, 1, 2, 50, Invalid.INVALID_DOUBLE, 100, Invalid.INVALID_DOUBLE };
 
         final double tolerance = 1e-10;
@@ -115,13 +115,13 @@ public class BoundsTest {
     }
 
     @Test
-    public void createFromArrayAllInvalid() {
+    void createFromArrayAllInvalid() {
         double[] array = new double[] {Invalid.INVALID_DOUBLE, Invalid.INVALID_DOUBLE };
         assertTrue(Bounds.of(array).isNull());
     }
 
     @Test
-    public void createFromEmptyArray() {
+    void createFromEmptyArray() {
         double[] array = new double[] { };
 
         final double tolerance = 1e-10;
@@ -130,13 +130,13 @@ public class BoundsTest {
     }
 
     @Test
-    public void formatValidBounds() {
+    void formatValidBounds() {
         String expected = "[16.8..32.9]";
         assertEquals(expected, Bounds.of(16.8, 32.9).format());
     }
 
     @Test
-    public void histogramBins100() {
+    void histogramBins100() {
         Bounds bounds = Bounds.of(0, 100);
         int nBins = 100;
         IntStream.range(0, 100).asDoubleStream()
@@ -152,7 +152,7 @@ public class BoundsTest {
     }
 
     @Test
-    public void histogramBins10() {
+    void histogramBins10() {
         Bounds bounds = Bounds.of(0, 100);
         int nBins = 10;
         for (int index = 0; index < nBins; index++) {
@@ -170,7 +170,7 @@ public class BoundsTest {
     }
 
     @Test
-    public void histogramBinsInvalidArgs() {
+    void histogramBinsInvalidArgs() {
         Bounds bounds = Bounds.PERCENT;
 
         assertEquals(-1, Bounds.nullBounds().histogramBin(0, 10));
@@ -183,7 +183,7 @@ public class BoundsTest {
     }
 
     @Test
-    public void contains() {
+    void contains() {
         assertFalse(Bounds.nullBounds().contains(42));
         assertTrue(Bounds.of(5, 10).contains(6));
 
@@ -192,7 +192,7 @@ public class BoundsTest {
     }
 
     @Test
-    public void disjoint() {
+    void disjoint() {
         Bounds bounds0 = Bounds.of(0, 1);
         Bounds bounds1 = Bounds.of(1, 2);
         assertFalse(bounds0.disjoint(bounds1));
@@ -211,7 +211,7 @@ public class BoundsTest {
     }
 
     @Test
-    public void bind() {
+    void bind() {
         Bounds bounds = Bounds.of(-100, 100);
         final double tolerance = 1e-10;
         assertEquals(bounds.min(), bounds.constrain(-2293847), tolerance);

@@ -23,7 +23,7 @@ import static com.primalimited.reliefshading.io.LocalFileReader.DEMO_FILENAME;
 
 public class OverlayTest {
     @Test
-    public void overlayTest() throws IOException, URISyntaxException {
+    void overlayTest() throws IOException, URISyntaxException {
         Grid grid = loadGrid();
 
         GridClassifier classifier = GridClassifier

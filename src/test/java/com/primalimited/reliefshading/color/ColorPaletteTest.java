@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ColorPaletteTest {
     @Test
-    public void invalidNColors() {
+    void invalidNColors() {
         assertThrows(IllegalArgumentException.class,
                 () -> ColorPalette.create(0));
 
@@ -18,13 +18,13 @@ class ColorPaletteTest {
     }
 
     @Test
-    public void emptyControlPoints() {
+    void emptyControlPoints() {
         assertThrows(IllegalStateException.class,
                 () -> ColorPalette.create(256));
     }
 
     @Test
-    public void invalidControlPoints_noZeroIndex() {
+    void invalidControlPoints_noZeroIndex() {
         // a valid color palette must specify control points
         // on both ends
 
@@ -37,7 +37,7 @@ class ColorPaletteTest {
     }
 
     @Test
-    public void invalidControlPoints_noEndIndex() {
+    void invalidControlPoints_noEndIndex() {
         // a valid color palette must specify control points
         // on both ends
 
@@ -50,7 +50,7 @@ class ColorPaletteTest {
     }
 
     @Test
-    public void nColors() {
+    void nColors() {
         ColorPalette colorPalette = ColorPalette
                 .create(1, new ControlPoint(0, 0));
         assertEquals(1, colorPalette.nColors());
@@ -58,7 +58,7 @@ class ColorPaletteTest {
     }
 
     @Test
-    public void solid() {
+    void solid() {
         int rgb = Color.ORANGE.getRGB();
         ColorPalette solidPalette = ColorPalette.solid(rgb);
         assertEquals(1, solidPalette.nColors());
@@ -66,7 +66,7 @@ class ColorPaletteTest {
     }
 
     @Test
-    public void badIndexArgForRGBQuery() {
+    void badIndexArgForRGBQuery() {
         int rgb = Color.ORANGE.getRGB();
         ColorPalette solidPalette = ColorPalette.solid(rgb);
 

@@ -108,19 +108,24 @@ class ReliefShaderImpl implements ReliefShader {
             double zValue = DEFAULT_Z;
 
             // slope and aspect
+            // Burrough, P. A. and McDonell, R. A., 1998. Principles of Geographical Information
             double fx = (neighbor[2] - neighbor[4] + 2 * (neighbor[1] - neighbor[5]) + neighbor[0] - neighbor[6]) / gridRes8;
             double fy = (neighbor[6] - neighbor[4] + 2 * (neighbor[7] - neighbor[3]) + neighbor[0] - neighbor[2]) / gridRes8;
             if (Double.compare(0.0, fx) != 0) {
+                // slope
                 double tanSlope = Math.sqrt(fx * fx + fy * fy);
+                // aspect
                 double aspect = (180 - Math.atan(fy / fx)
                         * RADIANS_TO_DEGREES
                         + 90 * (fx / Math.abs(fx))) * DEGREES_TO_RADIANS;
+                // z value
                 double term1 = tanSlope / Math.sqrt(1 + tanSlope * tanSlope);
                 double term2 = sinTheta / tanSlope;
                 double term3 = cosTheta * Math.sin(azimuthRadians - aspect);
                 zValue = term1 * (term2 - term3);
             }
 
+            // scale to 0-255
             int value = (int) Math.round(zValue * UNSIGNED_BYTE_MAX);
             value = (int) Bounds.RGB_8_BIT.constrain(value);
             values[index] = (short) value;
